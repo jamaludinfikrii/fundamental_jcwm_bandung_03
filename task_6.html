@@ -4,6 +4,15 @@
     var stocks = [10,10,10]
     var qtys = []
     var totals = [] 
+
+
+    function printProduct(title){
+        var result = title
+        for(var i = 0 ; i< products.length ; i++){
+            result += i+1 + '. ' + products[i] + ' dengan harga = Rp. ' + prices[i] + ', mempunyai stock = ' + stocks[i] + "\n" 
+        }
+        return result
+    }
     
     do{
         var mainMenu = prompt('Login Sebagai\n1. Pembeli\n2. Penjual\n3. Exit') // 2
@@ -55,11 +64,11 @@
             do{
                 var menuPenjual = prompt('1. Tampilkan data\n2. Tambah data\n3. Edit Data\n4. Delete Data\n5. Back to Home')
                 if(menuPenjual == 1){
-                    var out = '======= Show Data Menu ======\n\n'
-                    for(var i = 0 ; i < products.length ; i ++){
-                        out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
-                    }
-
+                    // var out = '======= Show Data Menu ======\n\n'
+                    // for(var i = 0 ; i < products.length ; i ++){
+                    //     out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
+                    // }
+                    var out = printProduct('======= Show Data Menu ======\n')
                     alert(out)
                     // show data
                 }else if(menuPenjual == 2){
@@ -74,19 +83,23 @@
                     stocks.push(newStock)
 
                     alert('Data Successfully added')
-                    var out = '======= Show Data Menu ======\n\n'
-                    for(var i = 0 ; i < products.length ; i ++){
-                        out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
-                    }
+                    // var out = '======= Show Data Menu ======\n\n'
+                    // for(var i = 0 ; i < products.length ; i ++){
+                    //     out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
+                    // }
+
+                    var out = printProduct('======= Show Data Menu ======\n')
 
                     alert(out)
 
                     // add data
                 }else if(menuPenjual == 3){
-                    var out = '======= Edit Data Menu ======\n\n'
-                    for(var i = 0 ; i < products.length ; i ++){
-                        out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
-                    }
+                    // var out = '======= Edit Data Menu ======\n\n'
+                    // for(var i = 0 ; i < products.length ; i ++){
+                    //     out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
+                    // }
+
+                    var out =  printProduct('======= Edit Data Menu ======\n')
                     out += '\n\nMasukan nomor data yang mau di edit !!'
 
                     var validation = true
@@ -129,21 +142,24 @@
                     }
 
                     alert('Edit data success')
-                    var out = '======= Show Data Menu ======\n\n'
-                    for(var i = 0 ; i < products.length ; i ++){
-                        out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
-                    }
+                    // var out = '======= Show Data Menu ======\n\n'
+                    // for(var i = 0 ; i < products.length ; i ++){
+                    //     out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
+                    // }
 
+                    var out =  printProduct('======= Show Data Menu ======\n')
                     alert(out)
 
 
                     
                     // edit data
                 }else if(menuPenjual == 4){
-                    var out = '======= Delete Data Menu ======\n\n'
-                    for(var i = 0 ; i < products.length ; i ++){
-                        out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
-                    }
+                    // var out = '======= Delete Data Menu ======\n\n'
+                    // for(var i = 0 ; i < products.length ; i ++){
+                    //     out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
+                    // }
+
+                    var out =  printProduct('======= Delete Data Menu ======\n')
                     out += '\n\nMasukan nomor data yang mau di delete !!'
 
                     var validation = true
@@ -161,10 +177,12 @@
                     prices.splice(indexSelected-1,1)
                     alert('Delete Data Success!!')
 
-                    var out = '======= Show Data Menu ======\n\n'
-                    for(var i = 0 ; i < products.length ; i ++){
-                        out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
-                    }
+                    // var out = '======= Show Data Menu ======\n\n'
+                    // for(var i = 0 ; i < products.length ; i ++){
+                    //     out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
+                    // }
+
+                    var out =  printProduct('======= Show Data Menu ======\n')
 
                     alert(out)
 
