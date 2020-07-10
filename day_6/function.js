@@ -119,6 +119,16 @@ console.log(hasil)
 
 
 
+function hello(){
+    console.log('Hello world')
+}
+
+
+function hello2(print){
+    console.log(print)
+}
+
+
 
 
 
