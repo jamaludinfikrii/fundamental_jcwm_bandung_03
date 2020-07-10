@@ -1,0 +1,40 @@
+<script>
+
+    var produk_1 = 'pisang'
+    var produk_2 = 'apel'
+    var produk_3 = 'anggur '
+    
+    var harga_1 = '20000'
+    var harga_2 = '30000'
+    var harga_3 = '40000'
+    
+    var qty_1 =prompt('mau beli ' + produk_1 + ' berapa banyak?\nharga satuan = Rp. ' + harga_1 )
+    var qty_2 =prompt('mau beli ' + produk_2 + ' berapa banyak?\nharga satuan = Rp. ' + harga_2 )
+    var qty_3 =prompt('mau beli ' + produk_3 + ' berapa banyak?\nharga satuan = Rp. ' + harga_3 )
+    
+    var total_1 = harga_1 * qty_1
+    var total_2 = harga_2 * qty_2 
+    var total_3 = harga_3 * qty_3
+    
+    var grandtotal = total_1 + total_2 + total_3
+    
+    alert( 
+     ' Daftar belanjaan anda :\n'+
+    '1.'+ produk_1 + ' harga Rp. ' + harga_1 + ' x ' + qty_1 + ' = Rp. ' + total_1 + '\n' +
+    '2.'+ produk_2 + ' harga Rp. ' + harga_2 + ' x ' + qty_2 + ' = Rp. ' + total_2 + '\n' +
+    '3' + produk_3 + ' harga Rp. ' + harga_3 + ' x ' + qty_3 + ' = Rp. ' + total_3 + '\n\n' +
+    'grand total = Rp. ' + grandtotal
+    )
+    
+    var kasir =prompt('masukan jumlah uang anda')
+
+   if (kasir == grandtotal) {
+       alert('uang anda pas, terimakasih')
+   }else if(kasir<grandtotal) {
+       alert('uang anda kurang')
+   }else if(kasir>grandtotal){ 
+       alert('uang anda lebih')
+   }
+
+
+    </script>

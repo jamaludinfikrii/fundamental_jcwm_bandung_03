@@ -1,0 +1,55 @@
+<script>
+  var nama = ["Seto", "Budi", "Andi", "Fikri"];
+  var alamat = ["Jakarta", "Bandung", "Bekasi", "Cianjur"];
+
+  do {
+    var menu = prompt(
+      "Pilih Menu:\n1 Tampilkan Data\n2. Delete Data\n3. Tambah Data\n4. Update Data\n5. Exit"
+    );
+
+    if (menu == 1) {
+      var print = "";
+      for (var i = 0; i < nama.length; i++) {
+        print += i + 1 + ". " + nama[i] + " Asal dari " + alamat[i] + "\n";
+      }
+
+      alert(print);
+      //Tampilkan Data
+    } else if (menu == 2) {
+      var print = "";
+      for (var i = 0; i < nama.length; i++) {
+        print += i + 1 + ". " + nama[i] + " Asal dari " + alamat[i] + "\n";
+      }
+
+      print += "\nData nomor berapa yang mau dihapus ";
+      var data_Selected = prompt(print);
+      nama.splice(data_Selected - 1, 1);
+      alamat.splice(data_Selected - 1, 1);
+      alert("data Deleted Success");
+    } else if (menu == 3) {
+      var print = "";
+      for (var i = 0; i < nama.length; i++) {
+        print += i + 1 + ". " + nama[i] + " Asal dari " + alamat[i] + "\n";
+      }
+
+      print += "\n Masukkan Data Nama Yang mau Ditambah ";
+      var Tambah_data_nama = prompt(print);
+      nama.push(Tambah_data_nama);
+      print += "\n Masukkan Data Alamat Yang mau Ditambah ";
+      var Tambah_data_alamat = prompt(print);
+      alamat.push(Tambah_data_alamat);
+      alert("Data telah Ditambah");
+    } else if (menu == 4) {
+      var print = "";
+      for (var i = 0; i < nama.length; i++) {
+        print += i + 1 + ". " + nama[i] + " Asal dari " + alamat[i] + "\n";
+      }
+      print += "\nData Nomor Berapa Yang Mau Diupdate ";
+      var updateNamaSiswa = prompt(print);
+      nama[dataSelected - 1] = updateNamaSiswa; // Siswa yg dipilih di assign dengan update nama siswa yg baru
+    } else if (menu == 5) {
+    } else {
+      alert("salah Input");
+    }
+  } while (menu != 5);
+</script>

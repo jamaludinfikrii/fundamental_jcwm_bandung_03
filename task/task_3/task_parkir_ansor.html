@@ -1,0 +1,59 @@
+<script>
+
+// masukan jam masuk andaa ==> 1-12 jam
+// masukan jam keluar anda ==> 1-12 jam
+// 
+
+var jamMasuk, jamKeluar, waktu_1, waktu_2, amPm_1, amPm_2, totalJamParkir, biaya
+
+jamMasuk = parseInt(prompt('Masukan jam masuk anda ? (1-12)'))
+amPm_1 = parseInt(prompt('Jam ' + jamMasuk + ' pagi atau malem ?\n\nMasukan angka 1 jika pagi atau angka 2 jika malam'))
+if(amPm_1 == 1){
+    waktu_1 = " Pagi"
+}else{
+    waktu_1 = " Malam"
+}
+
+jamKeluar = parseInt(prompt('Masukan jam keluar anda ? (1-12)'))
+amPm_2 = parseInt(prompt('Jam ' + jamKeluar + ' pagi atau malem ?\n\nMasukan angka 1 jika pagi atau angka 2 jika malam'))
+if(amPm_2 == 1){
+    waktu_2 = " Pagi"
+}else{
+    waktu_2 = " Malam"
+}
+
+
+
+
+if(amPm_1 == 1 && amPm_2 == 1){
+    totalJamParkir = jamKeluar - jamMasuk
+}else if(amPm_1 == 2 && amPm_2 == 1){
+    totalJamParkir = jamKeluar - (jamMasuk + 12)
+}else if(amPm_1 == 1 && amPm_2 == 2){
+    totalJamParkir = (jamKeluar + 12) - jamMasuk
+}else if(amPm_1 == 2 && amPm_2 == 2){
+    totalJamParkir = (jamKeluar + 12) - (jamMasuk +12)
+}else{
+    alert('input yang benar bro')
+}
+
+
+if(totalJamParkir > 0){
+    if(totalJamParkir > 4){
+    biaya = 4000 + (totalJamParkir - 4) * 2000
+    }else{
+        biaya = totalJamParkir * 1000
+    
+    }
+    alert('#####Struk Parkir####\n\n'+
+    'Anda parkir selama ' + totalJamParkir + ' jam\nMasuk : Jam ' + jamMasuk + waktu_1 + '\n' + 'Keluar : Jam ' + jamKeluar + waktu_2
+    + '\n' + 'biaya parkir adalah Rp. ' + biaya + '\n\nTerima Kasih') 
+}else{
+    alert('perhatikan lagi jam keluar kamu')
+}   
+
+
+
+
+
+</script>

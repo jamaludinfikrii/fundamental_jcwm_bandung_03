@@ -1,0 +1,139 @@
+<script>
+    // var nama = [] 
+    // // aplikasi meminta data nama terus menerus, trus bakalan berhenti kalau ketik stop
+    // var input;
+    // do{
+    //     input = prompt('masukan nama!!')
+    //     if(input !== 'stop'){
+    //         nama.push(input)
+    //     }
+    // }while(input !== 'stop')
+
+    // var print = ''
+    // // for(var i = 0 ; i < nama.length ; i ++){
+    // //     print += nama[i] + '\n'
+    // // }
+
+    // var i = 0
+    // while(i < nama.length){
+    //     print += nama[i] + '\n'
+    //     i++
+    // }
+
+    // alert(print)
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    // var product = ['apel','jeruk','mangga','kiwi']
+    // var harga = [20000,10000,15000,20000]
+
+    // var menu = ''
+    // for(var i = 0 ; i < product.length;i++){
+    //     menu += (i+1)  + '. ' + product[i] + ' Rp. ' + harga[i] + '\n'
+    // }
+
+    // alert(menu)
+
+
+
+    var nama = ['Seto','Fikri','Budi','Andi']
+    var alamat = ['Jakarta','Bandung','Tangerang','Bekasi']
+    
+
+    do{
+        var menu = prompt('Pilih Menu\n1. Tampilkan data\n2. Delete Data\n3. Tambah Data\n4. Update Data\n5. Exit')
+
+        if(menu == 1){
+            var print = ''
+            for(var i = 0 ; i < nama.length ; i ++){
+                print += i+1 + '. ' + nama[i] + ' asal dari ' + alamat[i] + '\n'
+            }
+
+            alert(print)
+            // tampilkan data
+        }else if(menu == 2){
+            var print = ''
+            for(var i = 0 ; i < nama.length ; i ++){
+                print += i+1 + '. ' + nama[i] + ' asal dari ' + alamat[i] + '\n'
+            }
+
+            print += '\nData nomor berapa yang mau dihapus!!!'
+            var dataSelected = prompt(print) // 1
+            nama.splice(dataSelected-1,1) // (index, deleteCount)
+            alamat.splice(dataSelected-1,1)
+            alert('Data Deleted Successfully')
+            
+            
+            // delete data
+        }else if(menu == 3){
+            var newName = prompt('Masukan Data Nama!!')
+            var newAlamat = prompt('Masukan Alamat!!')
+            var print = ''
+            for(var i = 0 ; i < nama.length ; i ++){
+                print += i+1 + '. ' + nama[i] + ' asal dari ' + alamat[i] + '\n'
+            }
+
+            print += '\nData nomor berapa yang mau dihapus!!!'
+            nama.push(newName)
+            alamat.push(newAlamat)
+
+            alert('New data berhasil ditambah!!')
+            
+            // tambah data
+            // masukan nama
+            // masukan alamat
+            // hint : pake push
+        }else if(menu == 4){
+            // declaration  => bikin wadah
+            // Assignment  => masukin data ke wadah
+
+            var print = '' // ==> bikin variabel diisi string kosong
+            for(var i = 0 ; i < nama.length ; i ++){
+                print += i+1 + '. ' + nama[i] + ' asal dari ' + alamat[i] + '\n'
+            }
+
+            print += '\nMasukan nomor data yang mau di update!!'
+            var indexSelected = prompt(print)
+
+            var menuUpdate = prompt('1. Update Nama\n2. Update Alamat')
+            if(menuUpdate == 1){
+                var newName = prompt('Masukan Nama Baru')
+                nama[indexSelected-1] = newName
+                alert('Data berhasil di update')
+            }else if(menuUpdate == 2){
+                var newAlamat = prompt('Masukan Alamat Baru')
+                alamat[indexSelected-1] = newAlamat
+                alert('Data berhasil di update')
+            }
+
+
+
+
+            // 
+            // pilih nomor data yang mau diupdet
+            // update 1. nama atau 2. alamat?
+            // update nama menjadi apa?? / update alamat menjadi apa??
+            // update data
+        }else if(menu == 5){
+            // exit
+        }else{
+            alert('salah input')
+        }
+
+    }while(menu != 5)
+    
+
+
+
+
+</script>

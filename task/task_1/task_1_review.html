@@ -1,0 +1,32 @@
+<script>
+    // identifikasi data
+    // product, harga, qty
+    var product_1 = 'Ayam'
+    var product_2 = 'Sapi'
+    var product_3 = 'Kambing'
+
+    var harga_1 = 15000
+    var harga_2 = 80000
+    var harga_3 = 50000
+
+    var qty_1 = prompt('Mau beli ' + product_1 +  ' berapa buah?\n\nharga perbuah = Rp. ' + harga_1)
+    var qty_2 = prompt('Mau beli ' + product_2 +  ' berapa buah?\n\nharga perbuah = Rp. ' + harga_2)
+    var qty_3 = prompt('Mau beli ' + product_3 +  ' berapa buah?\n\nharga perbuah = Rp. ' + harga_3)
+
+    var total_1 = harga_1 * qty_1
+    var total_2 = harga_2 * qty_2
+    var total_3 = harga_3 * qty_3
+
+    var grandTotal = total_1 + total_2 + total_3
+
+    alert(
+        'Daftar Belanja\n' +
+        '1. ' + product_1 + ' harga Rp. ' + harga_1 + ' x ' + qty_1 + ' = Rp. ' + total_1 + '\n' +
+        '1. ' + product_2 + ' harga Rp. ' + harga_2 + ' x ' + qty_2 + ' = Rp. ' + total_2 + '\n' +
+        '1. ' + product_3 + ' harga Rp. ' + harga_3 + ' x ' + qty_3 + ' = Rp. ' + total_3 + '\n\n' +
+        'Grand Total = Rp ' + grandTotal
+    )
+  
+    // tinggal harga * qty untuk cari total per barang
+    // terus totalnya dijumlahin unutk cari total belanja
+</script>

@@ -1,0 +1,46 @@
+<script>
+
+var menu, rumusSegitiga, rumusPersegi, rumusPersegipanjang, alas, tinggi, sisi, panjang, lebar
+
+menu = prompt('mau belajar menghitung apa ??\n\n1. Luas Segitiga\n2. Luas Persegi\n3. Luas Persegi Panjang')
+
+
+
+if(menu == 1){
+    alert('Baiklah jika ingin belajar menghitung luas segitiga')
+
+    alas = parseInt(prompt('Nah sekarang coba masukan alas'))
+    tinggi = parseInt(prompt('masukan tinggi'))
+
+    alert('Jawabannya...\n' +
+    'Rumus luas segitiga adalah (0.5 x alas) x tinggi\n' +
+    'Jadi jawabannya : ' + '(0.5 x ' + alas + ') '  + ' x ' + tinggi + ' = ' + ((0.5 * alas) * tinggi))
+}else if(menu == 2){
+    alert('Okay kita coba menghitung luas persegi')
+
+    sisi = parseInt(prompt('masukan sisi'))
+
+    alert('Jawabannya...\n' +
+    'Rumus luas persegi adalah sisi x sisi\n' +
+    'Jadi jawabannya : ' + sisi + ' x ' + sisi + ' = ' + (sisi * sisi))
+}else if(menu == 3){
+    alert('Mari menghitung luas persegi panjang')
+
+    panjang = parseInt(prompt('masukan panjang'))
+    lebar = parseInt(prompt('masukan lebarnya'))
+    
+    alert('Jawabannya...\n' +
+    'Rumus luas persegi panjang adalah panjang x lebar\n' +
+    'Jadi jawabannya : ' + panjang + ' x ' + lebar + ' = ' + (panjang * lebar))
+}else{
+    alert('Anda belum ingin belajar ?\nOkaay dicoba lagi nanti ya')
+}
+
+
+
+
+
+
+
+
+</script>

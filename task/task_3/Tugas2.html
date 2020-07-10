@@ -1,0 +1,42 @@
+<script>
+  var Angka_1,
+    Angka_2,
+    Operator,
+    Tambah,
+    Kurang,
+    Kali,
+    Bagi,
+    Tinggi_Segitiga,
+    Alas_Segitiga,
+    Luas_Segitiga,
+    Sisi_Persegi,
+    Luas_Persegi,
+    Luas_Persegi_Panjang,
+    Panjang_Persegi_Panjang,
+    Lebar_Persegi_Panjang;
+  Operator = prompt(
+    "Masukkan Pilihan: 1,2,3 (1.Luas Segitiga 2.Luas Persegi 3.Luas Persegi Panjang"
+  );
+  if (Operator == "1") {
+    Tinggi_Segitiga = prompt("Berapa Tinggi Segitiga: ");
+    Tinggi_Segitiga = parseInt(Tinggi_Segitiga);
+    Alas_Segitiga = prompt("Berapa Alas Segitiga: ");
+    Alas_Segitiga = parseInt(Alas_Segitiga);
+    Luas_Segitiga = Tinggi_Segitiga * Alas_Segitiga * 0.5;
+    alert("Result:" + "Luas Segitiga " + " = " + Luas_Segitiga);
+  } else if (Operator == "2") {
+    Sisi_Persegi = prompt("Berapa Sisi Persegi: ");
+    Sisi_Persegi = parseInt(Sisi_Persegi);
+    Luas_Persegi = Sisi_Persegi * Sisi_Persegi;
+    alert("Result:" + "Luas Persegi " + " = " + Luas_Persegi);
+  } else if (Operator == "3") {
+    Panjang_Persegi_Panjang = prompt("Berapa Panjang Persegi Panjang: ");
+    Panjang_Persegi_Panjang = parseInt(Panjang_Persegi_Panjang);
+    Lebar_Persegi_Panjang = prompt("Berapa Lebar Persegi Panjang: ");
+    Lebar_Persegi_Panjang = parseInt(Lebar_Persegi_Panjang);
+    Luas_Persegi_Panjang = Panjang_Persegi_Panjang * Lebar_Persegi_Panjang;
+    alert("Result:" + "Luas Persegi Panjang " + " = " + Luas_Persegi_Panjang);
+  } else {
+    alert("Operator Salah");
+  }
+</script>

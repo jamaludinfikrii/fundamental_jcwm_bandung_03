@@ -1,0 +1,25 @@
+<script>
+  var Angka_1, Angka_2, Hasil;
+
+  var validation = true;
+  while (validation == true) {
+    Angka_1 = prompt("Masukkan 2 Angka Pertama: ");
+    Angka_2 = prompt("Masukkan 2 Angka Kedua: ");
+    if (Angka_1.length > 2 || Angka_2.length > 2) {
+      alert("Angka tidak boleh lebih dari 2 atau kosong");
+    } else {
+      validation = false;
+    }
+  }
+
+  //   while (validation == true) {
+  //     Angka_2 = prompt("Masukkan 2 Angka Kedua: ");
+  //     if (Angka_2.length > 2) {
+  //       alert("Angka tidak boleh lebih dari 2 atau kosong");
+  //     } else {
+  //       validation = false;
+  //     }
+  //   }
+
+  alert("Hasilnya Adalah: " + Angka_2 + Angka_1);
+</script>

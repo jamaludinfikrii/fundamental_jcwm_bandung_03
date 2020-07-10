@@ -1,0 +1,9 @@
+
+// buat var radius/jari-jari lingkaran
+// cari area/luas lingkaran
+
+var radius = 12
+
+var luasLingkaran = 22 / radius * (radius * radius)
+
+console.log(luasLingkaran)

@@ -1,0 +1,62 @@
+<script>
+    var produk_1, produk_2, produk_3, stock_1, stock_2, stock_3, harga_1, harga_2, harga_3, totalBelanja_1, totalBelanja_2, totalBelanja_3, hasilBelanja, akhirBelanja, pembayaran
+
+    produk_1 = 'apple'
+    produk_2 = 'anggur'
+    produk_3 = 'jeruk'
+
+    stock_1 = 5
+    stock_2 = 10
+    stock_3 = 15
+
+    harga_1 = 10000
+    harga_2 = 15000
+    harga_3 = 20000
+
+    chkqty = true
+
+    while (chkqty == true) {
+        produk_1 = Number(prompt('Masukan jumlah ' + 'apple' + ' yang akan anda beli/ harga apple =Rp.' + harga_1 + ' dengan stock ' + stock_1))
+        produk_2 = Number(prompt('Masukan jumlah ' + 'anggur' + ' yang akan anda beli/ harga anggur= Rp.' + harga_2 + ' dengan stock ' + stock_2))
+        produk_3 = Number(prompt('Masukan jumlah ' + 'jeruk' + 'yang akan anda beli/ harga anggur = Rp.' + harga_3 + ' dengan stock ' + stock_3))
+        if (produk_1 > stock_1 || produk_2 > stock_2 || produk_3 > stock_3) {
+            chkqty = confirm('pembelian tidak bisa melebihi stock!!\n\n apakah anda mau lanjutkan transaksi?')
+            if (chkqty == true) {} else {
+                alert('terima kasih telah mengunjungi toko kami')
+                throw console.error();
+            }
+        } else {
+            chkqty = false
+        }
+    }
+
+    totalBelanja_1 = produk_1 * harga_1
+    totalBelanja_2 = produk_2 * harga_2
+    totalBelanja_3 = produk_3 * harga_3
+    akhirBelanja = totalBelanja_1 + totalBelanja_3 + totalBelanja_2
+
+    hasilBelanja = alert(
+        'anda membeli apel sebanyak ' + produk_1 + ' dengan harga Rp.' + harga_1 + ' total belanja anda adalah ' + totalBelanja_1 + '\n' +
+        'anda membeli anggur sebanyak ' + produk_2 + ' dengan harga Rp.' + harga_2 + ' total belanja anda adalah ' + totalBelanja_2 + '\n' +
+        'anda membeli jeruk sebanyak ' + produk_3 + ' dengan harga Rp. ' + harga_3 + ' total belanja anda adalah ' + totalBelanja_3 + '\n\n\n' +
+        'total belanja anda adalah Rp.' + akhirBelanja)
+
+    chkqty = true
+    while (chkqty == true) {
+        pembayaran = Number(prompt('Masukan jumlah uang yang akan anda bayarkan'))
+        if (pembayaran < akhirBelanja) {
+            chkqty = confirm('pembayaran anda kurang/ anda belum memasukan uang\n\n transaksi gagal \n\n apakah mau coba lagi?')
+            if (chkqty == true) {} else {
+                alert('terima kasih telah mengunjungi toko kami')
+                throw console.error();
+            }
+        } else if (pembayaran == akhirBelanja) {
+            alert('uang yang anda bayarkan pas')
+            chkqty = false
+        } else {
+            alert('uang yang anda masukan lebih')
+            chkqty = false
+        }
+
+    }
+</script>

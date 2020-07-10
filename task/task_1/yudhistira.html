@@ -1,0 +1,44 @@
+<script>
+  var Apel = prompt("Masukan Jumlah Apel");
+  var Grape = prompt("Masukan Jumlah Grape");
+  var Orange = prompt("Masukan Jumlah orange");
+
+  var Stock_Apel = 10000;
+  var Stock_Grape = 15000;
+  var Stock_Orange = 20000;
+
+  var Total_Apel = Apel * Stock_Apel;
+  var Total_Grape = Grape * Stock_Grape;
+  var Total_Orange = Orange * Stock_Orange;
+  var Total_Semua = Total_Apel + Total_Grape + Total_Orange;
+
+  alert(
+    " Detail Belanja : " +
+      "\n" +
+      "\n" +
+      "Apple : " +
+      Apel +
+      "x" +
+      Stock_Apel +
+      "= " +
+      Apel * Stock_Apel +
+      "\n" +
+      "Grape : " +
+      Grape +
+      "x" +
+      Stock_Grape +
+      "= " +
+      Grape * Stock_Grape +
+      "\n" +
+      "orange : " +
+      Orange +
+      "x" +
+      Stock_Orange +
+      "= " +
+      Orange * Stock_Orange +
+      "\n" +
+      "\n" +
+      "total: " +
+      Total_Semua
+  );
+</script>

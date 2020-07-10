@@ -1,0 +1,6 @@
+var angka1 = (34).toString()
+var angka2 = (98).toString()
+
+var solve_it = angka1.replace(/4/, 9) + angka2.replace(/9/, 4)
+
+console.log(solve_it)

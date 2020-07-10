@@ -1,0 +1,27 @@
+ // // soal 1
+
+// var angka = '1234'
+// console.log ( angka.slice (2,4) + angka.slice(0,2))
+
+// // // soal 2
+
+// var input_radius = 12
+// var rumus_lingkaran = ((22 / 7) / 3.14) 
+// var hasil = (input_radius * input_radius * rumus_lingkaran * 3.14 )
+// console.log (hasil)
+
+// // soal 3
+
+// var input_1 = '34'
+// var input_2 = '98'
+// console.log(input_1.slice(0,1) + input_2.slice(0,1) + input_1.slice(1,2) + input_2.slice(1,2))
+
+// // soal 4
+
+// var input = 'i am a student at purwadhika'
+// var result = input.replace (/a/g, '' )
+// console.log(result)
+
+// // soal 5 
+// var input = 'makan hati'
+// console.log( input.slice(6,10)  +  input.slice (0,6))

@@ -1,0 +1,7 @@
+
+var angka = 1234
+
+var solve_it = angka.toString().replace(/1234/g, 3412)
+
+
+console.log(solve_it)

@@ -1,0 +1,27 @@
+<script>
+    var jamMasuk,jamKeluar,totalJamParkir,biaya
+
+    jamMasuk = prompt('Masuk jam berapa ? (1-24)') // value dari prompt itu selalu string // 10
+    jamMasuk = parseInt(jamMasuk)
+
+    jamKeluar = prompt('Keluar jam berapa ? (1-24)') // value dari prompt itu selalu string // 10
+    jamKeluar = parseInt(jamKeluar)
+
+    totalJamParkir = jamKeluar - jamMasuk
+
+    // kalau jam keluar lebih kecil dari jam masuk ?? input salah
+
+    if(jamKeluar < jamMasuk){
+        alert('input salah jam keluar harus lebih besar dari jam masuk')
+    }else{
+        if(totalJamParkir > 4){ 
+            biaya = 4000 + (totalJamParkir - 4) * 2000
+        }else{
+            biaya = totalJamParkir * 1000
+        }
+
+        alert('Anda parkir selama ' + totalJamParkir + ' jam, biaya parkir adalah Rp. ' + biaya)
+    }   
+
+
+</script>

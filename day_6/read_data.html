@@ -1,0 +1,64 @@
+<script>
+    // var products = ['Ayam','Kambing','Sapi','Domba','Kuda','Kelinci']
+    // var prices = [10000,20000,50000]
+    // var stocks = [4,5,10]
+    
+    // var print='';
+
+    // for(var i = 0 ; i< products.length ; i++){
+    //     print += (i+1) + '. ' + products[i] + ' Rp. ' + prices[i] + ' stock = ' + stocks[i] + '\n'
+    // }
+
+    // alert(print)
+
+    // // while loop 
+
+
+    // var i = 0
+    // while(i< products.length){
+    //     print += (i+1) + '. ' + products[i] + ' Rp. ' + prices[i] + ' stock = ' + stocks[i] + '\n'
+    //     i++
+    // }
+
+    // var i = 0
+    // do{
+    //     print += (i+1) + '. ' + products[i] + ' Rp. ' + prices[i] + ' stock = ' + stocks[i] + '\n'
+    //     i++
+    // }while(i< products.length)
+
+    // alert(print)
+
+    // 1. Ayam Rp. 10000 stock tinggal 4
+    // 2. Kambing Rp. 20000 stock tinggal 5
+    // 3. Sapi Rp. 50000 stock tinggal 10
+
+
+
+
+
+    var data = [
+        ['Ayam',10000,4],
+        ['Kambing',20000,9],
+        ['Sapi',30000,2],
+        ['Kelinci',5000,14],
+    ]
+
+    // var product = data[0][0]
+    // var price = data[0][1]
+    // var stock = data[0][2]
+    
+    // alert(
+    //     '1. ' + data[0][0] + ' Rp. ' + data[0][1] + ' stock = ' + data[0][2] + '\n' +
+    //     '2. ' + data[1][0] + ' Rp. ' + data[1][1] + ' stock = ' + data[1][2] + '\n' + HARDCODE FIRST
+    // )
+
+    var output = ''
+    for(var i = 0 ; i < data.length ; i ++) {
+        output += (i+1) + '. ' + data[i][0] + ' Rp. ' + data[i][1] + ' stock = ' + data[i][2] + ' \n' 
+    }
+
+    alert(data)
+
+
+
+</script>

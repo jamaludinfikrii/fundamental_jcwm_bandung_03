@@ -1,0 +1,148 @@
+<script>
+    var products = ['Ayam','Kambing','Sapi']
+    var prices = [10000,20000,50000]
+    var stocks = [10,10,10]
+    
+    do{
+        var mainMenu = prompt('Login Sebagai\n1. Pembeli\n2. Penjual\n3. Exit') // 2
+
+        if(mainMenu == 1){
+            
+            // pembeli
+        }else if(mainMenu == 2){
+
+            do{
+                var menuPenjual = prompt('1. Tampilkan data\n2. Tambah data\n3. Edit Data\n4. Delete Data\n5. Back to Home')
+                if(menuPenjual == 1){
+                    var out = '======= Show Data Menu ======\n\n'
+                    for(var i = 0 ; i < products.length ; i ++){
+                        out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
+                    }
+
+                    alert(out)
+                    // show data
+                }else if(menuPenjual == 2){
+                    var newProduct = prompt('Masukan Nama Product !!')
+                    var newPrice = prompt('Masukan Harga Untuk ' + newProduct + "!!!")
+                    var newStock = prompt('Masukan stock Untuk ' + newProduct + "!!!")
+                    newPrice = Number(newPrice)
+                    newStock = Number(newStock)
+
+                    products.push(newProduct)
+                    prices.push(newPrice)
+                    stocks.push(newStock)
+
+                    alert('Data Successfully added')
+                    var out = '======= Show Data Menu ======\n\n'
+                    for(var i = 0 ; i < products.length ; i ++){
+                        out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
+                    }
+
+                    alert(out)
+
+                    // add data
+                }else if(menuPenjual == 3){
+                    var out = '======= Edit Data Menu ======\n\n'
+                    for(var i = 0 ; i < products.length ; i ++){
+                        out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
+                    }
+                    out += '\n\nMasukan nomor data yang mau di edit !!'
+
+                    var validation = true
+                    while(validation === true){
+                        var indexSelected = prompt(out)
+                        if(indexSelected > 0 && indexSelected <= products.length){
+                            validation = false
+                        }else{
+                            alert('Salah Input')
+                        }
+                    }
+                    var productSelected = products[indexSelected-1]
+                    var priceSelected = prices[indexSelected-1]
+                    var stockSelected = stocks[indexSelected-1]
+
+                    alert('Anda Memilih ' + productSelected + ' Rp. ' + priceSelected + ', stock = ' + stockSelected) 
+
+                    var editName = prompt('Mau edit nama "' + productSelected + '" menjadi apa?? \n*biarkan kosong kalau tidak ingin diedit' )
+
+                    if(editName != ''){
+                        products[indexSelected-1] = editName
+                    }
+
+                    var editPrice = prompt('Mau edit harga Rp. "' + priceSelected + '" menjadi berapa?? \n*biarkan kosong kalau tidak ingin diedit' )
+                    if(editPrice != ''){
+                        if(editPrice > 0){
+                            prices[indexSelected-1] = Number(editPrice)
+                        }else{
+                            alert('Harus Angka!! edit dibatalkan')
+                        }
+                    }
+
+                    var editStock = prompt('Mau edit stock "' + stockSelected + '" menjadi berapa?? \n*biarkan kosong kalau tidak ingin diedit' )
+                    if(editStock != ''){
+                        if(editStock > 0){
+                            stocks[indexSelected-1] = Number(editStock)
+                        }else{
+                            alert('Harus Angka!! edit dibatalkan')
+                        }
+                    }
+
+                    alert('Edit data success')
+                    var out = '======= Show Data Menu ======\n\n'
+                    for(var i = 0 ; i < products.length ; i ++){
+                        out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
+                    }
+
+                    alert(out)
+
+
+                    
+                    // edit data
+                }else if(menuPenjual == 4){
+                    var out = '======= Delete Data Menu ======\n\n'
+                    for(var i = 0 ; i < products.length ; i ++){
+                        out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
+                    }
+                    out += '\n\nMasukan nomor data yang mau di delete !!'
+
+                    var validation = true
+                    while(validation === true){
+                        var indexSelected = prompt(out)
+                        if(indexSelected > 0 && indexSelected <= products.length){
+                            validation = false
+                        }else{
+                            alert('Salah Input')
+                        }
+                    }
+
+                    products.splice(indexSelected-1,1)
+                    stocks.splice(indexSelected-1,1)
+                    prices.splice(indexSelected-1,1)
+                    alert('Delete Data Success!!')
+
+                    var out = '======= Show Data Menu ======\n\n'
+                    for(var i = 0 ; i < products.length ; i ++){
+                        out += i+1 + '. ' + products[i] + ' Rp. ' + prices[i] + ', stock = ' + stocks[i] + "\n"
+                    }
+
+                    alert(out)
+
+                    // delete data
+                }else if(menuPenjual == 5){
+
+                }else{
+                    alert('Salah Input')
+                }
+            }while(menuPenjual !== '5')
+
+            // penjual
+        }else if(mainMenu == 3){
+            alert('thankyou for using our apps!!')
+        }else{
+            alert('Salah Input')
+        }
+        
+    }while(mainMenu !== '3')
+
+
+</script>

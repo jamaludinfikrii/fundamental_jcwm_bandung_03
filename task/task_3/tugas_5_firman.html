@@ -1,0 +1,42 @@
+<script>
+    var jamMasuk, jamMasuk_2, jamKeluar, jamKeluar_2, parkir_1, waktuKeluar, biaya, waktuMasuk
+
+
+    jamMasuk = prompt('Jam berapa anda masuk parkir? (1-12)')
+    waktuMasuk = prompt('ketik 1. untuk siang\n' +
+        'ketik 2. untuk malam')
+    if (waktuMasuk == 1) {
+        alert('anda parkir pada jam ' + jamMasuk + 'siang')
+    } else {
+        alert('anda parkir pada jam ' + jamMasuk + 'malem')
+        jamMasuk = parseInt(jamMasuk)
+        jamMasuk = jamMasuk + 12
+
+    }
+
+    jamKeluar = prompt('Jam berapa anda keluar parkir? (1-12)')
+    waktuKeluar = prompt('ketik 1. untuk siang\n' +
+        'ketik 2. untuk malam')
+    if (waktuKeluar == 1) {
+        alert('anda parkir pada jam ' + jamKeluar + 'siang')
+    } else {
+        alert('anda parkir pada jam ' + jamKeluar + 'malem')
+        jamKeluar = parseInt(jamKeluar)
+        jamKeluar = jamKeluar + 12
+    }
+
+
+    Total_waktu = jamKeluar - jamMasuk
+    if (jamKeluar < jamMasuk) {
+        alert('anda memasukan inputan yang salah')
+    } else {
+        if (Total_waktu > 4) {
+            biaya = 4000 + (Total_waktu - 4) * 2000
+            alert('anda parkir selama ' + Total_waktu + 'dengan biaya ' + biaya)
+        } else {
+            biaya = 1000
+            biaya = Total_waktu * biaya
+            alert('anda parkir selama ' + Total_waktu + 'dengan biaya' + biaya)
+        }
+    }
+</script>

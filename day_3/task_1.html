@@ -1,0 +1,19 @@
+<script>
+    var massa = prompt('masukan Berat Badan mu (kg) !')
+    var tinggi = prompt('Masukan tinggi badanmu (cm) !')
+    var imt = massa / ((tinggi/100) * (tinggi/100))
+
+    if(imt < 18.5){
+        alert('Imt mu = ' + imt + ' Berat Badan Kurang')
+    }else if(imt >= 18.5 && imt < 25){
+        alert('Imt mu = ' + imt + ' Berat Badan Ideal')
+    }else if(imt >= 25 && imt <30){
+        alert('Imt mu = ' + imt + ' Berat Badan Berlebih')
+    }else if(imt >= 30 && imt <40){
+        alert('Imt mu = ' + imt + ' Berat Badan Sangat Berlebih')
+    }else if(imt >= 40){
+        alert('Imt mu = ' + imt + ' Obesitas')
+    }else{
+        alert('Inputan salah')
+    }
+</script>

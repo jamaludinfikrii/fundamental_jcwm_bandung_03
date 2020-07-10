@@ -1,0 +1,47 @@
+// Soal No.1 // Given a four- digit number, perform its cyclic by two digits. try to solve its only // using numerical methods
+<script>
+    var angka = 1234
+    var angka_2 = angka.toString()
+    var split = angka_2.slice(2, 4)
+    var split_2 = angka_2.slice(0, 2)
+    var output = split.concat("", split_2)
+    console.log(Number(output))
+
+    // Soal No.2 Given a radius of the circle, calculate the area of the circle.
+
+    var v = 3.14
+    var r = Math.pow(12, 2)
+    var output = v * r
+    console.log(output)
+
+    //Soal No.3 Given two - two digit numbers, merge their digits as shown in the test below to 
+    // solve using only numerical method
+
+    var a = 34
+    var b = 98
+    var str_a = a.toString()
+    var str_b = b.toString()
+    var slc_3 = str_a.slice(0, 1)
+    var slc_4 = str_a.slice(1, 2)
+    var slc_9 = str_b.slice(0, 1)
+    var slc_8 = str_b.slice(1, 2)
+    var output = slc_3 + slc_9 + slc_4 + slc_8
+    console.log(Number(output))
+
+
+    // soal no.4 Given a string.Create a program to remove the character you want
+
+    var sttment = " I am the student of purwadhika "
+    var character = sttment.replace(/i/gi, '')
+    console.log(character)
+
+    // Soal 5 Given a string consisting of exactly two words separated by 
+    // space. Print a new string with the first and second word position s
+    // swapped( the second word is printed first)
+
+    var a = "Makan Hati"
+    var makan = a.slice(0, 5)
+    var hati = a.slice(5, 10)
+    var makanHati = hati + ' ' + makan
+    console.log(makanHati)
+</script>

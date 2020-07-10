@@ -1,0 +1,109 @@
+<script>
+    var jamMasuk, waktuMasuk, jamKeluar, waktuKeluar, totalJamParkir, biaya, parkir, parkir_2
+
+
+    parkir_2 = true
+    parkir = true
+    while (parkir_2 == true) {
+        while (parkir == true) {
+            validitas = true
+            while (validitas == true) {
+                var jamMasuk = Number(prompt('Jam berapa anda Masuk Parkir? 1-12'))
+                if (jamMasuk > 0 && jamMasuk <= 12) {
+                    validitas = false
+                } else {
+                    validitas = confirm('input SALAH harus 1-12 / anda tidak memasukan input\ncoba lagi?')
+                    if (validitas == true) {
+                        validitas = true
+                    } else {
+                        alert('terima kasih')
+                        throw console.error();
+                    }
+                }
+            }
+
+
+            validitas = true
+            while (validitas == true) {
+                waktuMasuk = Number(prompt('Siang/Malam? \n 1. Siang 2. Malam'))
+                if (waktuMasuk === 1 || waktuMasuk === 2) {
+                    validitas = false
+                    if (waktuMasuk === 2) {
+                        jamMasuk = jamMasuk + 12
+                        validitas = false
+                    }
+                } else {
+                    validitas = confirm('inputan salah !! inputan harus angka harus 1/2 \n coba lagi?')
+                    if (validitas == true) {} else {
+                        alert('Terima kasih')
+                        throw console.error();
+                    }
+                }
+            }
+
+
+            var validitas = true
+            while (validitas == true) {
+                var jamKeluar = Number(prompt('Jam berapa anda Keluar Parkir? 1-12'))
+                if (jamKeluar > 0 && jamKeluar <= 12) {
+                    validitas = false
+                } else {
+                    validitas = confirm('input SALAH harus 1-12 / anda tidak memasukan input \ncoba lagi?')
+                    if (validitas == true) {
+                        validitas = true
+                    } else {
+                        alert('terima kasih')
+                        throw console.error();
+                    }
+                }
+            }
+
+
+            validitas = true
+            while (validitas == true) {
+                waktuKeluar = Number(prompt('Siang/Malam? \n 1. Siang 2. Malam'))
+                if (waktuKeluar === 1 || waktuKeluar === 2) {
+                    validitas = false
+                    if (waktuKeluar === 2) {
+                        jamKeluar = jamKeluar + 12
+                        validitas = false
+                    }
+                } else {
+                    validitas = confirm('inputan salah !! inputan harus angka harus 1/2\ncoba lagi?')
+                    if (validitas == true) {} else {
+                        alert('Terima kasih')
+                        throw console.error()
+                    }
+                }
+            }
+            parkir = false
+        }
+
+
+        if (jamKeluar <= jamMasuk) {
+            parkir_2 = alert('inputan salah jam masuk harus lebih kecil dari jam keluar \n silahkan coba lagi')
+
+
+            if (parkir_2 == true) {
+
+            } else {
+                alert('terima kasih')
+                throw error()
+            }
+        }
+
+        parkir = true
+        totalJamParkir = jamKeluar - jamMasuk
+
+        if (totalJamParkir > 4) {
+            biaya = 4000
+            biaya = biaya + (totalJamParkir - 4) * 2000
+            alert('anda parkir selama' + totalJamParkir + ' Jam' + ' dengan biaya Rp. ' + biaya)
+            parkir_2 = false
+        } else {
+            alert(' anda parkir selama' + totalJamParkir + 'Jam' + 'dengan biaya Rp. ' + (totalJamParkir * 1000))
+            parkir_2 = false
+        }
+
+    }
+</script>

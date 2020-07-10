@@ -1,0 +1,7 @@
+
+
+
+var nama = 'Makan Hati'
+nama = nama.replace(/Makan Hati/g, 'Hati Makan')
+
+console.log(nama)

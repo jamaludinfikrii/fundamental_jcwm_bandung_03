@@ -1,0 +1,94 @@
+<script>
+    var product_1 = 'Ayam' // 10
+    var product_2 = 'Sapi' // 5
+    var product_3 = 'Kambing' // 15
+
+    var stock_1 = 10
+    var stock_2 = 20
+    var stock_3 = 30
+
+    // kalau belanjaan lebih dari stock, maka user belanja sebanyak stock
+    var harga_1 = 15000
+    var harga_2 = 80000
+    var harga_3 = 50000
+
+    var checkQty = true
+
+    while(checkQty === true){
+        var qty_1 = prompt('Mau beli ' + product_1 +  ' berapa buah?\n\nharga perbuah = Rp. ' + harga_1)
+        if(qty_1 <= stock_1){
+            checkQty = false
+        }else if(qty_1 > stock_1){
+            alert('Stock tidak cukup , stock tinggal ' + stock_1)
+        }else{
+            alert('salah input, masukan hanya angka saja')
+        }
+    }
+    
+    checkQty = true
+
+    while(checkQty === true){
+        var qty_2 = prompt('Mau beli ' + product_2 +  ' berapa buah?\n\nharga perbuah = Rp. ' + harga_2)
+        if(qty_2 <= stock_2){
+            checkQty = false
+        }else if(qty_2 > stock_2){
+            alert('Stock tidak cukup, stock tinggal ' + stock_2)
+        }else{
+            alert('Salah input, masukan hanya angka saja')
+        }
+    }
+
+
+    checkQty = true
+    while(checkQty === true){
+        var qty_3 = prompt('Mau beli ' + product_3 +  ' berapa buah?\n\nharga perbuah = Rp. ' + harga_3)
+        if(qty_3 <= stock_3){
+            checkQty = false
+        }else if(qty_3 > stock_3){
+            alert('Stock tidak cukup, stock tinggal ' + stock_3)
+        }else{
+            alert('Salah input, masukan hanya angka saja')
+        }
+    }
+
+
+
+    var total_1 = harga_1 * qty_1
+    var total_2 = harga_2 * qty_2
+    var total_3 = harga_3 * qty_3
+
+    var grandTotal = total_1 + total_2 + total_3
+
+    alert(
+        'Daftar Belanja\n' +
+        '1. ' + product_1 + ' harga Rp. ' + harga_1 + ' x ' + qty_1 + ' = Rp. ' + total_1 + '\n' +
+        '1. ' + product_2 + ' harga Rp. ' + harga_2 + ' x ' + qty_2 + ' = Rp. ' + total_2 + '\n' +
+        '1. ' + product_3 + ' harga Rp. ' + harga_3 + ' x ' + qty_3 + ' = Rp. ' + total_3 + '\n\n' +
+        'Grand Total = Rp ' + grandTotal
+    )
+
+    var checkUang = true
+    while(checkUang === true){
+        var bayar = prompt('Total Belanja = ' + grandTotal + '\n\nMasukan Uang Anda?')
+        if(bayar > grandTotal){
+            alert('Transaksi berhasil, kembalian Rp. ' + (bayar - grandTotal))
+            checkUang = false
+        }else if(bayar === grandTotal){
+            alert('Transaksi Berhasil')
+            checkUang = false
+        }else if(bayar < grandTotal){
+            alert('Transaksi gagal\nKurang Rp. ' + (grandTotal - bayar))
+        }else{
+            alert('Salah input')
+        }
+    }
+   
+    
+
+
+    // 
+
+  
+
+
+</script>

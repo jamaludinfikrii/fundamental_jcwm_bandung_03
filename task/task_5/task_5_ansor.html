@@ -1,0 +1,154 @@
+<script>
+
+
+var nama = ['Seto', 'Fikri', 'Budi', 'Andi']
+var alamat = ['Jakarta', 'Bandung', 'Tangerang', 'Bekasi']
+
+
+do{
+    var menu = prompt('PILIHAN MENU\n1. Tampilkan data\n2. Delete data\n3. Tambah data\n4. Update data\n5. Exit')
+    if(menu == 1){
+        var print = ""
+        for(var i = 0 ; i < nama.length ; i++){
+            print += i+1 + '. ' + nama[i] + ' asal dari ' + alamat[i] + '\n'
+        }
+        alert(print)
+        //tampilkan data menu
+
+    }else if(menu == 2){
+        // menu 2 untuk men delete data
+
+        var print = ""
+        for(var i = 0 ; i < nama.length ; i++){
+            print += i+1 + '. ' + nama[i] + ' asal dari ' + alamat[i] + '\n'
+        }
+        
+        print += '\nData nomor berapa yang mau dihapus ???'
+        var dataSelected = prompt(print) // 1
+        if(dataSelected > 0){
+            // validasi agar user tidak memasukan inputan kosonng
+
+            nama.splice(dataSelected-1,1) //(index, deleteCount)
+            alamat.splice(dataSelected-1,1)
+            alert('Data deleted successfully')
+        }else{
+            alert('nomor yang kamu masukan salah')
+        }
+    }else if(menu == 3){
+        // jika memilih menu no 3 untuk menambah data
+
+        var checkUpdate = true
+        while(checkUpdate == true) {
+        // validasi inputan agar user hanya memasukan karakter saja untuk nama
+
+            var dataTambah1 = prompt('masukan nama yang ingin ditambahkan')
+            if(!(dataTambah1 >= 0)){
+                checkUpdate = false
+                nama.push(dataTambah1) // nama baru ditambahkan memakai array method
+            }else if(dataTambah1 == 0){
+                alert('kamu belum memasukan nama!!')
+            }else{
+                alert('Hanya charakter yang boleh kamu masukan!!')
+            }
+        }
+        checkUpdate = true
+        while (checkUpdate == true) {
+        // validasi inputan agar user hanya memasukan karakter saja untuk alamat
+
+            var dataTambah2 = prompt('masukan alamat yang ingin ditambahkan')
+            if(!(dataTambah2 >= 0)){
+                checkUpdate = false
+                alamat.push(dataTambah2) // alamat baru ditambahkan memakai array method
+            }else if(dataTambah2 == 0){
+                alert('Kamu belum memasukan alamat!!') // validasi jika user tidak menginput apa-apa
+            }else{
+                alert('Hanya charakter yang boleh kamu masukan!!')
+            }
+        }
+        
+        var print = ""
+        for(i = 0 ; i < nama.length; i++){
+            print += i+1 + '. ' + nama[i] + ' asal dari ' + alamat[i] + '\n'
+        }
+        alert('DATA BERHASIL DI UPDATE!!\n\n' + print) // hasil print + data yg sudah user tambahkan
+
+    }else if(menu == 4){
+        var print = ""
+        for(var i = 0 ; i < nama.length ; i++){
+            print += i+1 + '. ' + nama[i] + ' asal dari ' + alamat[i] + '\n'
+        }
+        
+        print += '\nData nomor berapa yang mau diupdate ???' // pilihan ke user data mana yg mau di rubah
+        
+        var checkData = true
+        while(checkData == true){
+            // validasi jika user tidak memasukan pilihan dan user memilih angka yg tidak ada di pilihan
+
+            dataUpdate1 = prompt(print)
+            if(dataUpdate1 > 0 && dataUpdate1 <= nama.length){ 
+                checkData = false
+            }else if(dataUpdate1 == 0){
+                alert('tak bole kosong')
+            }else{
+                alert('Angka pilihan kamu ga ada tuh!!')
+            }
+        }
+
+        for(i = 0 ; i < nama.length ; i++){
+            print = nama[dataUpdate1-1] +  ' asal dari ' + alamat[dataUpdate1-1] + ' akan kamu update ??'
+        }
+        var namaUpdate = []
+
+
+        checkUpdate = true
+        if(input = confirm(print)){
+
+            while (checkUpdate == true) {
+                inputan : input = prompt('Nama, alamat atau keduanya yang akan kamu update ?')
+                // validasi apa yg mau dirubah sama user (nama, alamat atau keduanya)
+                if(input.toLowerCase() == 'nama'){
+
+                    namaUpdate = prompt('Masukan nama yang baru')
+                    nama[dataUpdate1-1] = namaUpdate
+                    checkUpdate = false
+    
+    
+                }else if(input.toLowerCase() == 'alamat'){
+                    alamatUpdate = prompt('Masukan alamat yang baru')
+                    alamat[dataUpdate1-1] = alamatUpdate
+                    checkUpdate = false
+    
+                }else if(input.toLowerCase() == 'keduanya'){
+                    namaUpdate = prompt('Masukan nama yang baru')
+                    nama[dataUpdate1-1] = namaUpdate
+                    alamatUpdate = prompt('Masukan alamat yang baru')
+                    alamat[dataUpdate1-1] = alamatUpdate
+                    checkUpdate = false
+                }else{
+                    alert('inputan salah')
+                }
+            }
+        }else{
+            alert(nama[dataUpdate1-1] + ' tidak jadi kamu update!!!')
+            checkUpdate = false
+        }
+
+
+    }else if(menu == 5){
+        alert('Anda tidak memilih apa-apa. Bye!!')
+    }else{
+        alert('Jangan kosong')
+    }
+        
+    
+
+}while(menu != 5)
+
+
+
+
+
+
+
+
+</script>

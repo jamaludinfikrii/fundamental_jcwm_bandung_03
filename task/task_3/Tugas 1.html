@@ -1,0 +1,57 @@
+<script>
+  var Jam_Masuk,
+    Waktu_Masuk,
+    Jam_Keluar,
+    Waktu_Keluar,
+    Waktu_Masuk_Malam,
+    Waktu_Masuk_Siang,
+    Waktu_Keluar_Malam,
+    Waktu_Keluar_Siang,
+    LamaParkir,
+    Biaya_1,
+    Biaya_2,
+    Tariff,
+    Biaya;
+  var Check = true;
+
+  Biaya_1 = 2000;
+  Biaya_2 = 3000;
+
+  Jam_Masuk = prompt("Masukkan Jam Masuk Parkir: (1-12 Jam)");
+  Jam_Masuk = parseInt(Jam_Masuk);
+  Waktu_Masuk = prompt("Malam atau Siang: (Malam, Siang)");
+  Jam_Keluar = prompt("Masukkan Jam Keluar Parkir (1-12 jam)");
+  Jam_Keluar = parseInt(Jam_Keluar);
+  Waktu_Keluar = prompt("Malam atau Siang: (Malam, Siang)");
+  LamaParkir = Jam_Keluar - Jam_Masuk;
+
+  if (Jam_Keluar < Jam_Masuk) {
+    alert("Input Salah Jam Keluar Harus Lebih besar Dari Jam Masuk");
+  } else if (Jam_Masuk > 12) {
+    alert("Input Jam Masuk Salah (tidak lebih dari jam 12");
+  } else if (Waktu_Masuk > 2) {
+    alert("Input Salah Coba Lagi");
+  } else if (Jam_Keluar > 12) {
+    alert("Input Jam Masuk Salah (tidak lebih dari jam 12");
+  } else if (Waktu_Keluar > 2) {
+    alert("Input Salah Coba Lagi");
+  } else {
+    if (LamaParkir > 4) {
+      Biaya = 4000 + (LamaParkir - 4) * Biaya_2;
+    } else {
+      Biaya = LamaParkir * Biaya_1;
+    }
+
+    alert(
+      " Anda parkir Selama: " +
+        LamaParkir +
+        " Jam" +
+        " Masuk Pada Waktu: " +
+        Waktu_Masuk +
+        " Dan Keluar Pada Waktu: " +
+        Waktu_Keluar +
+        " Jam, Biaya Parkir Adalah RP. " +
+        Biaya
+    );
+  }
+</script>

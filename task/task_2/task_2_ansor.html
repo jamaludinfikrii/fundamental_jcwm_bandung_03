@@ -1,0 +1,51 @@
+<script>
+
+var product_1 = 'Apel'
+var product_2 = 'Anggur'
+var product_3 = 'Jeruk'
+
+var harga_1 = 10000
+var harga_2 = 15000
+var harga_3 = 20000
+
+var qty_1 = prompt('Masukan jumlah ' + product_1 + ' yang akan dibeli?\n\nharga per KG sebesar : Rp. ' + harga_1)
+var qty_2 = prompt('Masukan jumlah ' + product_2 + ' yang akan dibeli?\n\nharga per KG sebesar : Rp. ' + harga_2)
+var qty_3 = prompt('Masukan jumlah ' + product_3 + ' yang akan dibeli?\n\nharga per KG sebesar : Rp. ' + harga_3)
+
+var total_1 = harga_1 * qty_1
+var total_2 = harga_2 * qty_2
+var total_3 = harga_3 * qty_3
+
+var grandTotal = total_1 + total_2 + total_3
+
+
+alert(' Detail Belanja\n' +
+'1. ' + product_1  + ' : ' + qty_1 + ' x ' + harga_1 + ' = ' + total_1 + '\n' +
+'2. ' + product_2  + ' : ' + qty_2 + ' x ' + harga_2 + ' = ' + total_2 + '\n' +
+'3. ' + product_3  + ' : ' + qty_3 + ' x ' + harga_3 + ' = ' + total_3 + '\n\n' +
+'Grand Total : Rp: ' + grandTotal )
+
+
+var masukanUang = prompt(' Silahkan masukan jumalah uang anda')
+
+if(masukanUang < grandTotal){
+    alert("Uang anda kurang")
+}else if(masukanUang == grandTotal){
+    alert("Terimakasih Sudah belanja!!")
+}else if(masukanUang > grandTotal){
+    alert("Terimakasih Sudah belanja!!\n\nSilahkan ambil uang kembalian, sebesar Rp: " + (masukanUang - grandTotal))
+}else{
+    alert('Anda belum memasukan jumlah uang')
+}
+
+
+
+
+
+
+
+
+
+
+
+</script>

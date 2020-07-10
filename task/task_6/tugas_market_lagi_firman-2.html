@@ -1,0 +1,227 @@
+<script>
+    var data = ['Ducati', 'GSX', 'Royal enfield', 'KTM']
+    var harga = ['1000', '2000', '3000', '1500']
+    var stock = ['10', '15', '20', '8']
+    var jumlahDataTotal = []
+    var total = 0
+
+    var validation = true
+    while (validation == true) {
+        var user = Number(prompt('Selamat datang di daeler Cahaya Ilahi\nKetik ;\n 1.ADMIN\n 2.PEMBELI\n 3.KELUAR'))
+        if (user == 1) {
+            var namaAdmin = prompt('Masukan Nama anda')
+            var passAdmin = prompt('Masukan Password anda')
+            if (namaAdmin == 'Firman' && passAdmin == 'Firman') {
+                validation = false
+                alert('Selamat datang ' + namaAdmin)
+            } else {
+                validation = true
+                alert('Nama dan Password anda salah\n Silahkan Coba lagi ')
+                throw console.error();
+
+            }
+            do {
+                var print = ''
+                var option = prompt("Hai " + namaAdmin + ", How's is it goin?\nApa yang mau anda lakukan?\n1. Edit data\n2. Tambah data\n3. Hapus data\n4. Tampilkan Data\n5. Kembali ke menu utama")
+                if (option == 1) {
+                    var validasi = true
+                    for (i = 0; i < data.length; i++) {
+                        print += 1 + i + '.' + data[i] + ' harga AUD.' + harga[i] + ' mempunyai stock ' + stock[i] + '\n'
+                    }
+                    while (validasi == true) {
+                        var nomorPilihan = prompt(print += 'Silahkan masukan no data yang akan anda edit')
+
+                        if (nomorPilihan > 0 || nomorPilihan < data.length) {
+                            var dataPilihan = prompt('Pilih\n1.Update nama Produk\n2.Update harga\n3.Update Stock')
+                            if (dataPilihan == 1) {
+                                var updatenama = prompt('Silahkan Masukan Nama produk yang akan anda edit')
+                                data.splice(nomorPilihan - 1, 1, updatenama)
+                                alert('data has been succesfull edited')
+                            } else if (dataPilihan == 2) {
+                                var updateharga = prompt('Silahkan Masukan Harga yang akan anda edit')
+                                harga.splice(nomorPilihan - 1, 1, updateharga)
+                                alert('data has been succesfull edited')
+                            } else if (dataPilihan == 3) {
+                                var updateStock = prompt('Silahkan Masukan Stock yang akan ada edit')
+                                stock.splice(nomorPilihan - 1, 1, updateStock)
+                                alert('data has been succesfull edited')
+                            } else {
+                                alert('anda belum memasukan inputan/inputan anda salah')
+                            }
+                            validasi = false
+                        } else {
+                            alert('Anda belum memasukan input/inputan anda salah')
+                            validasi = false
+                        }
+                    }
+
+                } else if (option == 2) {
+                    for (var i = 0; i < data.length; i++) {
+                        print += 1 + i + '.' + data[i] + ' harga AUD.' + harga[i] + ' mempunyai stock ' + stock[i] + '\n'
+                    }
+                    var tamBahnama = prompt('Masukan nama produk yang mau anda tambah')
+                    var tambahHarga = prompt('Masukan harga yang akan anda tambah')
+                    var tambahStock = prompt('Masukan jumlah stock yang akan anda tambah')
+                    if (!tamBahnama && !tambahHarga && tambahStock) {
+                        alert('anda salah memasukan input')
+                    } else {
+                        data.push(tamBahnama)
+                        harga.push(tambahHarga)
+                        stock.push(tambahStock)
+                        alert('data has been succesfully added')
+                    }
+
+                } else if (option == 3) {
+                    for (var i = 0; i < data.length; i++) {
+                        print += 1 + i + '.' + data[i] + ' harga AUD.' + harga[i] + ' mempunyai stock ' + stock[i] + '\n'
+                    }
+                    var hapusData = Number(prompt(print + 'Data No Berapa yang mau anda hapus?'))
+                    if (hapusData > data.length || hapusData <= 0 || !hapusData) {
+                        alert('anda salah memasukan input')
+                    } else {
+                        hapusData = data.splice(hapusData - 1, 1)
+                        alert('data has been succesfully deleted')
+                    }
+
+                } else if (option == 4) {
+                    for (var i = 0; i < data.length; i++) {
+                        print += 1 + i + '.' + data[i] + ' harga AUD.' + harga[i] + ' mempunyai stock ' + stock[i] + '\n'
+                    }
+
+                    alert(print)
+                }
+
+            } while (option != 5) {
+                validation = true
+            }
+
+
+
+        } else if (user == 2) {
+            var namaBuyer = prompt('Masukan Nama anda')
+            var passBuyer = prompt('Masukan Password anda')
+            if (namaBuyer == 'Bambang' && passBuyer == 'Bambang') {
+                validation = false
+                alert('Selamat datang ' + namaBuyer)
+            } else {
+                validation = true
+                alert('Nama dan Password anda salah\n Silahkan Coba lagi ')
+                throw console.error();
+
+            }
+            do {
+                var print = ''
+
+                var option_2 = prompt('Hai ' + namaBuyer + ', is everything allright?\n1. Jual\n2. Beli\n3. Kembali ke menu utama')
+                if (option_2 == 1) {
+                    alert('Fitur belum tersedia,saat ini belum menerima jual motor')
+                } else if (option_2 == 2) {
+
+                    for (var i = 0; i < data.length; i++) {
+                        var validation = true
+                        while (validation == true) {
+                            var jumlahData = Number(prompt('Masukan jumlah ' + data[i] + ' yang akan anda beli dengan harga AUD' + harga[i]))
+                            if (jumlahData <= stock[i]) {
+                                validation = false
+                                jumlahDataTotal.push(jumlahData)
+                            } else if (jumlahData > stock[i]) {
+                                validation = true
+                                alert('pembelian melebihi stock')
+                            } else {
+                                validation = false
+                                alert('inputan tidak sesuai')
+                            }
+                        }
+                    }
+
+                    var print = ''
+
+                    for (var i = 0; i < data.length; i++) {
+                        total = total + (jumlahDataTotal[i] * harga[i])
+                        print += i + 1 + '.anda membeli ' + data[i] + ' sebanyak ' + jumlahDataTotal[i] + ' dengan harga ' + harga[i] + ' total pembelian motor anda ' + jumlahDataTotal[i] * harga[i] + '\n'
+
+                    }
+                    alert(print + '\n\n total belanja adalah AUD' + total)
+                    chkqty = true
+                    while (chkqty == true) {
+                        pembayaran = Number(prompt('Masukan jumlah uang yang akan anda bayarkan'))
+                        if (pembayaran < total) {
+                            chkqty = confirm('pembayaran anda kurang/ anda belum memasukan uang\n\n transaksi gagal \n\n apakah mau coba lagi?')
+                            if (chkqty == true) {} else {
+                                alert('terima kasih telah mengunjungi toko kami')
+                                throw console.error();
+                            }
+                        } else if (pembayaran == total) {
+                            alert('uang yang anda bayarkan pas')
+                            chkqty = false
+                        } else {
+                            alert('uang yang anda masukan lebih')
+                            chkqty = false
+                        }
+
+                    }
+                }
+            }
+            while (option_2 != 3) {
+                validation = true
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        } else if (user == 3) {
+            alert('Terima Kasih')
+            validation = false
+
+
+        } else {
+            alert('Masukan Inputan yang benar')
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+</script>

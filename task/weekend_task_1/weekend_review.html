@@ -1,0 +1,106 @@
+<script>
+    // **********nomor 1
+    // var validation = true
+    // while(validation === true){
+    //     var num = prompt('masukan empat angka') // 
+    //     if(num.length === 4 && num >= 0){
+    //         validation = false
+    //     }else{
+    //         alert('hanya boleh empat angka')
+    //     }
+    // }
+
+    // // ambil dua pertama
+    // var duaPertama = num.slice(0,2)
+
+    // // ambil dua terakhir
+    // var duaTerakhir = num.slice(2,4)
+
+    // // gabungin
+    // var result = duaTerakhir + duaPertama
+    
+    // alert(result)
+
+
+
+    // ********** nomor 2
+    
+    // do{
+    //     var jariJari = prompt('masukan jari jari linkaran?')
+    // }while(!(jariJari >0))
+
+    // var validation = true
+    // while(validation === true){
+    //     var jariJari = prompt('masukan jari jari linkaran?')
+    //     if(jariJari > 0){
+    //         validation = false
+    //     }else{
+    //         alert('Salah input')
+    //     }
+    // }
+
+    // var luas = Math.PI * jariJari * jariJari
+    // alert(luas)
+
+
+
+
+    // ********** nomor 3
+
+    // var num_1 = prompt('masukan dua digit pertama?') // 12
+    // var num_2 = prompt('masukan dua digit kedua?')  // 34
+
+    // var hasil = num_1[0] + num_2[0] + num_1[1] + num_2[1] // 1324
+    // alert(hasil)
+
+
+  
+    // ********** nomor 4
+
+    // var inputString = prompt('masukan kalimat apapun!!') // 'fikri di mini'
+    // var charToRemove = prompt('masukan satu huruf yang akan di hapus!!') // i
+    // var hasil = ''
+
+    // // for(var i = 0 ; i < inputString.length ; i ++){
+    // //     if(inputString[i] !== charToRemove){
+    // //         hasil += inputString[i]
+    // //     }
+    // // }
+
+    // var i = 0
+    // while(i < inputString.length){
+    //     if(inputString[i] !== charToRemove){
+    //         hasil += inputString[i]
+    //     }
+    //     i++
+    // }
+
+    // alert(hasil)
+
+
+
+    // ********** nomor 5
+
+    // misal ada kata "aku buah"
+    var kata = prompt('masukan dua kata dipisahkan dengan spasi!!')
+
+    // letak spasi ada di index ke berapa?
+    var indexSpace = kata.indexOf(' ')
+
+    // identifikasi kata pertama dan kedua, bisa dengan slice, 
+    var kataPertama = kata.slice(0,indexSpace)
+    var kataKedua = kata.slice(indexSpace,kata.length)
+    var result = kataKedua + ' ' + kataPertama
+    alert(result)
+
+
+
+
+
+
+
+    
+
+
+
+</script>

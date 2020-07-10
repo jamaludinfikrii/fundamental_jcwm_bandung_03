@@ -1,0 +1,63 @@
+<script>
+
+    var nama = ['yudi ','budi ','doni ','joko ']
+    var alamat = ['bandung','jakarta', 'bogor', 'bekasi']
+
+    do{
+        var menu = prompt( 'Pilih menu\n1. Tampilkan data \n2. Delete data \n3. Tambah data \n4. Update data \n5. exit')
+        if (menu==1){
+            var print = ''
+            for(var i = 0 ; i <nama.length ; i++){
+                print += i + 1 + '. ' + nama[i] + 'asal dari ' + alamat[i] + '\n'
+            }
+            alert(print)
+        //tampilkan data
+
+
+    } else if (menu==2){
+        var print= ' '
+        for (var i = 0 ; i <nama.length ; i++){ 
+            print += i +1 + '. ' + nama[i] + 'asal dari ' + alamat[i] + '\n'
+        }
+        print += '\nData nomor berapa yang akan dihapus !!!' 
+        var dataSelected = prompt(print) 
+        nama.splice(dataSelected-1,1) 
+        alamat.splice(dataSelected-1,1)
+        alert('data berhasil dihapus')
+        // delete data
+
+
+    }else if( menu==3 ){ 
+        var tambahNama = prompt( 'masukan nama baru')
+        nama.push(tambahNama)
+        var tambahAlamat = prompt('masukan alamat baru')
+        alamat.push(tambahAlamat)
+        //tambah data
+
+
+    }else if ( menu ==4){
+        var print = ''
+        print += ' '
+            for(var i = 0; i < nama.length; i++){ 
+                print += i+1 + ' .  ' +  nama [i] +  ' asal dari ' + alamat[i] + '\n'
+            }
+
+            var dataBaru = prompt(print + '\n Pilih Nomor Data yang Akan Diupdate :')
+            var menuBaru = prompt('Pilih Update : \n 1. Nama \n 2. Alamat')
+
+            if(menuBaru == 1){
+                var namaBaru = prompt('Masukan nama yang baru : ')
+                nama[dataBaru-1 ] = namaBaru
+                alert('Data berhasil diperbaharui!')
+            }else if(menuBaru == 2){
+                var alamatBaru = prompt('Masukan alamat yang baru : ')
+                alamat [dataBaru-1] = alamatBaru
+                alert('Data Berhasil Diperbaharui!')
+            }else {
+                alert('salah input')
+            }
+        }else{
+
+        }
+    }while(menu !=5) ;
+</script>

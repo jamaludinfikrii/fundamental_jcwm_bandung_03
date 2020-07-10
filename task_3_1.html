@@ -1,0 +1,38 @@
+<script>
+    // main menu
+    var menu = prompt('Mau Hitung luas apa? \n1. Segitiga\n2. Persegi\n3. Persegi Panjang')
+    if(menu == 1){
+
+        // menu luas segitiga
+        var alas = Number(prompt('masukan alas segitiga!'))
+        var tinggi = Number(prompt('masukan tinggi segitiga!'))
+
+        // validasi input user
+        if(alas > 0 && tinggi > 0){
+            var luas = 0.5 * alas * tinggi
+            alert('luas segitiga = 0.5 x ' + alas + ' x ' + tinggi + ' = ' + luas + ' cm2') 
+        }else{
+            alert('Salah satu input salah !!')
+        }
+
+    }else if(menu == 2){
+
+        // hitung persegi
+        var sisi = Number(prompt('masukan sisi persegi!'))
+        var luas = sisi * sisi
+        alert('luas persegi = ' + sisi + ' x ' + sisi + ' = ' + luas + ' cm2') 
+
+    }else if(menu == 3){
+
+        // hitung persegi panjang
+        var panjang = Number(prompt('masukan panjang persegi!'))
+        var lebar = Number(prompt('masukan lebar persegi!'))
+        var luas =panjang * lebar
+        alert('luas persegi panjang = ' + panjang + ' x ' + lebar + ' = ' + luas + ' cm2') 
+
+    }else{
+        alert('salah input menu')
+    // salah input menu
+    }
+
+</script>

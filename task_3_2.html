@@ -1,0 +1,73 @@
+<script>
+    // PARKING APP
+
+    // camelCase
+
+    var validation = true
+
+    while(validation == true){
+        var jamMasuk = Number(prompt('Masuk Jam berapa? (1-12)')) // 6 + 12 = 612
+
+        if(jamMasuk > 0 && jamMasuk <= 12){
+            validation = false
+        }else{
+            alert('Inputan salah hanya boleh 1-12')
+        }
+    }
+
+
+    // validasi waktu masuk
+
+    validation = true
+    while(validation == true){
+        var waktuMasuk = prompt('Pagi atau Malam ? (1 / 2)') // 2
+        if(waktuMasuk == 1 || waktuMasuk == 2){
+            validation = false
+
+        }else{
+            alert('inputan salah hanya boleh 1 atau 2')
+        }
+    }
+    
+
+
+    
+
+    
+    var jamKeluar = Number(prompt('Keluar jam berapa ? (1-12)')) // 8
+
+    do{
+        var waktuKeluar = prompt('Pagi atau Malam? (1 / 2)') // 2
+    }while(waktuKeluar != 1 && waktuKeluar != 2)
+
+
+    if(waktuKeluar == 2){
+        jamKeluar = jamKeluar + 12 // 8 + 12 = 20
+    }
+
+
+    if(jamKeluar < jamMasuk){
+        alert('Error!! Jam Keluar harus lebih besar dari jam masuk')
+    }else{
+        var totalJam = jamKeluar - jamMasuk
+        var biayaParkir;
+        if(totalJam > 4){
+            biayaParkir = 4000 + (totalJam - 4) * 2000
+        }else{
+            biayaParkir = 1000 * totalJam
+        }
+
+        alert('Anda Parkir selama ' + totalJam +' jam, biaya parkir = Rp. ' + biayaParkir)
+    }
+    
+    // validasi parkir app
+
+    // validasi market app
+        // ketika beli lebih dari stock
+        // ketika pembayaran kurang dari total
+
+    
+    
+    
+
+</script>

@@ -1,0 +1,35 @@
+<script>
+    var produk_1 = 'Apple'
+    var produk_2 = 'Anggur'
+    var produk_3 = 'Jeruk'
+
+    var harga_1 = 10000
+    var harga_2 = 15000
+    var harga_3 = 20000
+
+    var qty_1 = prompt('Masukan jumlah ' + produk_1 + ' yang akan anda beli')
+    var qty_2 = prompt('Masukan jumlah ' + produk_2 + ' yang akan anda beli')
+    var qty_3 = prompt('Masukan jumlah ' + produk_3 + ' yang akan anda beli')
+
+    var total_1 = harga_1 * qty_1
+    var total_2 = harga_2 * qty_2
+    var total_3 = harga_3 * qty_3
+
+    var grand_total = total_1 + total_2 + total_3
+
+    alert('Daftar Belanja \n\n' +
+        '1. Jumlah ' + produk_1 + ' yang anda beli adalah ' + qty_1 + 'x' + 'Rp. ' + harga_1 + '= Rp.' + total_1 + '\n' +
+        '2. Jumlah ' + produk_2 + ' yang anda beli adalah ' + qty_2 + 'x' + 'Rp. ' + harga_2 + '= Rp. ' + total_2 + '\n' +
+        '3. Jumlah ' + produk_3 + ' yang anda beli adala h' + qty_3 + 'x' + 'Rp. ' + harga_3 + ' = Rp. ' + total_3 + '\n\n' +
+        'Total belanjaan anda sebesar = ' + grand_total
+    )
+    var pembayaran = prompt('Masukan uang yang anda bayarkan')
+
+    if (pembayaran == grand_total) {
+        alert('Uang yang anda bayarkan pas')
+    } else if (pembayaran < grand_total) {
+        alert(' Uang yang anda bayarkan kurang')
+    } else {
+        alert('Uang yang anda bayarkan lebih')
+    }
+</script>

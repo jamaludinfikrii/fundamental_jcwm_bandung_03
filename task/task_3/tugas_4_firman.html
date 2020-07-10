@@ -1,0 +1,25 @@
+<script>
+    var menuBelajar, luas_segitiga, alas, tinggi, luas_persegi, sisi, luas_persegi_panjang, panjang, lebar
+
+    menuBelajar = prompt('Mau menghitung apa ? \n' +
+        '1. Segitiga \n' +
+        '2. Persegi \n' +
+        '3. Persegi Panjang')
+
+    if (menuBelajar == 1) {
+        alas = prompt('Masukan alas segitiga')
+        tinggi = prompt('Masukan tinggi segitiga')
+        luas_segitiga = (alas * tinggi) / 2
+        alert('luas segitiga adalah ' + luas_segitiga)
+
+    } else if (menuBelajar == 2) {
+        sisi = prompt('Masukan sisi persegi')
+        luas_persegi = Math.pow(sisi, 2)
+        alert('Luas persegi adalah ' + luas_persegi)
+    } else {
+        panjang = prompt('Masukan panjang persegi panjang')
+        lebar = prompt('Masukan lebar segitiga')
+        luas_persegi_panjang = (panjang * lebar)
+        alert('Luas persegi panjang adalah ' + luas_persegi_panjang)
+    }
+</script>

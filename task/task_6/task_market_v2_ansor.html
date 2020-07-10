@@ -1,0 +1,218 @@
+<script>
+
+    var product = ['Apel', 'Anggur', 'Jeruk']
+    var harga = [10000, 15000, 20000]
+    var stock = [10,20,30]
+    
+    var checkAdmin = true
+
+while(checkAdmin == true){
+
+    admin = prompt('Sipakah kamu :\n1. Admin\n2. Pembeli')
+
+    if(admin == 1){
+        checkAdmin = false
+        do{
+            var menu = prompt('1. Tambah Product\n2. Edit Product\n3. Hapus Product\n4. Tampilkan Product\n5. Exit')
+            var print = ''
+            if(menu == 1){
+                // user pilih nomor 1, masuk ke menu tambah data
+                var check = true
+                while(check == true){
+                    productNew = prompt('Masukan nama produk baru yang akan ditambahkan!!')
+                    if(!(productNew >= 0)){
+                        product.push(productNew)
+                        
+                        check = false
+                    }else{
+                        alert('Inputan tidak boleh kosong dan hanya karakter saja!!')
+                    }
+                }
+                check = true
+                while(check == true){
+                    hargaNew = prompt('Masukan harga baru yang akan ditambahkan!!')
+                    if(hargaNew >= 0){
+                        harga.push(hargaNew)
+
+                        check = false
+
+                    }else{
+                        alert('Inputan tidak boleh kosong dan hanya ANGKA saja!!')
+                    }
+                }
+                check = true
+                while(check == true){
+                    stockNew = prompt('Masukan stock baru yang akan ditambahkan!!')
+                    if(stockNew >= 0){
+                        stock.push(stockNew)
+
+                        check = false
+
+                    }else{
+                        alert('Inputan tidak boleh kosong dan hanya ANGKA saja!!')
+                    }
+                }      
+                for(i = 0 ; i < product.length ; i++){
+                    print += (i+1) + '. ' + product[i] + ' harga Rp. ' + harga[i] + ' stoknya sebanyak ' + stock[i] + '\n'
+                }
+                alert('DATA BERHASIL DI TAMBAHKAN\n\n' + print)
+
+            }else if(menu == 2){
+                for(i = 0 ; i < product.length ; i++){
+                    print += (i+1) + '. ' + product[i] + ' harga Rp. ' + harga[i] + ' stoknya sebanyak ' + stock[i] + '\n'
+                }
+                
+                print += '\n Data nomer berapa yang akan kamu update ?'
+
+                check = true
+
+                while(check == true){
+                    // validasi jika user tidak memasukan pilihan dan user memilih angka yg tidak ada di pilihan
+
+                    dataUpdate = prompt(print)
+                    if(dataUpdate > 0 && dataUpdate <= product.length){ 
+                        check = false
+                    }else if(dataUpdate == 0){
+                        alert('tak bole kosong')
+                    }else{
+                        alert('Angka pilihan kamu ga ada di daftar tuh!!')
+                    }
+                }
+
+                for(i = 0 ; i < product.length ; i++){
+                    print = 'Produk ' + product[dataUpdate-1] +  ' dengan harga Rp. ' + harga[dataUpdate-1] + ' dengan sisa stock sebesar ' + stock[dataUpdate-1] + ' akan kamu update ??'
+                }
+                
+                var check = true
+                if(confirm(print)){
+                    while(check == true){
+                        input = prompt('Apa yang ingin kamu update ??\n\n1. Nama produk\n2. Harga\n3. Stock\n4. Cancel')
+                        if(input == 1 ){
+                            productUpdate = prompt('Silahkan isi nama produk yang baru!')
+                            product[dataUpdate-1] = productUpdate
+                            check = false
+                            alert('Nama produk updated successfully!!')
+                        }else if(input == 2){
+                            hargaUpdate = prompt('Silahkan isi harga baru dari produk ' + product[dataUpdate-1])
+                            harga[dataUpdate-1] = hargaUpdate
+                            check = false
+                            alert('Nama produk updated successfully!!')
+                        }else if(input == 3){
+                            stockUpdate = prompt('Silahkan isi stock baru dari produk ' + product[dataUpdate-1])
+                            stock[dataUpdate-1] = stockUpdate
+                            check = false
+                            alert('Nama produk updated successfully!!')
+                        }else if(input == 0 || input == 4){
+                            if(confirm('Kamu tidak akan jadi update ?')){
+                                check = false
+                            }else{
+                            }
+                        }else{
+                            alert('Inputan kamu salah!!\nHanya Nama, Harga, dan Stock produk yang bisa kamu update')
+                        }
+                    }
+                }else{
+                    alert('Produk ' + product[dataUpdate-1] + ' tidak jadi kamu update!!')
+                }
+                
+            }else if(menu == 3){
+                for(i = 0 ; i < product.length ; i++){
+                    print += (i+1) + '. ' + product[i] + ' harga Rp. ' + harga[i] + ' stoknya sebanyak ' + stock[i] + '\n'
+                }
+                check = true
+                while(check == true){
+                    // validasi jika user tidak memasukan pilihan dan user memilih angka yg tidak ada di pilihan
+
+                    dataHapus = prompt(print + '\nData nomer berapa yang ingin kamu hapus ?')
+                    if(dataHapus > 0 && dataHapus <= product.length){
+                        if(confirm('Produk ' + product[dataHapus-1] + ' akan kamu hapus dari daftar ?')){
+                            product.splice(dataHapus-1,1)
+                            harga.splice(dataHapus-1,1)
+                            stock.splice(dataHapus-1,1)
+                            check = false
+                            alert('Data deleted successfully!!')
+                        }else{
+                            alert('Data tidak jadi dihapus!!')
+                        }
+                    }else if(dataHapus == 0){
+                        alert('Inputan tdiak boleh kosong')
+                    }else{
+                        alert('Produk yang kamu pilih belum ada di daftar tuh!!')
+                    }
+                }
+            }else if(menu == 4){
+                for(i = 0 ; i < product.length ; i++){
+                    print += (i+1) + '. ' + product[i] + ' harga Rp. ' + harga[i] + ' stoknya sebanyak ' + stock[i] + '\n'
+                }
+                alert(print)
+            }else if(menu == 5){
+                checkAdmin = true
+            }
+
+        }while(menu != 5)
+
+
+
+    }else if(admin == 2){
+        // jika user pilih pembeli
+        checkAdmin = false
+
+        var output = ''
+        for(i = 0 ; i < product.length ; i++){
+            output += i+1 + '. ' + product[i] + ' harga Rp. ' + harga[i] + '\n'
+        }
+        alert('## DAFTAR PRODUK ##\n\n' + output)
+
+        var qtyAll = []
+        var check = true
+
+       
+        for(i = 0 ; i < product.length ; i++){
+            qtyAll.push(prompt("Masukan jumlah " + product[i] + ' yang akan kamu beli\nSisa stock tinggal ' + stock[i] ))
+        }
+
+
+        var total = ''
+        var grandTotal = 0
+        for(i = 0 ; i < product.length ; i++){
+            total += i+1 + '. ' + product[i] + ' Rp. ' + (qtyAll[i] * harga[i]) + '\n'
+            grandTotal += (qtyAll[i] * harga[i])
+        }
+
+       confirm('### DAFTAR BELANJAAN KAMU ###\n\n' + total + '\nGrand Total Rp. ' + grandTotal)
+
+       var checkUang = true
+        while(checkUang == true){
+            var masukanUang = prompt(' Total belanjaan kamu sebesar Rp: ' + grandTotal)
+            
+            if(masukanUang == grandTotal){
+                alert("Total belanja kamu Rp. " + grandTotal + '\nUang yang di masukan sebesar Rp. ' + 
+                    masukanUang + '\nKembalian kamu sebesar Rp. = ' + (masukanUang - grandTotal))
+                    checkUang = false
+                    alert('TERIMA KASIH SUDAH BERBELANJA!!!!')
+                    checkAdmin = true
+
+            }else if(masukanUang > grandTotal){
+                alert("Total belanja kamu Rp. " + grandTotal + '\nTotal pembayaran Rp. ' + 
+                    masukanUang + '\n\nAda uang kembalian nih sebesar Rp. = ' + (masukanUang - grandTotal))
+                    checkUang = false
+                    alert('TERIMA KASIH SUDAH BERBELANJA!!!!')
+                    checkAdmin = true
+            
+            }else if(masukanUang < grandTotal && masukanUang > 0){
+                alert("Total belanja kamu Rp. " + grandTotal + '\nTotal pembayaran Rp. ' + 
+                    masukanUang + '\n\nUang kamu masih kurang sebesar Rp. = ' + Math.abs((masukanUang - grandTotal)))
+            }else{
+                alert('Anda belum memasukan jumlah uang')
+            }
+        }
+
+
+    }else{
+        alert('oops inputan salah')
+    }
+
+}   
+
+    
+    </script>

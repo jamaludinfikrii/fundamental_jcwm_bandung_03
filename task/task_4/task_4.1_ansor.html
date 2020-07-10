@@ -1,0 +1,83 @@
+<script>
+    // Parkir APP
+    
+    var jamMasuk, jamKeluar, waktuMasuk, waktuKeluar, totalJam, biayaParkir
+    var validation = true
+
+    
+ 
+    while(validation == true){ // condition
+        jamMasuk = Number(prompt('Masukan jam masuk parkir kamu! (1-12)')) // si action
+        
+        if(jamMasuk > 0 && jamMasuk <= 12){ // exit way
+            validation = false 
+        }else if(jamMasuk == 0){
+            alert('Opppps....\nKamu belum memasukan jam masuknya')
+        }else{
+            alert('inputan hanya boleh angka 1 - 12')
+        }
+    }
+
+    validation = true
+    while(validation == true){ // kondisi
+
+        waktuMasuk = prompt('Pagi atau Malam ? (1 / 2)') // action
+        if(waktuMasuk == 2){
+            jamMasuk = jamMasuk + 12
+        }
+        if(waktuMasuk == 1 || waktuMasuk == 2){ // exit way
+            validation = false
+        }else if(waktuMasuk == 0){
+            alert('Inputan tidak boleh kosong')
+        }else{
+            alert('inputan hanya boleh angka 1 atau 2')
+        }
+    }
+
+    validation = true
+    while(validation == true){
+        
+        jamKeluar = Number(prompt('Masukan jam keluar parkir kamu! (1-12)'))
+
+            if(jamKeluar > 0 && jamKeluar <= 12){
+                validation = false
+            }else if(jamKeluar == 0){
+            alert('Opppps....\nKamu belum memasukan jam keluarnya')
+            }else{
+            alert('inputan hanya boleh angka 1 - 12')
+            }
+    }
+
+    validation = true
+    while(validation == true){
+
+        waktuKeluar = prompt('Pagi atau Malam ? (1 / 2)')
+            if(waktuKeluar == 2){
+                jamKeluar = jamKeluar + 12
+                }
+            if(waktuKeluar == 1 || waktuKeluar == 2){
+                validation = false
+            }else if(waktuKeluar == 0){
+            alert('Inputan tidak boleh kosong')
+            }else{
+            alert('inputan hanya boleh angka 1 atau 2')
+            }
+    }
+
+  
+
+    if(jamKeluar < jamMasuk){
+        alert('error!!, perhatikan lagi jam keluar kamu')
+    }else{
+        totalJam = jamKeluar - jamMasuk
+        if(totalJam > 4){
+            biayaParkir = 4000 + (totalJam - 4) * 2000
+        }else{
+            biayaParkir = 1000 * totalJam
+        }
+        alert('#####Struk Parkir####\n\n'+
+        'Anda parkir selama ' + totalJam + ' jam\nMasuk : Jam ' + jamMasuk  + '\n' + 'Keluar : Jam ' + jamKeluar 
+        + '\n' + 'biaya parkir adalah Rp. ' + biayaParkir + '\n\nTerima Kasih')
+    }   
+    
+    </script>

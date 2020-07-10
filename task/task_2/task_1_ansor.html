@@ -1,0 +1,27 @@
+<script>
+
+// membuat var berat badan dan var Tinggi badan
+// membuat var tinggi badan di conver ke meter
+
+var beratBadan = prompt('Masukan berat badan anda\n' + 'satuan dalam KG ')
+var tinggiBadan = prompt('Masukan tinggi badan anda\n' + 'satuan dalam CM ')
+
+var tinggi_badan_meter = tinggiBadan / 100
+
+var imt = (beratBadan / (Math.pow(tinggi_badan_meter, 2))).toFixed(2)
+
+
+if(imt < 18.5){
+    alert('IMT anda ' + imt + '\n' + 'Berat Badan Anda Kurang')
+}else if(imt >= 18.5 && imt <= 24.9){ // T & F = F
+    alert('IMT anda ' + imt + '\n' + "Berat Badan Anda Ideal")
+}else if(imt >= 25.0 && imt <= 29.9){ 
+    alert('IMT anda ' + imt + '\n' + "Berat Badan Anda Berlebih")
+}else if(imt >= 30.0 && imt <= 39.9){
+    alert('IMT anda ' + imt + '\n' + 'Berat Badan Anda Sangat Berlebih')
+}else{
+    alert('IMT anda ' + imt + '\n' + 'Anda Obesitas')
+}
+
+
+</script>

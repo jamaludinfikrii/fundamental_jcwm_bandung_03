@@ -1,0 +1,6 @@
+
+var nama = 'I am a student at Purwadhika'
+
+var namaEdit = nama.replace(/a/g, "")
+
+console.log(namaEdit)

@@ -1,0 +1,141 @@
+<script>
+
+    var product_1 = 'Apel'
+    var product_2 = 'Anggur'
+    var product_3 = 'Jeruk'
+    
+    var harga_1 = 10000
+    var harga_2 = 15000
+    var harga_3 = 20000
+    
+    var stock_1 = 10
+    var stock_2 = 10
+    var stock_3 = 10
+    
+    var checkQty = true
+    
+    
+    while(checkQty == true){
+        var qty_1 = prompt('Masukan jumlah ' + product_1 + ' yang akan dibeli?\n\nharga per KG sebesar : Rp. ' + harga_1)
+
+        if(qty_1 > 0 && qty_1 <= stock_1){
+            checkQty = false
+        }else if(qty_1 == 0){
+           if(confirm('Kamu tidak akan membeli  ' + product_1 + ' ?')){
+               checkQty = false
+           }else{
+           }
+        }else{
+            alert('sisa stock tinggal ' + stock_1)
+        }
+    }
+
+    checkQty = true
+    while(checkQty == true){
+        var qty_2 = prompt('Masukan jumlah ' + product_2 + ' yang akan dibeli?\n\nharga per KG sebesar : Rp. ' + harga_2)
+
+        if(qty_2 > 0 && qty_2 <= stock_2){
+            checkQty = false
+        }else if(qty_2 == 0){
+            if(confirm('Kamu tidak akan membeli  ' + product_2 + ' ?')){
+               checkQty = false
+           }else{
+           }
+        }else{
+            alert('sisa stock tinggal ' + stock_2)
+        }
+    }
+
+    checkQty = true
+    while(checkQty == true){
+        var qty_3 = prompt('Masukan jumlah ' + product_3 + ' yang akan dibeli?\n\nharga per KG sebesar : Rp. ' + harga_3)
+
+        if(qty_3 > 0 && qty_3 <= stock_3){
+            checkQty = false
+        }else if(qty_3 == 0){
+            if(confirm('Kamu tidak akan membeli  ' + product_3 + ' ?')){
+                checkQty = false
+            }else{
+            }
+        }else{
+            alert('sisa stock tinggal ' + stock_3)
+        }
+    }
+    
+   
+        var total_1 = harga_1 * qty_1
+        var total_2 = harga_2 * qty_2
+        var total_3 = harga_3 * qty_3
+    
+        var grandTotal = total_1 + total_2 + total_3
+
+        var txt1 = '1. ' + product_1  + ' : ' + qty_1 + ' x ' + harga_1 + ' = ' + total_1 + '\n'
+        var txt2 = '2. ' + product_2  + ' : ' + qty_2 + ' x ' + harga_2 + ' = ' + total_2 + '\n' 
+        var txt3 = '3. ' + product_3  + ' : ' + qty_3 + ' x ' + harga_3 + ' = ' + total_3 + '\n'
+       
+        if(qty_1 != 0 && qty_2 != 0 && qty_3 != 0){
+            alert(' Detail Belanja\n' +
+            txt1 + txt2 + txt3 + '\n' +
+            'Grand Total : Rp: ' + grandTotal )
+        }else if(qty_1 == 0 && qty_2 != 0 && qty_3 != 0){
+            alert(' Detail Belanja\n' +
+            txt2 + txt3 + '\n' +
+            'Grand Total : Rp: ' + grandTotal )
+        }else if(qty_1 == 0 && qty_2 == 0 && qty_3 != 0){
+            alert(' Detail Belanja\n' +
+            txt3 + '\n' +
+            'Grand Total : Rp: ' + grandTotal )
+        }else if(qty_1 != 0 && qty_2 == 0 && qty_3 != 0){
+            alert(' Detail Belanja\n' +
+            txt1 + txt3 + '\n' +
+            'Grand Total : Rp: ' + grandTotal )
+        }else if(qty_1 != 0 && qty_2 != 0 && qty_3 == 0){
+            alert(' Detail Belanja\n' +
+            txt1 + txt2 + '\n' +
+            'Grand Total : Rp: ' + grandTotal )
+        }else if(qty_1 != 0 && qty_2 == 0 && qty_3 == 0){
+            alert(' Detail Belanja\n' +
+            txt1 + '\n' +
+            'Grand Total : Rp: ' + grandTotal )
+        }else if(qty_1 == 0 && qty_2 != 0 && qty_3 == 0){
+            alert(' Detail Belanja\n' +
+            txt2 + '\n' +
+            'Grand Total : Rp: ' + grandTotal )
+        }else{
+            alert('Tidak ada barang yang anda masukan')
+            throw Error
+        }
+        
+
+        var checkUang = true
+        while(checkUang == true){
+            var masukanUang = prompt(' Total belanjaan kamu sebesar Rp: ' + grandTotal)
+            
+            if(masukanUang == grandTotal){
+                alert("Total belanja kamu Rp. " + grandTotal + '\nUang yang di masukan sebesar Rp. ' + 
+                    masukanUang + '\nKembalian kamu sebesar Rp. = ' + (masukanUang - grandTotal))
+                    checkUang = false
+                    alert('TERIMA KASIH SUDAH BERBELANJA!!!!')
+
+            }else if(masukanUang > grandTotal){
+                alert("Total belanja kamu Rp. " + grandTotal + '\nTotal pembayaran Rp. ' + 
+                    masukanUang + '\n\nAda uang kembalian nih sebesar Rp. = ' + (masukanUang - grandTotal))
+                    checkUang = false
+                    alert('TERIMA KASIH SUDAH BERBELANJA!!!!')
+            
+            }else if(masukanUang < grandTotal && masukanUang > 0){
+                alert("Total belanja kamu Rp. " + grandTotal + '\nTotal pembayaran Rp. ' + 
+                    masukanUang + '\n\nUang kamu masih kurang sebesar Rp. = ' + Math.abs((masukanUang - grandTotal)))
+            }else{
+                alert('Anda belum memasukan jumlah uang')
+            }
+        }
+    
+
+
+    
+    
+    
+    
+    
+    </script>

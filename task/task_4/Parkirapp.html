@@ -1,0 +1,59 @@
+<script>
+  //Parking APP
+  var validation = true;
+  while (validation == true) {
+    var jam_masuk = Number(prompt("Masuk Jam Berapa? (1-12)"));
+    if (jam_masuk > 0 && jam_masuk <= 12) {
+      validation = false;
+    } else {
+      alert("Inputan Salah Coba Lagi");
+    }
+  }
+
+  validation = true;
+  while (validation == true) {
+    var waktu_masuk = prompt("Pagi atau Malam? (1/2)");
+    if (waktu_masuk == 1 || waktu_masuk == 2) {
+      jam_masuk = jam_masuk + 12;
+      validation = false;
+    } else {
+      alert("Inputan Salah Coba Lagi");
+    }
+  }
+
+  validation = true;
+  while (validation == true) {
+    var jam_keluar = Number(prompt("Keluar Jam Berapa? (1-12)"));
+    if (jam_keluar > 0 && jam_keluar <= 12) {
+      validation = false;
+    } else {
+      alert("Inputan Salah Coba Lagi");
+    }
+  }
+
+  validation = true;
+  while (validation == true) {
+    var waktu_keluar = prompt("Pagi atau Malam? (1/2)");
+    if (waktu_keluar == 2 || waktu_keluar == 1) {
+      jam_keluar = jam_keluar + 12;
+      validation = false;
+    } else {
+      alert("Inputan Salah Coba Lagi");
+    }
+  }
+
+  var total_jam = jam_keluar - jam_masuk;
+  var biaya_parkir;
+  if (total_jam > 4) {
+    biaya_parkir = 4000 + (total_jam - 4) * 2000;
+  } else {
+    biaya_parkir = 1000 * total_jam;
+  }
+
+  alert(
+    "Anda Parkir Selama: " +
+      total_jam +
+      " Jam, Biaya Parkir = Rp. " +
+      biaya_parkir
+  );
+</script>

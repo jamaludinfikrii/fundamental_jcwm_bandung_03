@@ -1,0 +1,18 @@
+<script>
+    var tinggi = prompt('Masukan  tinggi badan anda dalam cm')
+    var berat_badan = prompt('Masukan berat badan anda')
+    var ukuran_cm = Math.pow(10, 4)
+    var IMT = berat_badan / (Math.pow(tinggi, 2) / ukuran_cm)
+
+    if (IMT < 18.5) {
+        alert('Berat Badan anda kurang')
+    } else if (IMT > 18.5 && IMT < 24.9) {
+        alert('Berat badan anda ideal')
+    } else if (IMT > 25.0 && IMT < 29.9) {
+        alert(' Berat badan anda berlebih')
+    } else if (IMT > 30.0 && IMT < 39.9) {
+        alert(' Berat badan anda sangat berlebih')
+    } else if (IMT > 39.9) {
+        alert('Anda obesitas')
+    }
+</script>
