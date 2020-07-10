@@ -2,11 +2,52 @@
     var products = ['Ayam','Kambing','Sapi']
     var prices = [10000,20000,50000]
     var stocks = [10,10,10]
+    var qtys = []
+    var totals = [] 
     
     do{
         var mainMenu = prompt('Login Sebagai\n1. Pembeli\n2. Penjual\n3. Exit') // 2
 
         if(mainMenu == 1){
+            for(var i = 0 ; i < products.length ; i++){
+                
+                var validation = true
+                while(validation === true){
+                    var qty = prompt('Mau Beli ' + products[i] + ' Rp. ' + prices[i] + ' Berapa banyak!!') // 3
+                    if(qty >= 0 && qty <= stocks[i]){
+                        validation = false
+                    }else{
+                        alert('Input Salah Atau quantity melebihi stock (stock tinggal = ' + stocks[i] + ')')
+                    }
+                }
+                qtys.push(Number(qty))
+                totals.push(Number(qty) * prices[i])
+            }
+
+            console.log(qtys)
+            console.log(totals)
+            var grandTotal = 0 // 800000
+            var out = '======== DAFTAR BELANJA ======\n\n'
+            for(var i = 0 ; i < products.length ; i++){
+                out += (i+1) + '. ' + products[i] + ' Rp. ' + prices[i] + ' X ' + qtys[i] + ' = ' + totals[i] + ' \n'
+                grandTotal += totals[i]
+            }
+
+            out += '\n GRAND TOTAL = RP. ' + grandTotal
+            out += '\n\n MASUKAN UANG MU !!!'
+            var validation = true
+            while(validation === true){
+                var bayar = prompt(out)
+                if(bayar >= grandTotal && bayar > 0){
+                    validation = false
+                }else if(bayar < grandTotal){
+                    alert('Uang Anda Kurang!!')
+                }else{
+                    alert('Salah Input')
+                }
+            }
+
+            alert("Terimakasih telah berbelanja")
             
             // pembeli
         }else if(mainMenu == 2){
@@ -143,6 +184,9 @@
         }
         
     }while(mainMenu !== '3')
+
+
+
 
 
 </script>
