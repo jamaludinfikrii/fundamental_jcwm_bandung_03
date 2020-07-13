@@ -1,0 +1,99 @@
+<script>
+    // ******** 1
+    // Function FindMax
+    // only accepts 3 parameters
+    // findMax(3, 4, 5) // 5
+    // findMax(8, 4, 5) // 8
+    // findMax(8, 9, 5) // 9
+
+    function FindMax(No_1, No_2, No_3) {
+        No_3 = Math.max(No_1, No_2, No_3)
+        return No_3
+    }
+
+    console.log(FindMax(20, 10, 1))
+
+
+
+
+    // ******** 2
+    // Function SumLoop
+    // Accepts three parameters
+    // sumLoop(begin,end,gap)
+    // sumLoop(0, 5, 1) // return 10, because 0 + 1 + 2 + 3 + 4
+    // sumLoop(1, 10, 3) // return 12, because 1 + 4 + 7
+    // sumLoop(2, 8, 4) // return 8, because 2 + 6
+
+    function SumLoop(begin, end, gap) {
+        var hasil = 0
+        for (i = begin; i < end; i += gap) {
+            hasil += i
+        }
+        return hasil
+    }
+    console.log(SumLoop(0, 5, 1))
+
+
+
+    // ******** 3
+    // Function  FindDigit
+    // Accepts Two Parameters
+    // findDigits(digitToSearch,array)
+    // fundDigits(5, [2, 4, 5]) // return true
+    // fundDigits(3, [2, 4, 5]) // return false
+    // fundDigits(1, [2, 4, 5]) // return false
+
+    function findDigits(digitToSearch, arr) {
+        let hasil;
+        for (let i = 0; i < arr.length; i++) {
+            if (digitToSearch === arr[i]) {
+                hasil = true
+            } else {
+                hasil = false
+            }
+        }
+        return hasil
+    }
+    console.log(findDigits(5, [2, 4, 5])) // return true
+    console.log(findDigits(3, [2, 4, 5])) // return false
+    console.log(findDigits(1, [2, 4, 5])) // return false
+
+
+    // ******** 4
+    // Function How Many Char in Array
+    // Accepts Two Parameters
+    // homManyChar(charToSearch, sentences)
+    howManyCar('i', 'Purwadhika Digital School') // return 3
+    howManyCar('a', 'Purwadhika Digital School') // return 3
+    howManyCar('p', 'Purwadhika Digital School') // return 1
+
+    function howManyCar(word, sentences) {
+        var word_tally = 0;
+        for (var i = 0; i < sentences.length; i++) {
+            if (sentences.charAt(i) == word) {
+                word_tally += 1;
+            }
+        }
+        return word_tally;
+    }
+    console.log(howManyCar('i', 'Purwadhika Digital School'))
+    console.log(howManyCar('a', 'Purwadhika Digital School'))
+    console.log(howManyCar('p', 'Purwadhika Digital School'))
+        // ******** 5
+        // function Waves
+        // accepts one parameter
+        // waves(word)
+        // waves('fikri') // return Fikri fIkri fiKri fikRi fikrI
+        // waves('abc') // return Abc aBc abC
+    function wave(string) {
+        var result = [],
+            i;
+
+        for (i = 0; i < string.length; i++) {
+            if (string[i] === ' ') continue;
+            result.push(Array.from(string, (c, j) => i === j ? c.toUpperCase() : c).join(''));
+        }
+        return result;
+    }
+    console.log(wave('fikri'))
+</script>

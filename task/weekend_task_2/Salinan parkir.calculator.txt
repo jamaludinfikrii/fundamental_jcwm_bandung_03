@@ -1,0 +1,13 @@
+function parkirKalkulator (jamMasuk, jamKeluar){ 
+    
+    var hasil = jamKeluar-jamMasuk
+    var tarif = hasil * 1000
+    if (jamKeluar > jamMasuk){
+        return ( 'Lama parkir anda selama ' + hasil + ' jam' + ' tarif parkir anda Rp. ' + tarif )
+    } else {
+        return ( 'Ulangi !! jam keluar harus lebih besar dari jam masuk')
+    }
+    
+}
+
+console.log(parkirKalkulator(6,10))

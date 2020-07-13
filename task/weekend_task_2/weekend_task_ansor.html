@@ -1,0 +1,86 @@
+<script>
+
+
+// ******** Soal 1 *********
+// Function FindMax
+function findMax(a,b,c){
+    var hasil = 0
+    hasil = Math.max(a,b,c)
+    return hasil
+}
+// only accepts 3 parameters
+// console.log(findMax(3,4,5))
+// console.log(findMax(8,4,5))
+// console.log(findMax(8,9,5))
+
+// ******* Soal 2 **********
+
+function sumLoop(begin, end, gap){
+
+var hasil = 0
+for(i = begin ; i < end ; i+= gap){
+    hasil += i  
+    }
+return hasil
+}
+// Function SumLoop
+// Accepts three parameters
+// sumLoop(begin,end,gap)
+// console.log(sumLoop(0,5,1)) // return 10, because 0 + 1 + 2 + 3 + 4
+// console.log(sumLoop(1,10,3)) // return 12, because 1 + 4 + 7
+// console.log(sumLoop(2,8,4)) // return 8, because 2 + 6
+
+// ******** 3
+// Function  FindDigit
+// Accepts Two Parameters
+// findDigits(digitToSearch,array)
+
+function fundDigits(numb, arr){
+    let hasil;
+    for(let i = 0 ; i < arr.length ; i++){
+        if(numb === arr[i]){
+            hasil = true
+        }else{
+            hasil = false
+        }
+    }
+    return hasil
+}
+console.log(fundDigits(5,[2,4,5])) // return true
+console.log(fundDigits(3,[2,4,5])) // return false
+console.log(fundDigits(1,[2,4,5])) // return false
+
+// ******** 4
+// Function How Many Char in Array
+// Accepts Two Parameters
+// homManyChar(charToSearch, sentences)
+
+function howManyCar(letter, str) 
+{
+ var letter_Count = 0;
+ for (var i = 0; i < str.length; i++) 
+ {
+    if (str.charAt(i) == letter) 
+      {
+      letter_Count += 1;
+      }
+  }
+  return letter_Count;
+}
+
+
+console.log(howManyCar('i','Purwadhika Digital School')) // return 3
+console.log(howManyCar('a','Purwadhika Digital School')) // return 3
+console.log(howManyCar('p','Purwadhika Digital School')) // return 1
+
+// // ******** 5
+// // function Waves
+// // accepts one parameter
+// // waves(word)
+// // waves('fikri') // return Fikri fIkri fiKri fikRi fikrI
+// // waves('abc') // return Abc aBc abC
+
+
+
+
+</script>
