@@ -85,6 +85,15 @@ howManyCar('p','Purwadhika Digital School') // return 1
 // function Waves
 // accepts one parameter
 // waves(word)
+
+function waves(word){
+    var output = ''
+    for(var i = 0 ; i < word.length ; i++){
+        output += word.slice(0,i) + word[i].toUpperCase() + word.slice(i+1,word.length) + ' '
+    }
+    console.log(output)
+}
+
 waves('fikri') // return Fikri fIkri fiKri fikRi fikrI
 waves('abc') // return Abc aBc abC
 
