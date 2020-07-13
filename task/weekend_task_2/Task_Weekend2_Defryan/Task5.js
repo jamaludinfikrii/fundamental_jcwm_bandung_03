@@ -28,5 +28,15 @@ function upperCase(sentence){
     return outputChar2
 }
 
+var a = 'fikri'
+
+
 console.log(upperCase("defryan"))
 console.log(upperCase("fikri"))
+
+
+
+'fikri'
+
+// outputUpperCaseChar = ['Fikri']
+// 'F'

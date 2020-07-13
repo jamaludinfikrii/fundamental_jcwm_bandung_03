@@ -132,6 +132,36 @@ function hello2(print){
 
 
 
+// ********** FN Inside FN
+
+function a(x = 'fikri'){
+    console.log('Hello ' + x)
+}
+
+function b(y='fikri'){
+    a('fikri')
+    console.log(y)
+}
+
+
+
+b('fikri')
+
+
+// ************ Set Timout
+function hello (){
+    console.log('Hello')
+}
+// setTimeout(hello,2000)
+// setTimeout(hello,1000)
+
+
+// *********** Set Interval
+// setInterval(hello,1000)
+
+
+
+// **********
 
 
 
@@ -146,46 +176,47 @@ function hello2(print){
 
 
 
-// ******** 1
-// Function FindMax
-// only accepts 3 parameters
-findMax(3,4,5)  // 5
-findMax(8,4,5)  // 8
-findMax(8,9,5)  // 9
+
+// // ******** 1
+// // Function FindMax
+// // only accepts 3 parameters
+// findMax(3,4,5)  // 5
+// findMax(8,4,5)  // 8
+// findMax(8,9,5)  // 9
 
 
-// ******** 2
-// Function SumLoop
-// Accepts three parameters
-// sumLoop(begin,end,gap)
-sumLoop(0,5,1) // return 10, because 0 + 1 + 2 + 3 + 4
-sumLoop(1,10,3) // return 12, because 1 + 4 + 7
-sumLoop(2,8,4) // return 8, because 2 + 6
+// // ******** 2
+// // Function SumLoop
+// // Accepts three parameters
+// // sumLoop(begin,end,gap)
+// sumLoop(0,5,1) // return 10, because 0 + 1 + 2 + 3 + 4
+// sumLoop(1,10,3) // return 12, because 1 + 4 + 7
+// sumLoop(2,8,4) // return 8, because 2 + 6
 
 
-// ******** 3
-// Function  FindDigit
-// Accepts Two Parameters
-// findDigits(digitToSearch,array)
-fundDigits(5,[2,4,5]) // return true
-fundDigits(3,[2,4,5]) // return false
-fundDigits(1,[2,4,5]) // return false
+// // ******** 3
+// // Function  FindDigit
+// // Accepts Two Parameters
+// // findDigits(digitToSearch,array)
+// fundDigits(5,[2,4,5]) // return true
+// fundDigits(3,[2,4,5]) // return false
+// fundDigits(1,[2,4,5]) // return false
 
 
-// ******** 4
-// Function How Many Char in Array
-// Accepts Two Parameters
-// homManyChar(charToSearch, sentences)
-howManyCar('i','Purwadhika Digital School') // return 3
-howManyCar('a','Purwadhika Digital School') // return 3
-howManyCar('p','Purwadhika Digital School') // return 1
+// // ******** 4
+// // Function How Many Char in Array
+// // Accepts Two Parameters
+// // homManyChar(charToSearch, sentences)
+// howManyCar('i','Purwadhika Digital School') // return 3
+// howManyCar('a','Purwadhika Digital School') // return 3
+// howManyCar('p','Purwadhika Digital School') // return 1
 
 
-// ******** 5
-// function Waves
-// accepts one parameter
-// waves(word)
-waves('fikri') // return Fikri fIkri fiKri fikRi fikrI
-waves('abc') // return Abc aBc abC
+// // ******** 5
+// // function Waves
+// // accepts one parameter
+// // waves(word)
+// waves('fikri') // return Fikri fIkri fiKri fikRi fikrI
+// waves('abc') // return Abc aBc abC
 
 

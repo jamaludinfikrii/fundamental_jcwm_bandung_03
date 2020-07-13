@@ -174,8 +174,15 @@ isDivisible(12,3,4) // true
 
 // ******** 2 monthConverter(num)
 function monthConverter(num){
+    // speed and space
     var dataMonth = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Agus','Sept','Okt','Nov','Des']
     console.log(dataMonth[num-1])
+
+    if(num == 1){
+        console.log('Jan')
+    }else if(num == 2){
+        console.log('Feb')
+    }
 }
 
 monthConverter(4) // April
