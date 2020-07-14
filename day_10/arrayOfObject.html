@@ -36,12 +36,39 @@
         alert('Data Successfully Added')
     }
 
+    function getIndexSelected(title,question){
+        var out = title
+        out += showData()
+        out += question
+
+        var indexSelected = prompt(out) - 1
+        return indexSelected
+    }
+
+    function updateData (){
+        var indexSelected = getIndexSelected('***** UPDATE TITLE MENU ******\n','\nData Mana Yang Mau di Edit ...')
+        var newTitle = prompt('Masukan Title Baru ...')
+        dataPost[indexSelected].title = newTitle
+        alert('Update Title Succcess')
+
+    }
+
+    function deleteData (){
+        var indexSelected = getIndexSelected('***** Delete Data MENU ******\n','\nData Mana Yang Mau di delete ...')
+        dataPost.splice(indexSelected,1)
+        alert('Delete Data Succeess')
+    }
+
     do{
-        var menu = prompt('1. Show Data\n2. Add New Data\n3. Update Data\n4. Delete Data\n5. Exit ')
+        var menu = prompt('1. Show Data\n2. Add New Data\n3. Update Title\n4. Delete Data\n5. Exit ') 
         if(menu ==1){
             alert(showData())
         }else if(menu ==2){
             addNewData()
+        }else if(menu == 3){
+            updateData()
+        }else if(menu == 4){
+            deleteData()
         }
     }while(menu != 5)
 
