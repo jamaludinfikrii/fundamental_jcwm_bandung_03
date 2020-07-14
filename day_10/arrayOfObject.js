@@ -4,8 +4,6 @@
 
 // *************** CREATE
 
-
-
 class BlogPost {
     constructor(title,body,author){
         this.title = title

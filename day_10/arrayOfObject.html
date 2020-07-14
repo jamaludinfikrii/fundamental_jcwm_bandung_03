@@ -1,0 +1,48 @@
+<script>
+
+    var dataPost = [
+        {
+            title : "Fundamental Javascript",
+            publishedDate : '20-06-2020',
+            author : "fikri"
+        },
+        {
+            title : "Javascript for Beginner",
+            publishedDate : '20-05-2020',
+            author : "seto"
+        }
+    ]
+
+    function showData(){
+        var output = ''
+        for(var i = 0 ; i < dataPost.length ; i++){
+            output += (i+1) + '. "' + dataPost[i].title +'" by ' + dataPost[i].author + " at " + dataPost[i].publishedDate + '\n'   
+        }
+        return output
+    }
+
+    function addNewData(){
+        var newTitle = prompt('Enter Title ...')
+        var newPublishedDate = prompt('Enter Date ...')
+        var newAuthor = prompt('Enter Author ...')
+
+        var obj = {
+            title : newTitle,
+            publishedDate : newPublishedDate,
+            author : newAuthor
+        }
+        
+        dataPost.push(obj)
+        alert('Data Successfully Added')
+    }
+
+    do{
+        var menu = prompt('1. Show Data\n2. Add New Data\n3. Update Data\n4. Delete Data\n5. Exit ')
+        if(menu ==1){
+            alert(showData())
+        }else if(menu ==2){
+            addNewData()
+        }
+    }while(menu != 5)
+
+</script>
