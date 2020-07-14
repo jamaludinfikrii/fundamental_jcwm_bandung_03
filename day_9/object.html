@@ -1,3 +1,82 @@
 <script>
-    
+    // dia buat nyimpen 1 data dan data lebih terperinci
+    // 1 data dengan 3 property
+    // dataUser = {
+    //     username : '',
+    //     email : '',
+    //     password : ''
+    // }
+
+    // 3 Data
+    // dataUsers = [
+    //     {
+    //         username : '',
+    //         email : '',
+    //         password : ''
+    //     },
+    //     {
+    //         username : '',
+    //         email : '',
+    //         password : ''
+    //     },
+    //     {
+    //         username : '',
+    //         email : '',
+    //         password : ''
+    //     }
+    // ]
+
+    var data = {
+        nama : "fikri",
+        gender : 'pria'
+    }
+
+    function ShowData(){
+        var out = ''
+        for(var prop in data){
+            out += prop + ' = ' + data[prop] + '\n'
+        }
+        return out
+    }
+
+    function addProperty(){
+        var newProp = prompt('Masukan nama Property Object yang baru')
+        var newValue = prompt('Masukan Value yang Baru untuk property = ' + newProp)
+        data[newProp] = newValue
+        alert('Add new Props Success')
+    }
+
+    function updateProperty(){
+        var out =  ShowData()
+        out += '\npilih property yang mau di update!!'
+        var propSeleceted = prompt(out)
+        var newValue = prompt('Masukan Value Barunya !!')
+        data[propSeleceted] = newValue
+        alert('Update Props Success')
+    }
+
+    function deleteProps(){
+        var out =  ShowData()
+        out += '\npilih property yang mau di delete!!'
+        var propSeleceted = prompt(out)
+        delete data[propSeleceted]
+        alert('delete props success')
+    }
+
+    do{
+        var menu = prompt('1. Show data \n2. Add Property\n3. Update Property\n4. Delete Property \n5. Exit')
+        if(menu == 1){
+            alert( ShowData())
+        }else if(menu == 2){
+            addProperty()
+        }else if(menu == 3){
+            updateProperty()
+        }else if(menu == 4){
+            deleteProps()
+        }
+    }while(menu != 5)
+
+
+
+
 </script>

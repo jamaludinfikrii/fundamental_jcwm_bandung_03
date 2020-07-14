@@ -97,6 +97,8 @@ var post2 = new BlogPost('Tutorial Memasak enak','this is body','chef')
 
 // ********* READ
 var siswa1 = new Siswa('budi',30,'pria')
+siswa1.nama
+siswa1['nama']
 // console.log(siswa1)
 // console.log(siswa1.nama)
 // console.log(siswa1.umur)
@@ -110,14 +112,79 @@ var siswa1 = new Siswa('budi',30,'pria')
 
 var post1 = new BlogPost('Fundamental Javascript','this is body','fikri')
 post1.writer = 'Seto'
-post1.printBlogTitle()
+// post1.printBlogTitle()
 post1.publishDate = '28-09-2020'
-console.log(post1)
+// console.log(post1)
+
+
+
 
 // *********** DELETE
 
 delete post1.publishDate
 post1.writer = null
-console.log(post1)
+// console.log(post1)
+
+
+
+
+// ********** READ DATA
+
+
+var a = [
+    [
+        'fikri',
+        {
+            a : "budi", b : [ { a : "seto" } ]
+        }
+    ]
+]
+
+
+// console.log(a[0][0])
+// console.log(a[0][1].b[0].a)
+
+
+
+var x = {
+    y : [{nama : "fikri"}],
+    z : [{nama : ['budi','susilo']}]
+}
+// console.log(x.y[0].nama)
+// console.log(x.z[0].nama[1])
+
+
+
+var d = [
+    {
+        nama : {
+            depan : "fikri",
+            belakang : "susilo"
+        },
+        pekerjaan : ['karyawan']
+
+    }
+]
+
+
+// console.log(d[0].pekerjaan[0])
+
+
+
+// Loops In Object
+
+var post1 = new BlogPost('Fundamental Javascript','this is body','fikri')
+post1.writer = 'Seto'
+// post1.printBlogTitle()
+post1.publishDate = '28-09-2020'
+// console.log(post1)
+
+// console.log(post1)
+
+for( var prop in post1 ){
+    console.log(post1[prop])
+}
+
+
 
 
