@@ -1,0 +1,156 @@
+<script>
+    // ======== DATA =============
+
+    class Product {
+        constructor(name,price,stock){
+            this.name = name;
+            this.price = price;
+            this.stock = stock;
+
+            this.changeName = function(newName){
+                this.name = newName
+            }
+
+            this.changePrice = function(newPrice){
+                this.price = newPrice
+            }
+
+            this.changeStock = function(newStock){
+                this.stock = newStock
+            }
+            
+
+        }
+    }
+
+    var products = [
+        new Product('Apel',20000,10),
+        new Product('Leci',25000,101),
+        new Product('Anggur',50000,101),
+    ]
+
+
+    // ======== FUNCTIONS ===========
+
+    function showData (){
+        var out = ''
+        for(var i = 0 ; i < products.length ; i ++){
+            out += (i+1) + '. ' + products[i].name + ' Rp. ' + products[i].price + " stock = " + products[i].stock +'\n'
+        }
+
+        return out
+    }   
+
+
+    function validation(messagePrompt,typeValidation,errorMessage,optionsCount){
+        var validation = true
+        while(validation == true){
+            var input = prompt(messagePrompt)
+            if(typeValidation == 'number'){
+                if(input > 0){
+                    validation = false
+                }
+            }
+            else if(typeValidation == 'string'){
+                if(input != ''){
+                    validation = false
+                }
+            }else if(typeValidation == 'indexSelected'){
+                if(input > 0 && input <= optionsCount){
+                    validation = false
+                }
+            }
+            if(validation == true){
+                alert(errorMessage)
+            }
+        }
+        return input
+    }
+    
+
+    function addProduct(){
+        var newProduct = validation('Masukan product Baru','string','Product tidak boleh kosong') 
+        var newPrice = validation('Masukan Harga untuk ' + newProduct + ' !!!', 'number','Harga Harus Angka')
+        var newStock = validation('Masukan Stock untuk ' + newProduct + ' !!!', 'number','Stock Harus Angka')
+        // var obj = {
+        //     name : newProduct,
+        //     price : newPrice,
+        //     stock : newStock
+        // }
+        
+        var obj = new Product(newProduct,newPrice,newStock)
+
+        products.push(obj)
+        alert('Add new product Succeess') 
+        alert(showData())
+    }
+
+    function editProduct(){
+        var printout = showData()
+        printout += '\nPilih data yang mau di edit'
+        var indexSelected = validation(printout,'indexSelected','Data Tidak ada',products.length) - 1
+
+
+        var pilihEditMenu = '1. Edit Nama\n2. Edit Harga\n3. Edit Stock\n\nPilih Menu ....'
+        var menuEditSelected = validation(pilihEditMenu,'indexSelected','Pilihan tidak tersedia',3) 
+        if(menuEditSelected == 1){
+            var  newName = validation('Masukan Nama baru untuk ' + products[indexSelected].name + ' ...','string','Nama tidak boleh kosong')
+            products[indexSelected].changeName(newName)
+        }else if(menuEditSelected == 2){
+            var newPrice = validation('Masukan Harga baru untuk ' + products[indexSelected].name + '!!!!','number','Harga harus angka')
+            products[indexSelected].changePrice(newPrice)
+        }else if(menuEditSelected == 3){
+            var newStock = validation('Masukan Stock baru untuk ' + products[indexSelected].name + '!!!!','number','Stock harus angka')
+            products[indexSelected].changeStock(newStock)
+        }
+        alert('Update Data Success')
+        alert(showData())
+    }
+
+    function deleteProduct(){
+        var printout = showData() + '\nData Mana yang mau di hapus..' 
+        var indexSelected = validation(printout,'indexSelected','Data Tidak ada',products.length)  -1
+        products.splice(indexSelected)
+        alert('Delete data success')
+        alert(showData())
+    }
+
+    function menuAdmin(){
+        do{
+            var menu = prompt('1. Show Products\n2. Add Product\n3. Edit Product\n4. Delete Product\n5. Exit')
+            if(menu == 1){
+                alert(showData())
+            }else if(menu == 2){
+                addProduct()
+            }else if(menu == 3){
+                editProduct()
+            }else if(menu == 4){
+                deleteProduct()
+            }else if(menu ==5){
+            }else{
+                alert('Salah Input')
+            }
+        }while(menu !=5)
+    }
+
+    
+
+
+    // ================ PROGRAM ===============
+    do{
+        var loginAs = prompt('1. Admin\n2. Pembeli\n3. Exit')
+        if(loginAs == 1){
+            menuAdmin()
+        }else if(loginAs ==2){
+            alert('program belum tersedia')
+        }else if(loginAs == 3){
+            alert('thankyou')
+        }
+    }while(loginAs != 3)
+
+
+
+
+
+
+</script>

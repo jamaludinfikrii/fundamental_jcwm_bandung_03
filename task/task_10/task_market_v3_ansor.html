@@ -1,0 +1,232 @@
+<script>
+    
+    var data = [
+        {
+            product : 'Apel',
+            harga : 10000,
+            stock : 10
+        },
+        {
+            product : 'Anggur',
+            harga : 15000,
+            stock : 20
+        },
+        {
+            product : 'Jeruk',
+            harga : 20000,
+            stock : 30
+        }
+    ]
+
+    function tambahData(){
+        var check = true
+        while(check == true){
+            var productNew = prompt('Masukan nama produk baru yang akan ditambahkan!!')
+            if(!(productNew >= 0)){
+                check = false
+            }else{
+                alert('Inputan tidak boleh kosong dan hanya karakter saja!!')
+            }
+        }
+        checkDataTambah(hargaNew = prompt('Masukan harga dari ' + productNew +  ' yang akan ditambahkan!!'))
+        checkDataTambah(stockNew = prompt('Masukan stock dari ' + productNew +  ' yang akan ditambahkan!!'))
+
+        var objNew = {
+            product : productNew,
+            harga : hargaNew,
+            stock : stockNew
+        }
+        data.push(objNew)
+
+        var out = showData('====== Daftar Produk ======\n\n')
+        alert(out + '\nPRODUK BARU SUDAH BERHASIL DITAMBAHKAN')
+        
+    }
+
+    function checkDataTambah(properti){
+        var check = true
+        while(check == true){
+            properti
+            if(properti >= 0){
+                check = false
+            }else{
+                alert('Inputan tidak boleh kosong dan hanya ANGKA saja!!')
+            }
+        }
+        return properti
+    }
+    
+    function showData(title){
+        var output = title
+        for(i = 0 ; i < data.length ; i++){
+            output += (i+1) + '. ' + data[i].product + ' harga Rp. ' + data[i].harga + ' stoknya sebanyak ' + data[i].stock + '\n'
+        }
+        return output
+    }
+
+    function validasiSelected(out){
+        check = true
+        while(check == true){
+            // validasi jika user tidak memasukan pilihan dan user memilih angka yg tidak ada di pilihan
+            dataUpdate = prompt(out)
+            if(dataUpdate > 0 && dataUpdate <= data.length){ 
+                check = false
+            }else if(dataUpdate == 0){
+                alert('tak bole kosong')
+            }else{
+                alert('Angka pilihan kamu ga ada di daftar tuh!!')
+            }
+        }
+        
+        for(i = 0 ; i < data.length ; i++){
+            print = 'Produk ' + data[dataUpdate-1].product +  ' dengan harga Rp. ' + data[dataUpdate-1].harga + ' dengan sisa stock sebesar ' + data[dataUpdate-1].stock
+        }
+        return print
+    }
+
+    function updateData(){
+        var out = showData('====== Daftar Update Produk ======\n\n')
+        out += '\n Data nomer berapa yang akan kamu update ?'
+
+        var update = validasiSelected(out)
+        update += ' akan kamu Update ???'
+        
+        var check = true
+        if(confirm(update)){
+            while(check == true){
+                input = prompt('Apa yang ingin kamu update ??\n\n1. Nama produk\n2. Harga\n3. Stock\n4. Cancel')
+                if(input == 1 ){
+                    var productUpdate = prompt('Silahkan isi nama produk yang baru!')
+                    data[dataUpdate-1].product = productUpdate
+                    check = false
+                    alert('Nama produk updated successfully!!')
+                }else if(input == 2){
+                    var hargaUpdate = prompt('Silahkan isi harga baru dari produk ' + data[dataUpdate-1].product)
+                    data[dataUpdate-1].harga = hargaUpdate
+                    check = false
+                    alert('Nama produk updated successfully!!')
+                }else if(input == 3){
+                    var stockUpdate = prompt('Silahkan isi stock baru dari produk ' + data[dataUpdate-1].product)
+                    data[dataUpdate-1].stock = stockUpdate
+                    check = false
+                    alert('Nama produk updated successfully!!')
+                }else if(input == 0 || input == 4){
+                    if(confirm('Kamu tidak akan jadi update ?')){
+                        check = false
+                    }else{
+                    }
+                }else{
+                    alert('Inputan kamu salah!!\nHanya Nama, Harga, dan Stock produk yang bisa kamu update')
+                }
+            }
+        }else{
+            alert('Produk ' + data[dataUpdate-1] + ' tidak jadi kamu update!!')
+        }
+    }
+
+    function dataHapus(){
+        var out = showData('===== Daftar Hapus Menu =====\n\n')
+        out += '\n Data nomer berapa yang akan kamu hapus ?'
+        
+        var hapus = validasiSelected(out)
+        hapus += ' akan kamu hapus ???'
+
+        if(confirm(hapus)){
+            data.splice(dataUpdate-1,1)
+            alert('Data deleted successfully!!')
+        }else{
+            alert('Produk ' + data[dataUpdate-1].product + ' tidak jadi kamu hapus!!')
+        }
+    }
+    function pembeli(){
+        var out = showData('==== DAFTAR BELANJA =====\n\n')
+        alert(out)
+
+        var check = true
+        for(i = 0 ; i < data.length ; i++){
+
+            var validation = true
+                while(validation == true){
+                    var qty = prompt('Mau Beli ' + data[i].product + ' Rp. ' + data[i].harga + ' Berapa banyak!!') // 3
+                    if(qty >= 0 && qty <= data[i].stock){
+                        validation = false
+                    }else{
+                        alert('Input Salah Atau quantity melebihi stock (stock tinggal = ' + data[i].stock + ')')
+                    }
+                }
+                data[i].quanty = qty
+        }
+        
+
+        var total = ''
+        var grandTotal = 0
+        for(i = 0 ; i < data.length ; i++){
+            total += i+1 + '. ' + data[i].product + ' Rp. ' + (data[i].quanty * data[i].harga) + '\n'
+            grandTotal += (data[i].quanty * data[i].harga)
+        }
+
+       confirm('### DAFTAR BELANJAAN KAMU ###\n\n' + total + '\nGrand Total Rp. ' + grandTotal)
+
+       var checkUang = true
+        while(checkUang == true){
+            var masukanUang = prompt(' Total belanjaan kamu sebesar Rp: ' + grandTotal)
+            
+            if(masukanUang == grandTotal){
+                alert("Total belanja kamu Rp. " + grandTotal + '\nUang yang di masukan sebesar Rp. ' + 
+                    masukanUang + '\nKembalian kamu sebesar Rp. = ' + (masukanUang - grandTotal))
+                    checkUang = false
+                    alert('TERIMA KASIH SUDAH BERBELANJA!!!!')
+                    
+
+            }else if(masukanUang > grandTotal){
+                alert("Total belanja kamu Rp. " + grandTotal + '\nTotal pembayaran Rp. ' + 
+                    masukanUang + '\n\nAda uang kembalian nih sebesar Rp. = ' + (masukanUang - grandTotal))
+                    checkUang = false
+                    alert('TERIMA KASIH SUDAH BERBELANJA!!!!')
+                    
+            
+            }else if(masukanUang < grandTotal && masukanUang > 0){
+                alert("Total belanja kamu Rp. " + grandTotal + '\nTotal pembayaran Rp. ' + 
+                    masukanUang + '\n\nUang kamu masih kurang sebesar Rp. = ' + Math.abs((masukanUang - grandTotal)))
+            }else{
+                alert('Anda belum memasukan jumlah uang')
+            }
+        }
+
+    }
+
+
+do{
+    admin = prompt('Sipakah kamu :\n1. Admin\n2. Pembeli')
+
+    if(admin == 1){
+        do{
+            var menu = prompt('1. Tambah Product\n2. Edit Product\n3. Hapus Product\n4. Tampilkan Product\n5. Exit')
+            var print = ''
+
+            if(menu == 1){
+                // user pilih nomor 1, masuk ke menu tambah data
+                tambahData()
+            }else if(menu == 2){
+                updateData()
+            }else if(menu == 3){
+                dataHapus()
+            }else if(menu == 4){
+                alert(showData('====== Daftar Produk ======\n\n'))
+            }
+
+        }while(menu != 5)
+
+
+
+    }else if(admin == 2){
+        // jika user pilih pembeli
+        pembeli()
+    }else{
+        alert('oops inputan salah')
+    }
+}while(admin !== '3')
+
+
+    
+    </script>
