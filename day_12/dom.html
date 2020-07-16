@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Belajar DOM</title>
+    </head>
+    <body>
+        <h1 id="h1"> Belajar DOM</h1>
+        <!-- 
+            1. DOM ==> Document Object Model
+            2. HTML ==> load ==> ngebikin object
+            3. object ==> untuk memanipulasi html
+
+            4. DOM ==> Selector => manipulate
+            5. Element ==> dari mulai tag buka - tag tutup
+            6. InnerHTML ==> diantara tag buka dan tag tutup
+            7. Event Listener ==> onClick, onHover, onScroll
+         -->
+         <input id="buttonMinus" type="button" value="-"> </input>
+         <span id="angka">0</span>
+         <input id="buttonPlus" type="button" value="+">
+
+        <script>
+            var angka = document.getElementById('angka')
+            var buttonMinus = document.getElementById('buttonMinus')
+            var buttonPlus = document.getElementById('buttonPlus')
+            var counter = 0
+
+            function Plus(){
+                counter ++
+                angka.innerHTML = counter
+            }
+
+            function Min(){
+                counter --
+                angka.innerHTML = counter
+            }
+
+            buttonMinus.addEventListener('click', Min)
+            buttonPlus.addEventListener('click',Plus)
+            
+
+
+        </script>
+    </body>
+</html>
