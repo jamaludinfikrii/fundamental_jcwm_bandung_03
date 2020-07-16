@@ -1,0 +1,298 @@
+<script>
+
+ // ======== DATA =============
+
+    class Product {
+        constructor(name,price,stock){ // name,price,stock ==> parameter
+            this.name = name;
+            this.price = price;
+            this.stock = stock;
+
+            this.changeName = function(newName){ // function method untuk mengganti nama
+                this.name = newName
+            }
+
+            this.changePrice = function(newPrice){ // function method untuk mengganti harga
+                this.price = newPrice
+            }
+
+            this.changeStock = function(newStock){ // function method untuk mengganti stock
+                this.stock = newStock
+            }
+            this.changeQty = function(newQty){
+                this.quantiti = newQty
+            }
+        }
+
+    }
+
+    var products = [
+        new Product('Apel',20000,10),
+        new Product('Leci',25000,10),
+        new Product('Anggur',50000,10),
+    ]
+
+    var cart = [
+        
+    ]
+
+    // ======== FUNCTIONS ===========
+
+    function showData (typeInput){
+        var out = ''
+        for(var i = 0 ; i < products.length ; i ++){
+            if(typeInput == 'admin'){
+                out += (i+1) + '. ' + products[i].name + ' Rp. ' + products[i].price + " stock = " + products[i].stock +'\n'
+            }else if(typeInput == 'pembeli'){
+                out += (i+1) + '. ' + products[i].name + ' Rp. ' + products[i].price + '\n'
+            }
+        }
+        return out
+    }   
+
+
+    function validation(messagePrompt,typeValidation,errorMessage,optionsCount){ // validation felksibel
+        var validation = true
+        while(validation == true){
+            var input = prompt(messagePrompt)
+            if(typeValidation == 'number'){ // validation jika inputan adalah number ==> tidak boleh string atau kosong
+                if(input > 0){
+                    validation = false
+                }
+            }
+            else if(typeValidation == 'string'){ // validation jika inputan string ==> tidak boleh kosong
+                if(input != ''){
+                    validation = false
+                }
+            }else if(typeValidation == 'indexSelected'){ // validation untuk index selected, jika indeks yg dipilih tidak ada di daftar menu maka akan gagal 
+                if(input > 0 && input <= optionsCount){ // optionsCount ==> parameter jumlah yang ada di daftar menu misal di menu ada 3, berarti 3 atau product.length jika fleksibel menunya
+                    validation = false
+                }
+            }
+            if(validation == true){
+                alert(errorMessage) // ==> parameter error message jika fungsi eror
+            }
+        }
+        return input
+    }
+    
+
+    function addProduct(){
+        var newProduct = validation('Masukan product Baru','string','Product tidak boleh kosong') // jika inputan string
+        //                          // parameter 1       // param2 // param3
+        var newPrice = validation('Masukan Harga untuk ' + newProduct + ' !!!', 'number','Harga Harus Angka')
+        var newStock = validation('Masukan Stock untuk ' + newProduct + ' !!!', 'number','Stock Harus Angka')
+        // var obj = {
+        //     name : newProduct,
+        //     price : newPrice,
+        //     stock : newStock
+        // }
+        
+        var obj = new Product(newProduct,newPrice,newStock)
+
+        products.push(obj)
+        alert('Add new product Succeess') 
+        alert(showData('admin'))
+    }
+
+    function editProduct(){
+        var printout = showData('admin')
+        printout += '\nPilih data yang mau di edit'
+        var indexSelected = validation(printout,'indexSelected','Data Tidak ada',products.length) - 1
+
+
+        var pilihEditMenu = '1. Edit Nama\n2. Edit Harga\n3. Edit Stock\n\nPilih Menu ....'
+        var menuEditSelected = validation(pilihEditMenu,'indexSelected','Pilihan tidak tersedia',3) 
+        if(menuEditSelected == 1){
+            var  newName = validation('Masukan Nama baru untuk ' + products[indexSelected].name + ' ...','string','Nama tidak boleh kosong') // validation 
+            products[indexSelected].changeName(newName) // mengganti nama pake method class
+        }else if(menuEditSelected == 2){
+            var newPrice = validation('Masukan Harga baru untuk ' + products[indexSelected].name + '!!!!','number','Harga harus angka')
+            products[indexSelected].changePrice(newPrice) // mengganti harga pake method class
+        }else if(menuEditSelected == 3){
+            var newStock = validation('Masukan Stock baru untuk ' + products[indexSelected].name + '!!!!','number','Stock harus angka')
+            products[indexSelected].changeStock(newStock) // mengganti stock pake method class
+        }
+        alert('Update Data Success')
+        alert(showData('admin'))
+    }
+
+    function deleteProduct(){
+        var printout = showData('admin') + '\nData Mana yang mau di hapus..' 
+        var indexSelected = validation(printout,'indexSelected','Data Tidak ada',products.length)  -1
+        products.splice(indexSelected,1)
+        alert('Delete data success')
+        alert(showData('admin'))
+    }
+
+    function menuAdmin(){
+        do{
+            var menu = prompt('1. Show Products\n2. Add Product\n3. Edit Product\n4. Delete Product\n5. Exit')
+            if(menu == 1){
+                alert(showData('admin'))
+            }else if(menu == 2){
+                addProduct()
+            }else if(menu == 3){
+                editProduct()
+            }else if(menu == 4){
+                deleteProduct()
+            }else if(menu ==5){
+            }else{
+                alert('Salah Input')
+            }
+        }while(menu !=5)
+    }
+    function addToCart(){
+
+        var out = '===== PRODUCT LIST =====\n\n' + showData('pembeli') 
+        out += '\nMasukan produk yang akan dibeli!!'
+
+        var inputCart = validation(out, 'indexSelected', 'Produk yang anda masukan belum tersedia', products.length) - 1
+
+        var check = true
+        while(check === true){
+            var qty = prompt('Mau beli ' + products[inputCart].name + ' berapa banyak ??')
+            if(qty >= 0 && qty <= products[inputCart].stock ){
+                check = false
+            }else{
+                alert('Maaf stock ' + products[inputCart].name + ' hanya tersisa sebanyak ' + products[inputCart].stock)
+            }
+        }
+
+        var objNew = {
+            name: products[inputCart].name,
+            price: products[inputCart].price,
+            quantiti: qty
+        }
+
+        cart.push(objNew)
+
+        var output = 'Kamu menambahkan ' + products[inputCart].name + " sebanyak " + qty + ' buah kedalam keranjang!'
+        alert(output)
+    }
+    function showCart(title){
+        var output = title
+        for(var i = 0 ; i < cart.length ; i++){
+            output += i+1 + '. ' + cart[i].name + ' harga Rp. ' + cart[i].price + ' sebanyak ' + cart[i].quantiti + ' = Rp. ' + (cart[i].quantiti * cart[i].price) + '\n'
+        }
+        return output
+    }
+    function updateQty(){
+        var out = showCart('======= DAFTAR KERANJANG =======\n')  
+        out += '\n\nProduk mana yang ingin kamu tambah qty nya ???'
+
+        var qtySelected = validation(out,'number','Produk yang ingin kamu update ga ada di keranjang',cart.length) - 1
+        var check = true
+            while(check === true){
+                var newQty = validation('Masukan qty baru untuk ' + cart[qtySelected].name + '!!!!','number','Qty harus angka')
+                if(newQty >= 0 && newQty <= products[qtySelected].stock ){
+                    check = false
+                }else{
+                    alert('Maaf stock ' + cart[qtySelected].name + ' hanya tersisa sebanyak ' + products[qtySelected].stock)
+                }
+            }
+        cart[qtySelected].quantiti = newQty
+
+        alert('Update jumlah pembelian ' + cart[qtySelected].name + ' success!!')
+    }
+    function deleteCart(){
+        var out = showCart('======= DAFTAR KERANJANG =======\n')
+        out += '\nProduk mana yang ingin kamu hapus di keranjang ?'
+
+        var hapusCart = validation(out,'indexSelected','Produk yang ingin kamu hapus ga ada di keranjang',cart.length) - 1
+        cart.splice(hapusCart,1)
+
+        alert('Delete succes!!')
+    }
+
+    function pay(){
+
+        var grandTotal = 0
+        var print = showCart('======= DAFTAR KERANJANG =======\n')
+
+        for(var i = 0 ; i < cart.length ; i++){
+            grandTotal += cart[i].quantiti * cart[i].price
+        }
+        alert(print + '\n\nTotal belanjaan kamu sebesar ' + grandTotal)
+
+        var checkUang = true
+        while(checkUang == true){
+            var masukanUang = prompt(' Masukan uang kamu sebesar Rp: ' + grandTotal)
+            
+            if(masukanUang == grandTotal){
+                alert("Total belanja kamu Rp. " + grandTotal + '\nUang yang di masukan sebesar Rp. ' + 
+                    masukanUang + '\nKembalian kamu sebesar Rp. = ' + (masukanUang - grandTotal))
+                    checkUang = false
+                    alert('TERIMA KASIH SUDAH BERBELANJA!!!!')
+                    
+
+            }else if(masukanUang > grandTotal){
+                alert("Total belanja kamu Rp. " + grandTotal + '\nTotal pembayaran Rp. ' + 
+                    masukanUang + '\n\nAda uang kembalian nih sebesar Rp. = ' + (masukanUang - grandTotal))
+                    checkUang = false
+                    alert('TERIMA KASIH SUDAH BERBELANJA!!!!')
+                    
+            
+            }else if(masukanUang < grandTotal && masukanUang > 0){
+                alert("Total belanja kamu Rp. " + grandTotal + '\nTotal pembayaran Rp. ' + 
+                    masukanUang + '\n\nUang kamu masih kurang sebesar Rp. = ' + Math.abs((masukanUang - grandTotal)))
+            }else{
+                alert('Anda belum memasukan jumlah uang')
+            }
+        }
+
+    }
+
+    function menuPembeli(){
+        do{
+            var menu = prompt('1. Show Cart\n2. Add Cart\n3. Edit Qty in Cart\n4. Delete Product in Cart\n5. Pay\n6. Exit')
+            if(menu == 1){
+                alert(showCart('======= DAFTAR KERANJANG =======\n'))
+            }else if(menu == 2){
+                addToCart()
+            }else if(menu == 3){
+                updateQty()
+            }else if(menu == 4){
+                deleteCart()
+            }else if(menu == 5){
+                pay()
+            }else if(menu == 6){
+            }else{
+                alert('Salah Input')
+            }
+        }while(menu !=6)
+    }
+
+    
+
+
+    // ================ PROGRAM ===============
+    
+    do{
+        var loginAs = prompt('1. Admin\n2. Pembeli\n3. Exit')
+        if(loginAs == 1){
+            menuAdmin()
+        }else if(loginAs ==2){
+            menuPembeli()
+        }else if(loginAs == 3){
+            alert('thankyou')
+        }
+    }while(loginAs != 3)
+
+
+
+    
+    
+    
+    
+    
+    
+
+   
+
+
+
+
+
+
+</script>

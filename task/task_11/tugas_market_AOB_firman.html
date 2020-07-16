@@ -1,0 +1,83 @@
+<script>
+    //=================================Master Data=======================================
+
+    var dataProduct = [{
+            produk: 'Apple',
+            Harga: '2500',
+            stock: '2'
+        }, {
+            produk: 'Anggur',
+            Harga: '4000',
+            stock: '5'
+        }, {
+            produk: 'Jagung',
+            Harga: '3000',
+            stock: '3'
+        }]
+        //=============================End of Data=============================================
+
+    //=============================ALL FUNCTION===========================================
+    function Showdata() {
+        var out = ''
+
+
+        for (var i = 0; i < dataProduct.length; i++) {
+            out += (i + 1) + '. ' + dataProduct[i].produk + ' Harga Rp ' + dataProduct[i].Harga + ' Stock ' + dataProduct[i].stock + '\n'
+        }
+        alert(out)
+        return out
+
+    }
+
+    function addData() {
+        var newProduk = prompt('Masukan Produk yang akan anda tambah')
+        var newHarga = prompt('Masukan Harga yang akan anda tambah')
+        var newStock = prompt('Masukan Stock yang akan anda tambah')
+
+        var obj = {
+            produk: newProduk,
+            Harga: newHarga,
+            stock: newStock
+        }
+        dataProduct.push(obj)
+        alert(Showdata())
+    }
+
+    function getIndexSelected(title, question) {
+        var out = title
+        out += Showdata()
+        out += question
+        var indexSelected = prompt(out) - 1
+        return indexSelected
+    }
+
+    function deleteData() {
+        var indexSelected = getIndexSelected('========Delete Data Menu========\n', '\nMasukan Menu yang akan anda hapus')
+        dataProduct.splice(indexSelected, 1)
+        alert('data berhasil dihapus')
+    }
+
+    function updateData() {
+        var indexSelected = getIndexSelected('============Update Data Menu======\n', '\nproduk no berapa yang akan anda update')
+        var newProduk = prompt('Masukan nama produk yang terupdate')
+        dataProduct[indexSelected].produk = newProduk
+    }
+
+    //=============================================End of function===========================================================
+
+
+    //=============================================Main Program=======================================================
+    do {
+        menu = prompt('Menu Pilihan\n 1. Tampilkan data\n 2.Tambah data\n 3.Hapus data\n 4.Update data\n 5.Exit')
+        if (menu == 1) {
+            Showdata()
+        } else if (menu == 2) {
+            addData()
+        } else if (menu == 3) {
+            deleteData()
+        } else if (menu == 4) {
+            updateData()
+        }
+    } while (menu !== '5')
+    //==========================================End Program==========================================================
+</script>

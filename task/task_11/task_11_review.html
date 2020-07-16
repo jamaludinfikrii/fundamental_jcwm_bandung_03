@@ -23,6 +23,18 @@
         }
     }
 
+    class Cart extends Product{
+        constructor(name,price,quantity){
+            super(name,price)
+            this.quantity = quantity
+
+            this.changeQty = function (newQty){
+                this.quantity = newQty
+            }
+            
+        }
+    }
+
     var products = [
         new Product('Apel',20000,10),
         new Product('Leci',25000,101),
@@ -30,11 +42,10 @@
     ]
 
     var cart = [
-
     ]
 
 
-    // ======== FUNCTIONS ===========
+    // ======== FUNCTIONS FOR ADMIN  ===========
 
     function showData (){
         var out = ''
@@ -137,6 +148,122 @@
         }while(menu !=5)
     }
 
+
+
+    // =============== FUNCTION FOR CUSTOMERS =================
+    function showCart(){
+        var out = ''
+        for(var i =0 ; i < cart.length ; i ++){
+            out += (i+1) + '. '+ cart[i].name + ' Rp. ' + cart[i].price + ' x ' + cart[i].quantity + ' = ' + (cart[i].quantity * cart[i].price) + '\n'
+        }
+
+        return out
+    }
+
+    function addProductToCart (){
+        var out = showData()
+
+        var indexSelected = validation(out + '\nPILIH PRODUCT','indexSelected','Product tidak tersedia',products.length) -1
+        var productSelected = products[indexSelected]
+        // var validation = false
+        // while(validation == false){
+        //     var indexSelected = prompt(out + '\nPILIH PRODUCT!!')
+        //     if(indexSelected > 0 && indexSelected <= products.length){
+        //         validation = true
+        //     }else{
+        //         alert('Pilihan tidak tersedia')
+        //     }
+        // }
+
+        var qty = validation('Mau beli ' + productSelected.name + ' berapa banyak??','indexSelected','Stock tidak mencukupi, stock tinggal ' + productSelected.stock,productSelected.stock)
+        cart.push(new Cart(productSelected.name,productSelected.price,qty))
+        alert('Add to cart success!!')
+    }
+
+    function editQty (){
+        var out = showCart()
+        var indexSelected = validation(out + '\nPILIH PRODUCT','indexSelected','Product tidak tersedia',cart.length) -1
+        var cartSelected = cart[indexSelected]
+        var stocksCartSelected = 0
+        for(var i = 0 ; i < products.length ; i ++){
+            if(cartSelected.name == products[i].name){
+                stocksCartSelected = products[i].stock
+            }
+        }
+
+        var newQty = validation('Masukan qty baru untuk ' + cartSelected.name,'indexSelected','Stock tidak tersedia, stock tinggal ' + stocksCartSelected, stocksCartSelected)
+        cartSelected.changeQty(newQty)
+        alert('Berhasil update qty!!')
+    }
+
+    var deleteCart = function(){
+        var out = showCart()
+        var indexSelected = validation(out + '\nPILIH PRODUCT','indexSelected','Data Tidak tersedia',cart.length) -1
+        var cartSelected = cart[indexSelected]
+        var confirmationDelete = confirm('Apakah anda ingin menghapus ' + cartSelected.name + ' dari keranjang??')
+        if(confirmationDelete ===true){
+            cart.splice(indexSelected,1)
+            alert('Delete cart success')
+        }
+    }
+    
+    var totalBelanja = function(){
+        var total = 0
+        for(var i = 0 ; i < cart.length ; i ++){
+            total += (cart[i].quantity * cart[i].price)
+        }
+        return total
+    }
+
+    var checkout = function(){
+        var out = '========= DAFTAR BELANJA =========\n'
+        out += showCart()
+        out += '\nTotal Belanja = ' + totalBelanja()
+
+        do{
+            var bayar = validation(out,'number','harus masukan angka')
+            var kembalian = bayar - totalBelanja()
+            if(bayar < totalBelanja()){
+                alert('Uang anda Kurang !!' + ' Rp . ' + Math.abs(kembalian))
+            }
+        }while(bayar < totalBelanja())
+
+        for(var i = 0 ; i < cart.length ; i ++){
+            for(var j = 0 ; j < products.length ; j ++){
+                if(cart[i].name == products[j].name){
+                    var newStock = products[j].stock - cart[i].quantity
+                    products[j].changeStock(newStock)
+                }
+            }
+        }
+
+        cart = []
+
+        alert('Transaksi Berhasil , kembalian = Rp. ' + kembalian)
+    }
+
+
+    function menuUser (){
+        do{
+            var menu = prompt('1. Show cart\n2. Add product to cart\n3. Update qty cart\n4.Delete Product from cart\n5. Checkout\n6. Exit')
+            if(menu == 1){
+                alert(showCart())
+            }else if(menu == 2){
+                addProductToCart()
+            }else if(menu == 3){
+                editQty()
+            }else if(menu == 4){
+                deleteCart()
+            }else if(menu == 5){
+                checkout()
+            }else if(menu == 6){
+            }else{
+                alert('Salah Input')
+            }
+
+        }while(menu != 6)
+    }
+
     
 
 
@@ -146,7 +273,7 @@
         if(loginAs == 1){
             menuAdmin()
         }else if(loginAs ==2){
-            alert('program belum tersedia')
+            menuUser()
         }else if(loginAs == 3){
             alert('thankyou')
         }
