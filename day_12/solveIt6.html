@@ -1,0 +1,30 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <p>Masukan Angka!!!</p>
+        <input type="text"  id="angka">
+        <br>
+        <br>
+        <input type="button" value="kuadratkan" id="kuadratkan">
+        <h1 id="hasil"></h1>
+
+        <script>
+            // select value dari inputan
+           
+
+            var button = document.getElementById('kuadratkan')
+
+            function onClickButton (){
+                var angka = document.getElementById('angka').value
+                angka = angka * angka
+                var hasil = document.getElementById('hasil').innerHTML = 'Hasik kuadratnya adalah ' + angka
+            }
+
+            button.addEventListener('click',onClickButton)
+
+            
+        </script>
+    </body>
+</html>
