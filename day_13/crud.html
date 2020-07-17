@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>CRUD Array of Object With DOM</title>
+    </head>
+    <style>
+        table,tr,td{
+            border: 1px solid black;
+            padding: 10px;
+            border-collapse: collapse;
+        }
+    </style>
+    <body>
+        <center>
+            <h1>Data Kucing</h1>
+            <table id="table">
+                <tr>
+                    <td>Nama</td>
+                    <td>Warna Bulu</td>
+                    <td>Berat</td>
+                    <td>Umur</td>
+                    <td>Jenis</td>
+                    <td>Foto</td>
+                </tr>
+                
+               
+            </table>
+
+            <h1>List Nama Kucing</h1>
+            <span id="nama_kucing"></span>
+        </center>
+    </body>
+    <script>
+
+        // =========================== DATA ==================
+        class Kucing{
+            constructor(nama,bulu,berat,umur,jenis,foto){
+                this.nama = nama
+                this.warnaBulu = bulu
+                this.berat = berat
+                this.umur = umur
+                this.jenis = jenis
+                this.foto = foto
+            }
+        }
+
+        var data = [
+            new Kucing('Ujang','hitam',2,2,'kampung','https://kucingpedia.com/wp-content/uploads/2018/01/Gambar-Kucing-Hitam-Menjulurkan-Lidahnya.jpg'),
+            new Kucing('Caca','Pink',3,2,'kampung','https://cdn2.tstatic.net/aceh/foto/bank/images/kucing-warna-pink_20150915_173502.jpg'),
+        ]
+
+
+        function showData(){
+            var out = ''
+            for(var i = 0 ; i < data.length ; i ++){
+                out += '<tr> <td>' + data[i].nama +'</td> <td>' + data[i].warnaBulu +'</td>  <td>' + data[i].berat +'</td>  <td>' + data[i].umur +'</td>  <td>' + data[i].jenis +'</td>   <td><img width="50px" src="'+ data[i].foto +'"></td>   </tr>'
+            }
+    
+            var table = document.getElementById('table')
+    
+            table.innerHTML += out
+        }
+
+        showData()
+
+
+        var out = ''
+        for(var i = 0 ; i < data.length ; i++){
+            out += '<h3>' + data[i].nama + '</h3>'
+        }
+
+        var namaKucingEl = document.getElementById('nama_kucing')
+        namaKucingEl.innerHTML = out
+
+    </script>
+</html>
