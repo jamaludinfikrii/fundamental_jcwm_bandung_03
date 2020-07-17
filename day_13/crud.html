@@ -25,8 +25,16 @@
                
             </table>
 
-            <h1>List Nama Kucing</h1>
-            <span id="nama_kucing"></span>
+            <br><br>
+            <span>Nama Kucing : </span> <input type="text" class="input-kucing-data"> <br>
+            <span>Warna Bulu : </span> <input type="text" class="input-kucing-data"> <br>
+            <span>Berat : </span> <input type="text" class="input-kucing-data"><br>
+            <span>Umur : </span> <input type="text" class="input-kucing-data"><br>
+            <span>Jenis : </span> <input type="text" class="input-kucing-data"><br>
+            <span>Foto : </span> <input type="text" class="input-kucing-data"><br>
+            <input onclick="addData()" type="button" value="submit">
+            <!-- <h1>List Nama Kucing</h1>
+            <span id="nama_kucing"></span> -->
         </center>
     </body>
     <script>
@@ -50,26 +58,49 @@
 
 
         function showData(){
-            var out = ''
+            var out = `<tr>
+                        <td>Nama</td>
+                        <td>Warna Bulu</td>
+                        <td>Berat</td>
+                        <td>Umur</td>
+                        <td>Jenis</td>
+                        <td>Foto</td>
+                    </tr>`
             for(var i = 0 ; i < data.length ; i ++){
                 out += '<tr> <td>' + data[i].nama +'</td> <td>' + data[i].warnaBulu +'</td>  <td>' + data[i].berat +'</td>  <td>' + data[i].umur +'</td>  <td>' + data[i].jenis +'</td>   <td><img width="50px" src="'+ data[i].foto +'"></td>   </tr>'
             }
     
             var table = document.getElementById('table')
     
-            table.innerHTML += out
+            table.innerHTML = out
         }
+
+        function addData(){
+            var inputs = document.getElementsByClassName('input-kucing-data')
+            var namaKucing = inputs[0].value
+            var warnaBulu = inputs[1].value
+            var berat = inputs[2].value
+            var umur = inputs[3].value
+            var jenis = inputs[4].value
+            var foto = inputs[5].value
+
+            var obj = new Kucing(namaKucing,warnaBulu,berat,umur,jenis,foto)
+            data.push(obj)
+            showData()
+        }
+
+
 
         showData()
 
 
-        var out = ''
-        for(var i = 0 ; i < data.length ; i++){
-            out += '<h3>' + data[i].nama + '</h3>'
-        }
+        // var out = ''
+        // for(var i = 0 ; i < data.length ; i++){
+        //     out += '<h3>' + data[i].nama + '</h3>'
+        // }
 
-        var namaKucingEl = document.getElementById('nama_kucing')
-        namaKucingEl.innerHTML = out
+        // var namaKucingEl = document.getElementById('nama_kucing')
+        // namaKucingEl.innerHTML = out
 
     </script>
 </html>
