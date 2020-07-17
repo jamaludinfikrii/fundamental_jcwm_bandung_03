@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Solveit 6</title>
+    </head>
+    <body>
+        <h3>Masukan Angka</h3>
+        <input type="text" id="angka">
+        <br>
+        <input type="button" value="kuadratkan" id="kuadratkan" >
+        <h2 id="hasil"></h2>
+
+        <script>
+
+            var button = document.getElementById('kuadratkan')
+
+            function onClickButton(){
+                var angka = document.getElementById('angka').value // buat dapetin isi dari inputan user ==> .value
+                angka = angka * angka
+                var hasil = document.getElementById('hasil').innerHTML = 'Hasil kuadratnya adalah ' + angka
+            }
+
+            button.addEventListener('click', onClickButton)
+
+
+
+
+
+
+        </script>
+    </body>
+</html>

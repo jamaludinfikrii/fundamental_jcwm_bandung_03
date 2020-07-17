@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <body>
+            <p1> Ketik kalimat : </p1>
+            <input type="text" name="kalimat" id="kalimat">
+            <br><br>
+            <p2>Karakter yang dicari :</p2>
+            <input type="text" name="karakter" id="karakter">
+            <br><br>
+            
+            <input type="button" value="cari!!" id="cari">
+            :
+            <h3 id="result">result</h3>
+        
+
+
+            <script>
+                var button = document.getElementById('cari')
+                function OnClickButton (){
+                    var kalimat = document.getElementById ('kalimat').value
+                    var karakter = document.getElementById ('karakter').value
+                    var rumus = 0
+                    for (var i=0; i<kalimat.length; i++){
+                    
+                        if(karakter == kalimat[i]){
+                            rumus++}
+                    }
+                    var result = document.getElementById ('result').innerHTML = ' jumlah huruf ' + karakter + ' adalah ' + rumus
+           
+            }
+            button.addEventListener('click', OnClickButton)
+
+
+            </script>
+        </body>
+    </head>
+</html>

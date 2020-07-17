@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Solve it 7</title>
+    </head>
+    <body>
+        <p>Masukan angka 1 
+           <input type="text" id="angka1"> 
+        </p>
+        <p>Masukan angka 2
+            <input type="text" id="angka2">
+        </p>
+        <input type="button" value="Pangkatkan" id="button">
+
+        <h3 id="hasil"></h3>
+
+        <script>
+            var button = document.getElementById('button')
+
+            function onClickButton(){
+                var angka1 = document.getElementById('angka1').value
+                var angka2 = document.getElementById('angka2').value
+                var hasil = Math.pow(angka1,angka2)
+
+                var output = document.getElementById('hasil').innerHTML = 'Hasil = ' + hasil
+            }
+
+            button.addEventListener('click', onClickButton)
+
+
+        </script>
+    </body>
+</html>

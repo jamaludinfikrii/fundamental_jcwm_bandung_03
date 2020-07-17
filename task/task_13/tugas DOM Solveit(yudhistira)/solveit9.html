@@ -1,0 +1,121 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <p>Masukan Angka pertama</p>
+    <input type="text" id="angka_1">
+    <br>
+    <p>Masukan Angka kedua</p>
+    <input type="text" id="angka_2">
+    <br>
+    <br>
+    <input type="button" value="Kali X" id="kali">
+    <input type="button" value="Bagi :" id="bagi">
+    <input type="button" value="Tambah +" id="tambah">
+    <input type="button" value="Kurang -" id="kurang">
+    <br>
+    <input type="button" value="Modulus %" id="modulus">
+    <input type="button" value="Pangkat ^" id="pangkat">
+    <h1 id="hasil"></h1>
+    <script>
+        var button = document.getElementById("kali")
+
+        function onClickButton_kali() {
+            var angka_1 = document.getElementById('angka_1').value
+            var angka_2 = document.getElementById('angka_2').value
+
+            var kali = angka_1 * angka_2
+
+            var hasil = document.getElementById('hasil').innerHTML = 'Hasil Kali adalah ' + kali
+        }
+        button.addEventListener('click', onClickButton_kali)
+
+        var button = document.getElementById("bagi")
+
+        function onClickButton_bagi() {
+            var angka_1 = document.getElementById('angka_1').value
+            var angka_2 = document.getElementById('angka_2').value
+
+            var bagi = (angka_1 / angka_2)
+
+            var hasil = document.getElementById('hasil').innerHTML = 'Hasil Bagi adalah ' + bagi
+        }
+        button.addEventListener('click', onClickButton_bagi)
+
+        var button = document.getElementById("tambah")
+
+        function onClickButton_tambah() {
+            var angka_1 = document.getElementById("angka_1").value
+            angka_1 = parseInt(angka_1);
+            var angka_2 = document.getElementById("angka_2").value
+            angka_2 = parseInt(angka_2);
+
+            var tambah = (angka_1 + angka_2)
+
+            var hasil = document.getElementById('hasil').innerHTML = 'Hasil Tambah adalah ' + tambah
+        }
+        button.addEventListener('click', onClickButton_tambah)
+
+        var button = document.getElementById("kurang")
+
+        function onClickButton_kurang() {
+            var angka_1 = document.getElementById('angka_1').value
+            var angka_2 = document.getElementById('angka_2').value
+
+            var kurang = (angka_1 - angka_2)
+
+            var hasil = document.getElementById('hasil').innerHTML = 'Hasil Kurang adalah ' + kurang
+        }
+        button.addEventListener('click', onClickButton_kurang)
+
+        var button = document.getElementById("modulus")
+
+        function onClickButton_modulus() {
+            var angka_1 = document.getElementById("angka_1").value
+            angka_1 = parseInt(angka_1);
+            var angka_2 = document.getElementById("angka_2").value
+            angka_2 = parseInt(angka_2);
+
+            var modulus = (angka_1 % angka_2)
+
+            var hasil = document.getElementById('hasil').innerHTML = 'Hasil Modulus adalah ' + modulus
+        }
+        button.addEventListener('click', onClickButton_modulus)
+
+        var button = document.getElementById("pangkat")
+
+        function onClickButton_pangkat() {
+            var angka_1 = document.getElementById("angka_1").value
+            angka_1 = parseInt(angka_1);
+            var angka_2 = document.getElementById("angka_2").value
+            angka_2 = parseInt(angka_2);
+
+            var pangkat = Math.pow(angka_1, angka_2)
+
+            var hasil = document.getElementById('hasil').innerHTML = 'Hasil Pangkat adalah ' + pangkat
+        }
+        button.addEventListener('click', onClickButton_pangkat)
+    </script>
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <title> </title>
+    <style>
+        body {
+            text-align: center;
+            color: cornsilk;
+            background-color: deeppink;
+        }
+    </style>
+</head>
+
+
+
+
+<body>
+    <h1>Aplikasi Pencarian Kata</h1>
+    <br>
+
+    <p>Ketik Kalimat :</p>
+    <input id='str' type="text">
+
+    <br>
+    <p>Karakter yang dicari</p>
+    <input id='word' type="text">
+
+    <br>
+    <input id='button' value='cari' type="button">
+    <br>
+    <i><p id='Jumlah'></p></i>
+    <script>
+        var button = document.getElementById('button')
+
+
+        function cariKata() {
+            var string = document.getElementById('str').value
+            var word = document.getElementById('word').value
+            var count = 0
+            for (var i = 0; i < string.length; i++) {
+                if (string[i] == word) {
+                    count++
+                }
+            }
+            var jumlah = document.getElementById('Jumlah').innerHTML = 'Jumlah ' + "'" + word + "'" + ' sebanyak ' + count + ' buah'
+        }
+        button.addEventListener('click', cariKata)
+    </script>
+
+
+
+
+
+</body>
+
+</html>

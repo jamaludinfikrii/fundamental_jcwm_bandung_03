@@ -1,0 +1,75 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <form name=" quiz" method="post" name="buttons" id="quiz" onsubmit="return false">
+
+        <li>
+            1. <div class="question">Siapakah Presiden ketiga Republik Indonesia</div>
+        </li>
+        <input id="answer" type="radio" name="group1" value="correct"> Prof.B.J.Habibie<br>
+        <input id="answer" type="radio" name="group1" value="wrong"> Abdurrahman Wahid<br>
+        <input id="answer" type="radio" name="group1" value="wrong"> Ir.Soekarno<br>
+        <input id="answer" type="radio" name="group1" value="wrong"> Joko Widodo
+        <hr>
+
+        <li>
+            2. <div class="question">Berikut adalah nama-nama bahasa pemrograman,Kecuali</div>
+        </li>
+        <input id="answer" type="radio" name="group2" value="wrong">Python<br>
+        <input id="answer" type="radio" name="group2" value="correct">Micro:bit<br>
+        <input id="answer" type="radio" name="group2" value="wrong">Javascript<br>
+        <input id="answer" type="radio" name="group1" value="wrong"> HTML
+        <hr>
+
+        <li>
+            3. <div class="question">Siapakah tokoh dibalik topeng Batman?</div>
+        </li>
+        <input id="answer" type="radio" name="group3" value="wrong">Natasha Romanov<br>
+        <input id="answer" type="radio" name="group3" value="wrong"> Peter Parker<br>
+        <input id="answer" type="radio" name="group3" value="wrong">Tony Stark<br>
+        <input id="answer" type="radio" name="group1" value="correct"> Bruce Wayne
+        <hr>
+
+        <button class="submit" onclick="return handleClick();" type="submit">Submit</button>
+
+
+        <script>
+            function handleClick() {
+
+                var amountCorrect = 0;
+                for (var i = 1; i <= 45; i++) {
+                    var radios = document.getElementsByName("group" + i);
+                    for (var j = 0; j < radios.length; j++) {
+                        var radio = radios[j];
+                        if (radio.value === "correct" && radio.checked) {
+                            amountCorrect++;
+                        }
+                    }
+                }
+                alert("Jumlah Jawaban yang benar adalah : " + amountCorrect)
+            }
+        </script>
+    </form>
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+</html>

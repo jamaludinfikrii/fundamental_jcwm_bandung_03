@@ -1,0 +1,53 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <p>Masukan Angka pertama</p>
+    <input type="text" id="angka_1">
+    <br>
+    <p>Masukan Angka kedua</p>
+    <input type="text" id="angka_2">
+    <br>
+    <br>
+    <input type="button" value="Pangkatkan" id="pangkatkan">
+    <h1 id="hasil"></h1>
+
+    <script>
+        var button = document.getElementById("pangkatkan")
+
+        function onClickButton() {
+            var angka_1 = document.getElementById('angka_1').value
+            var angka_2 = document.getElementById('angka_2').value
+
+            var pangkat = Math.pow(angka_1, angka_2)
+
+            var hasil = document.getElementById('hasil').innerHTML = 'Hasil Pangkatnya adalah ' + pangkat
+
+
+        }
+
+        button.addEventListener('click', onClickButton)
+    </script>
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,55 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <p>Ketik Kalimat</p>
+    <input type="text" id="kalimat">
+    <br>
+    <p>Karakter yang dicari</p>
+    <input type="text" id="karakter_d">
+    <br>
+    <br>
+    <input type="button" value="Pangkatkan" id="pangkatkan">
+    <h1 id="hasil"></h1>
+
+    <script>
+        var button = document.getElementById("pangkatkan")
+
+        function onClickButton() {
+            var kalimat = document.getElementById('kalimat').value
+            var karakter_d = document.getElementById('karakter_d').value
+
+            var cari_karakter = (kalimat.split(karakter_d).length - 1);
+
+
+            var hasil = document.getElementById('hasil').innerHTML = 'Hasil karakter adalah ' + cari_karakter
+
+
+        }
+
+        button.addEventListener('click', onClickButton)
+    </script>
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

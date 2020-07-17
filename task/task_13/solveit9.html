@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title>Solve It 9</title>
+        <body>
+            <center>
+                <h1>Kalkulator Sederhana</h1>
+            
+                <h2>Masukan Angka 1 :</h2>
+                <input type="text" name="angka" id="angka1">
+                <br>
+                <h2>Masukan Angka 2 :</h2>
+                <input type="text" name="angka" id="angka2"><br>
+                <br>
+            
+                <input type="button" value="Kali x" id="kali">
+                <input type="button" value="Bagi :" id="bagi">
+                <input type="button" value="Tambah +" id="tambah">
+                <input type="button" value="Kurang - " id="kurang"><br><br>
+                <input type="button" value="Modulus %" id="modulus">
+                <input type="button" value="Pangkat ^" id="pangkat">
+                <h3 id="hasil" ></h3>
+            </center>
+            
+         
+
+            <script>
+               var buttonKali = document.getElementById('kali')
+               var buttonBagi = document.getElementById('bagi')
+               var buttonTambah = document.getElementById('tambah')
+               var buttonKurang = document.getElementById('kurang')
+               var buttonMod = document.getElementById('modulus')
+               var buttonPangkat = document.getElementById('pangkat')
+
+               function clickButtonKali (){
+                   var angka1 = document.getElementById('angka1').value
+                   var angka2 = document.getElementById('angka2').value
+                   var hasil = angka1 * angka2
+
+                   var print = document.getElementById('hasil').innerHTML = 'Hasil dari ' + angka1 + ' x ' + angka2 + ' = ' + hasil
+
+                   return print
+               }
+
+               function clickButtonBagi(){
+                   var angka1 = document.getElementById ('angka1').value
+                   var angka2 = document.getElementById ('angka2').value
+                   var hasil = angka1 / angka2
+                   var print = document.getElementById('hasil').innerHTML = 'Hasil dari ' + angka1 + ' : ' + angka2 + ' = ' + hasil
+                   return print
+               }
+               
+               function clickButtonTambah (){
+                    var angka1 = document.getElementById ('angka1').value
+                   var angka2 = document.getElementById ('angka2').value
+                   var angka1 = parseInt (angka1)
+                   var angka2 = parseInt (angka2)
+                   var hasil = angka1 + angka2
+                   var print = document.getElementById('hasil').innerHTML = 'Hasil dari ' + angka1 + ' + ' + angka2 + ' = ' + hasil
+                   return print
+
+               }
+
+               function clickButtonKurang (){
+                var angka1 = document.getElementById ('angka1').value
+                   var angka2 = document.getElementById ('angka2').value
+                   var hasil = angka1 - angka2
+                   var print = document.getElementById('hasil').innerHTML = 'Hasil dari ' + angka1 + ' - ' + angka2 + ' = ' + hasil
+                   return print
+               }
+               
+                function clickButtonMod () {
+                    var angka1 = document.getElementById ('angka1').value
+                   var angka2 = document.getElementById ('angka2').value
+                   var hasil = angka1 % angka2
+                   var print = document.getElementById('hasil').innerHTML = 'Hasil dari ' + angka1 + ' % ' + angka2 + ' = ' + hasil
+                   return print
+                }
+
+                function clickButtonPangkat (){
+                    var angka1 = document.getElementById ('angka1').value
+                   var angka2 = document.getElementById ('angka2').value
+                   var hasil = Math.pow(angka1,angka2)
+                   var print = document.getElementById('hasil').innerHTML = 'Hasil dari ' + angka1 +  '<sup>' + angka2 + '</sup>' + ' = ' + hasil
+                   return print
+                }
+    
+                
+            
+                buttonKali.addEventListener('click', clickButtonKali)
+                buttonBagi.addEventListener('click', clickButtonBagi)
+                buttonTambah.addEventListener('click' , clickButtonTambah)
+                buttonKurang.addEventListener('click', clickButtonKurang)
+                buttonMod.addEventListener('click', clickButtonMod)
+                buttonPangkat.addEventListener('click', clickButtonPangkat)
+
+
+            </script>
+        </body>
+    </head>
+</html>

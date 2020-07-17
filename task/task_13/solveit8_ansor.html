@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Solve it 8</title>
+    </head>
+    <body>
+        <p>Ketik Kalimat :</p>
+        <input type="text" id="str1">
+        <p>Karakter yang dicari :</p>
+        <input type="text"  id="str2">
+        <input type="button" value="Cari!" id="button">
+        <p id="hasil">
+            <b></b>
+        </p>
+
+        <script>
+
+            var button = document.getElementById('button')
+
+            function onClickButton(){
+            var input1 = document.getElementById('str1').value
+            var input2 = document.getElementById('str2').value
+            
+            var hasil = 0
+                for(var i = 0 ; i < input1.length ; i++){
+                    if(input1[i] == input2){
+                        hasil++
+                    }
+                }
+                
+            var output = document.getElementById('hasil').innerHTML = 'Jumlah "' + input2 + '" sebanyak ' + hasil + ' buah'
+            
+            }
+
+            button.addEventListener('click', onClickButton)
+        </script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <body>
+            <p1>masukan angka1</p1> 
+            <input type="text" name="angka" id="angka1">
+            <br>
+            <p2>masukan angka2</p2> 
+            <input type="text" name="angka" id="angka2">
+            <br>
+            <input type="button" value="pangkatkan" id="pangkatkan">
+            <h1 id="hasil" ></h1>
+
+            <script>
+                var button = document.getElementById ("pangkatkan")
+                function onClickButton (){
+                    var angka1 = document.getElementById('angka1').value
+                    var angka2 = document.getElementById('angka2').value
+                    var rumus = Math.pow(angka1,angka2)
+                    var hasil = document.getElementById('hasil').innerHTML = 'Hasil pangkat = ' + rumus
+                }
+                button.addEventListener('click', onClickButton)
+
+            </script>
+
+
+        </body>
+
+    </head>
+</html>

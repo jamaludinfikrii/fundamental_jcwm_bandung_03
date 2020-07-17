@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <title></title>
+    <style>
+        body {
+            background-color: deeppink;
+            text-align: center;
+            color: whitesmoke
+        }
+    </style>
+</head>
+
+<body>
+    <form>Masukan angka 1 :<input id='angka_1' type="text"></form>
+    <form>Masukan angka 2 :<sup><input id='angka_2' type="text"></form>
+    </sup>
+        <br>
+        <input type="button" value="Pangkatkan!" id="kuadratkan">
+        </sup>
+        <p id="hasil"> </p><sup>
+
+
+
+    <script>
+        var button = document.getElementById('kuadratkan')
+
+
+        function clickButton() {
+            var angka1 = document.getElementById('angka_1').value
+            var angka2 = document.getElementById('angka_2').value
+            var angka = 0
+            if (angka1 > 0 && angka2 > 0) {
+                var angka = Number(Math.pow(angka1, angka2))
+                hasil = document.getElementById('hasil').innerHTML = 'Hasil ' + angka1 + '<sup>'+ angka2+'</sup>' + "=" + angka } else { hasil = document.getElementById('hasil').innerHTML = 'tolong masukan angka' } } button.addEventListener('click', clickButton)
+
+
+
+
+        </script>
+</body>
+
+</html>

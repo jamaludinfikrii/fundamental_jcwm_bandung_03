@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>Kalkulator Sederhana</title>
+    </head>
+    <body><center>
+        <h1>
+            <center>
+                Kalkulator Sederhana
+            </center>
+        </h1>
+        <p>
+            Masukan angka 1
+            <input type="text" id="angka1">
+        </p>
+        <p>
+            Masukan angka 2
+            <input type="text" id="angka2">
+        </p>
+        <input type="button" value="Kali x" id="kali">
+        <input type="button" value="Bagi :" id="bagi">
+        <input type="button" value="Tambah +" id="tambah">
+        <input type="button" value="Kurang -" id="kurang">
+        <input type="button" value="Modulus %" id="modulus">
+        <input type="button" value="Pangkat ^" id="pangkat">
+        <br>
+        <h2 id="hasil"><center></center></h2>
+
+        <script>
+            var out = document.getElementById('hasil')
+            var hasil = 0
+            
+            var operator = {
+                kali : document.getElementById('kali'),
+                bagi : document.getElementById('bagi'),
+                tambah : document.getElementById('tambah'),
+                kurang : document.getElementById('kurang'),
+                modulus : document.getElementById('modulus'),
+                pangkat : document.getElementById('pangkat')
+            }
+
+        function perkalian(){
+            var angka1 = document.getElementById('angka1').value
+            var angka2 = document.getElementById('angka2').value
+            hasil = angka1 * angka2
+            out.innerHTML = angka1 + ' x ' + angka2 + ' = ' + hasil
+        }
+        function pembagian(){
+            var angka1 = document.getElementById('angka1').value
+            var angka2 = document.getElementById('angka2').value
+            hasil = angka1 / angka2
+            out.innerHTML = angka1 + ' / ' + angka2 + ' = ' + hasil
+        }
+        function pertambahan(){
+            var angka1 = parseInt(document.getElementById('angka1').value)
+            var angka2 = parseInt(document.getElementById('angka2').value)
+            hasil = angka1 + angka2
+            out.innerHTML = angka1 + ' + ' + angka2 + ' = ' + hasil
+        }
+        function pengurangan(){
+            var angka1 = document.getElementById('angka1').value
+            var angka2 = document.getElementById('angka2').value
+            hasil = angka1 - angka2
+            out.innerHTML = angka1 + ' - ' + angka2 + ' = ' + hasil
+        }
+        function sisaBagi(){
+            var angka1 = document.getElementById('angka1').value
+            var angka2 = document.getElementById('angka2').value
+            hasil = angka1 % angka2
+            out.innerHTML = angka1 + ' % ' + angka2 + ' = ' + hasil
+        }
+        function pemangkatan(){
+            var angka1 = document.getElementById('angka1').value
+            var angka2 = document.getElementById('angka2').value
+            hasil = Math.pow(angka1,angka2)
+            out.innerHTML = angka1 + ' ^ ' + angka2 + ' = ' + hasil
+        }
+
+        operator.kali.addEventListener('click', perkalian)
+        operator.bagi.addEventListener('click', pembagian)
+        operator.tambah.addEventListener('click', pertambahan)
+        operator.kurang.addEventListener('click', pengurangan)
+        operator.modulus.addEventListener('click', sisaBagi)
+        operator.pangkat.addEventListener('click', pemangkatan) 
+           
+
+        </script>
+
+
+
+
+    </center></body>
+    
+</html>

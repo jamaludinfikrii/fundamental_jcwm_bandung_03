@@ -1,0 +1,77 @@
+
+<html>
+    <head>
+
+    </head>
+    <body>
+        <center>
+            <br><br><br>
+            <span>Masukan angka 1</span>
+            <input type="number" id="angka1">
+            <br>
+            <br>
+            <span>Masukan angka 2</span>
+            <input type="number" id="angka2">
+            <br>
+            <br>
+            <input type="button" class="button" value="Kali *">
+            <input type="button" class="button" value="Bagi :">
+            <input type="button" class="button" value="Tambah +">
+            <input type="button" class="button" value="kurang -">
+            <br><br>
+            <input type="button" class="button" value="modulus mod">
+            <input type="button" class="button" value="pangkat ^">
+            <br>
+            <h3 id="hasil">Hasil</h3>
+
+
+        </center>
+    </body>
+
+    <script>
+        function operations(operator){
+            var angka1 = Number(document.getElementById('angka1').value)
+            var angka2 = Number(document.getElementById('angka2').value)
+            var output = document.getElementById('hasil')
+            var hasilOperasi = 0
+           if(operator == '+'){
+               hasilOperasi = angka1 + angka2
+           }else if(operator == '-'){
+               hasilOperasi = angka1 - angka2
+           }else if(operator == ':'){
+               hasilOperasi = angka1 / angka2
+           }else if(operator == 'x'){
+               hasilOperasi = angka1 * angka2
+           }else if(operator == 'mod'){
+               hasilOperasi = angka1 % angka2
+           }else if(operator == '^'){
+               hasilOperasi = Math.pow(angka1,angka2)
+           }
+           output.innerHTML = hasilOperasi
+        }   
+ s 
+        var buttons = document.getElementsByClassName('button')
+        buttons[0].addEventListener('click' , function (){return operations('x') })
+        buttons[1].addEventListener('click' , function (){return operations(':') })
+        buttons[2].addEventListener('click' , function (){return operations('+') })
+        buttons[3].addEventListener('click' , function (){return operations('-') })
+        buttons[4].addEventListener('click' , function (){return operations('mod') })
+        buttons[5].addEventListener('click' , function (){return operations('^') })
+        
+       
+        
+
+
+
+
+
+
+    </script>
+
+</html>
+
+<!-- 
+    1. View (tampian)
+    2. Model (data)
+    3. Controller (logic)
+ -->

@@ -1,0 +1,112 @@
+<html>
+
+<head>
+
+    <title></title>
+    <style>
+        body {
+            background-color: deeppink;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Kalkulator Sederhana</h1><br><br>
+
+    <form>Masukan angka 1: <input id='angka_1' type='text'></form>
+    <form> Masukan angka 2: <input id='angka_2' type='text'> </form>
+    <br>
+    <input id="x" value='kali x' type="button"> <input id='/' value='bagi :' type="button"> <input id='+' value='Tambah +' type="button"> <input id='-' value='Kurang -' type="button"><br><br>
+    <input id="%" value='Modulus %' type="button"> <input id="^" value='Pangkat ^' type="button">
+    <p id='Hasil'></p>
+    <script>
+        buttonKali = document.getElementById('x')
+        buttonBagi = document.getElementById('/')
+        buttonTambah = document.getElementById('+')
+        buttonKurang = document.getElementById('-')
+        buttonMod = document.getElementById('%')
+        buttonPangkat = document.getElementById('^')
+
+        function kali() {
+
+            var angka1 = document.getElementById('angka_1').value
+            var angka2 = document.getElementById('angka_2').value
+
+
+            angka = Number(angka1 * angka2)
+            hasil = document.getElementById('Hasil').innerHTML = 'hasil dari ' + angka1 + ' x ' + angka2 + ' = ' + angka
+        }
+
+
+        function bagi() {
+
+            var angka1 = document.getElementById('angka_1').value
+            var angka2 = document.getElementById('angka_2').value
+
+
+            angka = Number(angka1 / angka2)
+            hasil = document.getElementById('Hasil').innerHTML = 'hasil dari ' + angka1 + ' : ' + angka2 + ' = ' + angka
+
+        }
+
+        function tambah() {
+
+            var angka1 = parseInt(document.getElementById('angka_1').value)
+            var angka2 = parseInt(document.getElementById('angka_2').value)
+
+
+            angka = Number((angka1 + angka2))
+            hasil = document.getElementById('Hasil').innerHTML = 'hasil dari ' + angka1 + ' + ' + angka2 + ' = ' + angka
+
+        }
+
+        function Kurang() {
+
+            var angka1 = parseInt(document.getElementById('angka_1').value)
+            var angka2 = parseInt(document.getElementById('angka_2').value)
+
+
+            angka = Number((angka1 - angka2))
+            hasil = document.getElementById('Hasil').innerHTML = 'hasil dari ' + angka1 + ' - ' + angka2 + ' = ' + angka
+
+        }
+
+        function mod() {
+
+            var angka1 = parseInt(document.getElementById('angka_1').value)
+            var angka2 = parseInt(document.getElementById('angka_2').value)
+
+
+            angka = Number((angka1 % angka2))
+            hasil = document.getElementById('Hasil').innerHTML = 'hasil dari ' + angka1 + ' % ' + angka2 + ' = ' + angka
+
+        }
+
+        function pangkat() {
+
+            var angka1 = parseInt(document.getElementById('angka_1').value)
+            var angka2 = parseInt(document.getElementById('angka_2').value)
+
+
+            angka = Number((Math.pow(angka1, angka2)))
+            hasil = document.getElementById('Hasil').innerHTML = 'hasil dari ' + angka1 + '<sup>' + angka2 + '</sup>' + ' = ' + angka
+
+        }
+
+        buttonKali.addEventListener('click', kali)
+        buttonBagi.addEventListener('click', bagi)
+        buttonTambah.addEventListener('click', tambah)
+        buttonKurang.addEventListener('click', Kurang)
+        buttonMod.addEventListener('click', mod)
+        buttonPangkat.addEventListener('click', pangkat)
+    </script>
+
+
+
+
+
+</body>
+
+</html>
