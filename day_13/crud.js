@@ -39,6 +39,7 @@ function showData(){
 }
 
 function addData(){
+    alert('add data trigered')
     var inputs = document.getElementsByClassName('input-kucing-data')
     var namaKucing = inputs[0].value
     var warnaBulu = inputs[1].value
@@ -53,8 +54,49 @@ function addData(){
 }
 
 
+function onCancelClick (){
+    var inputs = document.getElementsByClassName('input-kucing-data')
+    inputs[0].value = ''
+    inputs[1].value = ''
+    inputs[2].value = ''
+    inputs[3].value = ''
+    inputs[4].value = ''
+    inputs[5].value = ''
+
+    var btnCancel = document.getElementById('btn-cancel')
+    btnCancel.style = 'display : none '
+
+    var btnSubmit = document.getElementById('btn-submit')
+    btnSubmit.value = 'Submit'
+
+    btnSubmit.addEventListener('click',addData)
+}
+
+function onSaveClick (index){
+    alert('save click trigerred')
+    var inputs = document.getElementsByClassName('input-kucing-data')
+    var namaKucing = inputs[0].value
+    var warnaBulu = inputs[1].value
+    var berat = inputs[2].value
+    var umur = inputs[3].value
+    var jenis = inputs[4].value
+    var foto = inputs[5].value
+
+    data[index].nama = namaKucing
+    data[index].warnaBulu = warnaBulu
+    data[index].berat = berat
+    data[index].umur = umur
+    data[index].jenis = jenis
+    data[index].foto = foto
+
+    showData()
+    onCancelClick()
+}
+
+
+
 function updateData(index){
-    
+        
     var dataToEdit = data[index]
     var inputs = document.getElementsByClassName('input-kucing-data')
     inputs[0].value = dataToEdit.nama
@@ -63,12 +105,24 @@ function updateData(index){
     inputs[3].value = dataToEdit.umur
     inputs[4].value = dataToEdit.jenis
     inputs[5].value = dataToEdit.foto
+
+    var btnSubmit = document.getElementById('btn-submit')
+    btnSubmit.value = 'Save'
+
+    btnSubmit.removeEventListener('click',addData)
+    btnSubmit.addEventListener('click', function() {onSaveClick(index) ;this.removeEventListener('click', arguments.callee);})
+
+    var btnCancel = document.getElementById('btn-cancel')
+    btnCancel.style = 'display : inline ' 
+
+    btnCancel.addEventListener('click',onCancelClick)
     
     // get data yang mau di edit
 }
 
 
 showData()
+document.getElementById('btn-submit').addEventListener('click',addData)
 
 
 
