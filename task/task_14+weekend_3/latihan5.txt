@@ -1,0 +1,19 @@
+function concateMiddle (sentences) {
+    var tempSentences = sentences.split(' ') 
+    var output = ''
+
+    for (var i = 0 ; i < tempSentences.length ; i ++){
+        if (tempSentences[i] % 2 != 0 && tempSentences[i].length != 1){
+            var tempSentence = tempSentences[i]
+            output += tempSentence[Math.floor(tempSentence.length / 2)]
+        }else if ( tempSentences[i].length % 2 == 0 && tempSentences[i].length != 2){
+            var tempSentence = tempSentences[i]
+            output += tempSentence[( tempSentence.length / 2)-1]
+            output += tempSentence [tempSentence.length / 2 ]
+        }
+    }
+    return output
+}
+
+console.log(concateMiddle('hello world')) // output lr
+console.log(concateMiddle('budi go to the market')) // output udhrk

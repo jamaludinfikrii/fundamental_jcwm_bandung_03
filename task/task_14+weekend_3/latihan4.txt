@@ -1,0 +1,12 @@
+function addSpasi (str){
+    var output = ''
+    for (var i = 0; i < str.length ; i++){
+        if ( i == str.length-1){
+            output+= str[i]
+        }else{
+            output+=str[i] + ' '
+        }
+    }
+    return output
+}
+console.log(addSpasi('im a student at purwadhika'))

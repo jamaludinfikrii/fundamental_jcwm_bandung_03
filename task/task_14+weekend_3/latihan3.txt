@@ -1,0 +1,15 @@
+    function sumOnlyNum(str) {
+        sum = 0
+        for (var i = 0; i < str.length; i++) {
+            var digit = str[i]
+            if (digit > 0) {
+                sum += parseInt(digit)
+            }
+        }
+        return sum
+    }
+
+    console.log(sumOnlyNum('hello123')) // return 6 
+    console.log(sumOnlyNum('ak1u4h')) // return 5 
+    console.log(sumOnlyNum('siap86')) // return 14
+    console.log(sumOnlyNum('cin4caw3ji7')) // return 14

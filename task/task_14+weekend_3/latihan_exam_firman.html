@@ -1,0 +1,140 @@
+<script>
+    //========================SOAL NO 1======================================
+    function SumOdd(num) {
+        // iterate in the loops
+        var sum = 0
+        var split = num.toString()
+        var arr = split.split('').map(i => parseInt(i))
+
+        for (var i = 0; i < arr.length; i++) {
+            if (i % 2 == 0) {
+                sum += arr[i]
+            }
+        }
+        return sum
+
+    }
+
+    console.log(SumOdd(540395)) // should return 14 // 5 + 0 + 9 = 14 //3+4+5
+    console.log(SumOdd(356083)) // should return 17 // 3 + 6 + 8 = 17 //5+0+3
+    console.log(SumOdd(123)) // should return 4 // 1 + 3 = 4 //2
+
+    //==============================Soal No 2===================================
+
+    // 2. You will be given a couple of sentences, and you have to count how many times the word occures in that sentences, your task is to filter the word that occur only once in the sentence. (30 Points) 
+    function findUniqChar(text) {
+
+
+
+
+        var countHash = {}
+        var splitStr = text.split('')
+        var len = splitStr.length
+        var selected = []
+        var uniq = []
+        for (var i = 0; i < len; i++) {
+            var char = splitStr[i]
+            if (char !== ' ') {
+                if (Object.keys(countHash).includes(char)) {
+                    countHash[char]++
+                } else {
+                    countHash[char] = 1
+                }
+            }
+        }
+        var out = ''
+        for (var prop in countHash) {
+            if (countHash[prop] !==
+                1) {
+                delete countHash[prop]
+                selected.push(countHash)
+            }
+
+        }
+        var choosen = selected.pop()
+        var order = uniq.push(Object.keys(choosen))
+
+        var comma = out += uniq
+        comma = comma.split(',')
+        var output = ''
+        for (var i = 0; i < comma.length; i++) {
+            output += comma[i]
+
+        }
+        return output
+    }
+
+
+
+
+
+
+    console.log(findUniqChar('hello world')) // should return hewrd
+    console.log(findUniqChar('budi pergi ke pasar')) // should return budgks!!!
+    console.log(findUniqChar('fikri')) // should return fkr
+
+    // 3. See the example below to know what function you should create. (20 Points) 
+    function sumOnlyNum(str) {
+        sum = 0
+        for (var i = 0; i < str.length; i++) {
+            var digit = str[i]
+            if (digit > 0) {
+                sum += parseInt(digit)
+            }
+        }
+        return sum
+    }
+
+
+    console.log(sumOnlyNum('hello123')) // return 6 
+    console.log(sumOnlyNum('ak1u4h')) // return 5 
+    console.log(sumOnlyNum('siap86')) // return 14
+
+    // 4. Your task is to make function that accepts a string argument, and return like the example below (20 Points) 
+    function spacify(str) {
+
+        var a = ''
+        for (var i = 0; i < str.length; i++) {
+            if (str[i] !== ' ') {
+                a += str[i] + " "
+            }
+        }
+
+        return a
+    }
+
+
+
+    console.log(spacify('hello')) // return‘ h e l l o’
+    console.log(spacify('im student at purwadhika')) // return‘ i m s t u d e n t a t p u r w a d h i k a’
+
+
+    // 5. You will be given a sentence, your task is to find the middle character of each word, 
+    //    if there is word with only two character, or one character, you have to delete it. (30 Points) 
+
+
+    function concateMiddle(str) {
+        var arr = str.split(' ')
+        var len = arr.length
+
+        var out = ''
+
+        for (var i = 0; i < len; i++) {
+            var word = arr[i]
+            var wlen = word.length
+            if (wlen != 1 && wlen % 2 == 1) {
+                var middle = Math.floor(wlen / 2)
+                out += word[middle]
+            } else if (wlen != 2 && wlen % 2 == 0) {
+                var middle = wlen / 2
+                out += word[middle - 1] + word[middle]
+            }
+
+
+        }
+        return out
+    }
+
+    console.log(concateMiddle('hello world')) // return‘ lr’
+    console.log(concateMiddle('budi go to the market')) // at udhrk
+</script>

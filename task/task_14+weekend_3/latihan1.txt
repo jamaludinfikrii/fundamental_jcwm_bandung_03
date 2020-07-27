@@ -1,0 +1,12 @@
+function sumOdd(numbers){
+    var output = 0
+    
+    for ( var i = 0 ; i<numbers.toString().length ; i++){
+        if(i % 2 == 0){
+            output+= Number(numbers.toString()[i])
+        }
+    }
+    return output
+
+}
+console.log(sumOdd(540395))
