@@ -45,4 +45,54 @@ for(var i = 0 ; i < 3; i++){ // i = 0 | 1 | 2
     output += '\n'
 }
 
+// console.log(output)
+
+
+
+
+// *****
+// ****
+// ***
+// **
+// *
+
+
+var output = ''
+for(var i = 0 ; i < 5 ; i ++){
+    for(var j = 0 ; j < 5-i ; j++){
+        output +='*'
+    }
+    output += '\n'
+}
+
+
+// console.log(output)
+
+// space = berbanding terbalik dengan baris
+// jumlah bintang
+// baris
+
+
+//   *
+//  ***
+// *****
+
+
+
+var output = ''
+var bintang = 1
+for(var i = 0 ; i < 5;i++){
+
+    for(var j = 0 ; j < 5-i ; j++){
+        output += ' '
+    }
+    
+    for(var k = 0 ; k < bintang ; k++){
+        output += '*'
+    }
+
+    bintang += 2
+    output +='\n'
+}
+
 console.log(output)
