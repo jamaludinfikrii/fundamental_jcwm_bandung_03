@@ -95,4 +95,26 @@ for(var i = 0 ; i < 5;i++){
     output +='\n'
 }
 
-console.log(output)
+// console.log(output)
+
+
+// 1 2 3
+// 2 4 6
+// 3 6 9
+
+
+function multiplicationTable(row,col){
+    var output = ''
+    for(var i = 0 ; i < row; i++){
+        var angka = i+1
+        for(var j = 0 ; j < col ; j++){
+            output += angka + ' '
+            angka += i+1
+        }
+        output += '\n'
+    }
+
+    console.log(output)
+}
+
+multiplicationTable(3,3)

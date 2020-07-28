@@ -30,7 +30,7 @@ function showData(){
                 <td>Delete</td>
             </tr>`
     for(var i = 0 ; i < data.length ; i ++){
-        out += '<tr> <td>' + data[i].nama +'</td> <td>' + data[i].warnaBulu +'</td>  <td>' + data[i].berat +'</td>  <td>' + data[i].umur +'</td>  <td>' + data[i].jenis +'</td>   <td><img width="50px" src="'+ data[i].foto +'"></td> <td> <input type="button" onclick="updateData(' + i + ')" value="edit" /> </td>  <td> <input type="button" value="delete" /> </td>   </tr>'
+        out += '<tr> <td>' + data[i].nama +'</td> <td>' + data[i].warnaBulu +'</td>  <td>' + data[i].berat +'</td>  <td>' + data[i].umur +'</td>  <td>' + data[i].jenis +'</td>   <td><img width="50px" src="'+ data[i].foto +'"></td> <td> <input type="button" onclick="updateData(' + i + ')" value="edit" /> </td>  <td> <input onclick="deleteData(' + i + ')"  type="button" value="delete" /> </td>   </tr>'
     }
 
     var table = document.getElementById('table')
@@ -38,8 +38,21 @@ function showData(){
     table.innerHTML = out
 }
 
+function deleteData(index){
+    var dataToDelete = data[index]
+    var konfirmasi = confirm('Are You sure want to delete ' + dataToDelete.nama + ' ??')
+    if(konfirmasi === true){
+        data.splice(index,1)
+        alert('Delete Data Success')
+        showData()
+    }
+}
+
+function showError(errorMessage){
+    document.getElementById('error').innerHTML = errorMessage
+}
+
 function addData(){
-    alert('add data trigered')
     var inputs = document.getElementsByClassName('input-kucing-data')
     var namaKucing = inputs[0].value
     var warnaBulu = inputs[1].value
@@ -48,9 +61,19 @@ function addData(){
     var jenis = inputs[4].value
     var foto = inputs[5].value
 
-    var obj = new Kucing(namaKucing,warnaBulu,berat,umur,jenis,foto)
-    data.push(obj)
-    showData()
+    if(namaKucing && warnaBulu && berat && umur && jenis && foto){
+        if(berat > 0 && umur > 0){
+            var obj = new Kucing(namaKucing,warnaBulu,berat,umur,jenis,foto)
+            data.push(obj)
+            showData()
+        }else{
+            showError('Berat dan umur harus angka')
+        }
+    }else{
+        showError('Form Masih ada yang kosong')
+    }
+
+    
 }
 
 
@@ -73,7 +96,6 @@ function onCancelClick (){
 }
 
 function onSaveClick (index){
-    alert('save click trigerred')
     var inputs = document.getElementsByClassName('input-kucing-data')
     var namaKucing = inputs[0].value
     var warnaBulu = inputs[1].value
