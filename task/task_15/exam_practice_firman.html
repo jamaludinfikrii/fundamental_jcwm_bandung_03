@@ -1,0 +1,211 @@
+<script>
+    // ========================SOAL NO 1==========================//
+    function removeOutlier(arr) {
+
+        if (arr.length % 2 == 0) {
+            var dataasli = []
+            for (var i = 0; i < arr.length; i++) {
+                dataasli.push(arr[i])
+            }
+
+            console.log('data asli= ' + arr)
+                //find data setelah di sort
+            var sort = arr.sort((a, b) => a - b)
+            console.log('data setelah di sort= ' + sort)
+                // find setengah data pertama
+            var setengahPertama = []
+            var first = sort.length / 2
+            for (var i = 0; i < first; i++) {
+                setengahPertama.push(sort[i])
+            }
+            console.log('data setengah pertama = ' + setengahPertama)
+                // find setengah data kedua
+            var setengahKedua = []
+            for (var i = first; i < sort.length; i++) {
+                setengahKedua.push(sort[i])
+            }
+            console.log('data setengah kedua = ' + setengahKedua)
+                //find median
+            var mid1 = sort.length / 2
+            var mid2 = (sort.length / 2) - 1
+            var median = (sort[mid1] + sort[mid2]) / 2
+            console.log('median = ' + median)
+
+            // find Q1
+            var mid3 = setengahPertama.length / 2
+            var mid4 = (setengahPertama.length / 2) - 1
+            var Q1 = (setengahPertama[mid3] + setengahPertama[mid4]) / 2
+            console.log('Q1 = ' + Q1)
+
+            //find Q3
+            var mid4 = setengahKedua.length / 2
+            var mid5 = (setengahKedua.length / 2) - 1
+            var Q3 = (setengahKedua[mid4] + setengahKedua[mid5]) / 2
+            console.log('Q3 = ' + Q3)
+
+            //find IQR
+            var iqr = Q3 - Q1
+            console.log(iqr)
+
+            //find lower limit
+            var lowLimit = Q1 - (1.5 * iqr)
+            console.log(lowLimit)
+            var upperLimit = Q3 + (1.5 * iqr)
+            console.log(upperLimit)
+                // find outlier
+            var outlier = []
+            for (var i = 0; i < dataasli.length; i++) {
+                if ((dataasli[i] > lowLimit && dataasli[i] < upperLimit)) {
+                    outlier.push(dataasli[i])
+                }
+            }
+            console.log('data yang tidak outlier adalah = ' + outlier)
+        } else {
+            var dataasli = []
+            for (var i = 0; i < arr.length; i++) {
+                dataasli.push(arr[i])
+            }
+            console.log('data asli= ' + arr)
+                //find data setelah di sort
+            var sort = arr.sort((a, b) => a - b)
+            console.log('data setelah di sort= ' + sort)
+
+            //find median
+            var middle = Math.floor(sort.length / 2)
+            var median = sort[middle]
+            console.log('Median = ' + median)
+                // find setengah pertama
+            var setengahPertama = []
+            var first = Math.floor(sort.length / 2)
+            for (var i = 0; i < first; i++) {
+                setengahPertama.push(sort[i])
+            }
+            console.log('setengah pertama = ' + setengahPertama)
+                //find setengah kedua 
+
+            var setengahKedua = []
+            var second = Math.floor(sort.length / 2)
+            for (var i = second + 1; i < sort.length; i++) {
+                setengahKedua.push(sort[i])
+            }
+            console.log('setengah kedua = ' + setengahKedua)
+                //find Q1
+            var middle = Math.floor(setengahPertama.length / 2)
+            var Q1 = setengahPertama[middle]
+            console.log('Q1 = ' + Q1)
+                //find Q2
+            var Q3 = setengahKedua[middle]
+            console.log('Q2 = ' + Q3)
+                //find lower limit
+            var iqr = Q3 - Q1
+            var lowerlimit = Q1 - (1.5 * iqr)
+            console.log('lower limit = ' + lowerlimit)
+            var upperLimit = Q3 + (1.5 * iqr)
+            console.log('upper limit = ' + upperLimit)
+
+            var outlier = []
+            for (var i = 0; i < dataasli.length; i++) {
+                if ((dataasli[i] > lowerlimit && dataasli[i] < upperLimit)) {
+                    outlier.push(dataasli[i])
+                }
+            }
+            console.log('data yang tidak outlier adalah = ' + outlier)
+
+        }
+
+    }
+
+
+
+    // removeOutlier([71, 70, 73, 70, 70, 69, 70, 72, 71, 300, 71, 69])
+    // removeOutlier([60, 63, 64, 62, 69, 80, 1, 60, 63, 64, 60])
+
+    //===============================SOAL NO 2===============================
+
+    // 2.	Return the number (count) of vowels in the given string. We will consider a, e, i, o, and u as vowels for this case
+    //. The input string will only consist of lower case letters and/or spaces.
+    function countVowel(string) {
+        var sentence = string.toLowerCase()
+        var alpha = 'aiueo'
+        var count = 0
+
+        for (var i = 0; i < sentence.length; i++) {
+            if (alpha.indexOf(sentence[i]) > -1) {
+                count++
+            }
+        }
+        console.log(count)
+    }
+
+    countVowel('budi pergi ke pasar') //   7
+    countVowel('purwadhika') //   4
+
+    //===========================  SOAL NO 3===============================
+    //3.	Given a two-dimensional list of integers, 
+    //return the flattened version of the list with all the integers in the sorted (ascending) order.
+
+    function given(string) {
+        var sort = string.join(',').split('').filter(function(value) {
+            return value != ','
+        })
+
+        console.log(sort.sort().map(i => parseInt(i)))
+    }
+
+    given([
+            [3, 2, 1],
+            [4, 6, 5],
+            [],
+            [9, 7, 8]
+        ]) //   [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    given([
+            [3, 4, 2, 1],
+            [1, 2, 3],
+            [5, 4, 3, 1]
+        ]) // [1,1,1,2,2,3,3,3,4,4,5]
+
+    //=============================SOAL NO 4===============================//
+    //	Given an list of digital numbers, return a new list of length number containing the last even numbers from the original list
+    // (in the same order). 
+
+    function findEven(list, int) {
+        var even = []
+        for (var i = 0; i < list.length; i++) {
+            if (list[i] % 2 === 0) {
+                even.push(list[i])
+            }
+        }
+        even.splice(0, even.length - int)
+        console.log(even)
+    }
+
+
+    findEven([1, 2, 3, 4, 5, 6, 7, 8, 9], 3) // [4, 6, 8]
+    findEven([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2) //   [-8, 26]
+    findEven([6, -25, 3, 7, 5, 5, 7, -3, 23], 1) // [6]
+
+    // =============================SOAL NO 5=================================
+
+    //5.	Given string of words, you have to calculate the count of every word in the sentences
+    function countWords(string) {
+        var arr = string.split(' ')
+        var count = {}
+        for (var i = 0; i < arr.length; i++) {
+            if (Object.keys(count).includes(arr[i])) {
+                count[arr[i]]++
+            } else {
+                count[arr[i]] = 1
+            }
+        }
+        var out = ''
+        for (var prop in count) {
+            out += 'Jumlah ' + prop + ' adalah ' + count[prop] +
+                '\n'
+        }
+        console.log(out)
+    }
+
+
+    countWords('jangan jangan kamu adalah aku')
+</script>

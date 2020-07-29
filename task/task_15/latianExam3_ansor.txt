@@ -1,0 +1,175 @@
+// ======== SOAL 1 ===========
+
+function findQ (qArr){
+        var q1_mid1 = (qArr.length / 2) -1
+        var q1_mid2 = (qArr.length / 2)
+        var q = (qArr[q1_mid1] + qArr[q1_mid2]) / 2
+
+        return q
+}
+
+function calculateTheIqr(arr){
+    // sort the data
+    var data = arr.slice(0)
+    data = data.sort((a, b) => a - b)
+    // find median = 70 + 71 / 2 = 70.5
+    mid1 = (data.length / 2) - 1
+    mid2 = (data.length / 2)
+    var median = (data[mid1] + data[mid2]) / 2
+    
+    // find Q1 and Q3
+    
+    if(data.length % 2 == 0){
+        var q1arr = []
+        var q3arr = []
+        for(var i = 0 ; i < data.length/2 ; i ++){
+            q1arr.push(data[i])
+        }
+        var q1 = findQ(q1arr)
+        for(var i = data.length/2 ; i < data.length ; i ++){
+            q3arr.push(data[i])
+        }
+        var q3 = findQ(q3arr)
+        
+    
+    }else if (data.length % 2 == 1){
+    
+        var mid = Math.floor(data.length / 2)
+    
+        var q1arr = []
+        for(var i = 0 ; i < mid ; i ++){
+            q1arr.push(data[i])
+        }
+        var q3arr = []
+        for(var i = mid + 1 ; i < data.length ; i ++){
+            q3arr.push(data[i])
+        }
+    
+        var q1 = q1arr[Math.floor(q1arr.length / 2)]
+        var q3 = q3arr[Math.floor(q3arr.length / 2)]
+        
+    }
+    // find IQR
+        
+    var iqr = q3 - q1
+        
+    // find lower limit and upper limit
+    var lowerLimit = q1 - (1.5 * iqr)
+    var upperLimit = q3 + (1.5 * iqr)
+    
+    var out = []
+    for(var j = 0 ; j < arr.length ; j++){
+        if(arr[j] >= lowerLimit && arr[j] <= upperLimit){
+            out.push(arr[j])
+        }
+    }
+    var print = ''
+    print += 'Data asli = [' + arr + ']\nData setelah di sort = [' + data + ']\nSetengah data pertama = [' + q1arr + ']\nSetengah data terakhir = [' +
+    q3arr + ']\nQ1 adalah = ' + q1 + '\nQ3 adalah = ' + q3 + '\nLower limit adalah = ' + lowerLimit + '\nUpper limit adalah = ' + upperLimit +
+    '\nData yang tidak outliner adalah = [' + out + ']\n\n'
+
+    console.log(print)
+
+}
+
+// calculateTheIqr([60, 63, 64, 62, 69, 80, 1, 60, 63, 64, 60])
+// calculateTheIqr([71, 70, 73, 70, 70, 69, 70, 72, 71, 300, 71, 69])
+
+
+
+// ======= SOAL 2 =============
+
+// Return the number (count) of vowels in the given string. We will consider a, e, i, o, and u as vowels for this case. The input string will only consist of lower case letters and/or spaces.
+
+function countVowel(str){
+    str = str.replace(/ /g, '').replace(/[aiueo]/g, '1')
+    
+    var output = 0
+    
+    for(var i = 0 ; i < str.length ; i ++){
+        if(str[i] == '1'){
+            output++
+        }
+    }
+    
+    console.log(output)
+}
+
+
+// countVowel('budi pergi ke pasar') // ➔ 7
+// countVowel('purwadhika') // ➔ 4
+
+// ========== SOAL 3 ============
+
+function given (num){
+    var out = []
+    
+    for(var i = 0 ; i < num.length ; i ++){
+        for(var j = 0 ; j < num[i].length ; j ++){
+            if(num[i].length > 0){
+                out.push(num[i][j])
+            }
+        }
+        
+    }
+    out = out.sort((a, b) => a - b)
+    
+    console.log(out)
+
+}
+
+// given([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]]) // ➔  [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+// given([[3,4,2,1] , [1,2,3] , [5,4,3,1]]) // ➔ [1,1,1,2,2,3,3,3,4,4,5]
+
+// ========== SOAL 4 =============
+
+function findEven(num1, num2){
+    num1 = num1.reverse()
+    var hasil = []
+    var out = []
+    for(var i = 0 ; i < num1.length ; i++ ){
+        if(num1[i] % 2 == 0){
+            hasil.push(num1[i])
+        }
+    }
+    
+    for(var j = 0 ; j < num2 ; j++)(
+        out.push(hasil[j])
+    )
+    out = out.sort((a, b) => a - b)
+    
+    console.log(out)
+}
+
+
+
+// findEven([1, 2, 3, 4, 5, 6, 7, 8, 9],  3) //➔ [4, 6, 8]
+// findEven([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26],  2) //➔  [-8, 26]
+// findEven([6, -25, 3, 7, 5, 5, 7, -3, 23], 1) //=> [6]
+
+// ======= SOAL 5 ============
+
+function countWords(str){
+    str = str.split(' ')
+    var obj = {}
+    var string = []
+    
+    for(var i = 0 ; i < str.length ; i ++){
+        string.push(str[i][0].toUpperCase() + str[i].slice(1,str[i].length))
+    
+        if(Object.keys(obj).includes(string[i])){
+            obj[string[i]] ++
+        }else{
+            obj[string[i]] = 1
+        }
+    }
+    var out = ''
+    for(var prop in obj){
+        out += 'jumlah kata ' + '"' + prop + '"' + ' ada sebanyak ' + obj[prop] + '\n'
+    }
+    console.log(out)
+
+}
+
+// countWords('jangan jangan kamu adalah aku')
