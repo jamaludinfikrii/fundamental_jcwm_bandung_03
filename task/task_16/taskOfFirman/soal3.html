@@ -1,0 +1,29 @@
+<script>
+    function accum(string) {
+
+        var out = ''
+        for (var i = 0; i < string.length; i++) {
+            for (var j = 0; j < i + 1; j++) {
+                if (j == 0) {
+                    out += string[i].toUpperCase()
+                } else {
+                    out += string[i].toLowerCase()
+                }
+            }
+            if (i != string.lenght - 1) {
+                out += '-'
+            }
+        }
+        console.log(out)
+    }
+
+
+
+
+
+
+
+    accum("abcd") // -> "A-Bb-Ccc-Dddd" 
+    accum("RqaEzty") //-> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy" 
+    accum("cwAt") //-> "C-Ww-Aaa-Tttt"
+</script>

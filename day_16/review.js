@@ -55,3 +55,23 @@ countPair(['red','red','red','red']) // 2
 countPair(['red','red','red','blue']) // 1
 countPair(['red','red','red','blue','yellow','blue']) // 2
 
+
+
+// VARIABEL
+// declare, call
+
+// PENGKONDISIAN; conditional statement
+
+// LOOPING:
+
+// ARRAY
+
+// FUNCTION
+
+// OBJECT
+
+// CLASS
+
+
+// Menterjemahkan ide kalian ke code??
+

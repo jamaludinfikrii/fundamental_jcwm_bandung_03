@@ -1,0 +1,18 @@
+<script>
+    function getMiddle(string) {
+        var middle = Math.floor(string.length / 2)
+        if (string.length % 2 == 1) {
+            console.log(string[middle])
+        } else {
+            console.log(string[middle - 1] + string[middle])
+        }
+    }
+
+
+
+
+    getMiddle("test") // should return "es" 
+    getMiddle("testing") //should return "t" 
+    getMiddle("middle") //should return "dd"
+    getMiddle("A") // should return "A"
+</script>

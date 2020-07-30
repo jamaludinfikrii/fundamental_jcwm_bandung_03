@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>Bangun Datar Generator</title>
+    </head>
+    <body>
+        <center>
+            <table>
+                <tr>
+                    <td>
+                        <h1>Drawing Tools</h1>
+                        <h5>1. Persegi</h5><h5>2. Segitiga Rata Kiri</h5><h5>3. Segitiga Rata Kanan</h5>
+                        <h5>Jenis Bangunan :</h5><input type="text" name="" id="menu" placeholder="[0-9]">
+                        <h5>Ukuran :</h5><input type="text" name="" id="total" placeholder="[0-9]"> <br><br>
+                        <input type="button" name="" id="button" value="Lihat"> <br>
+                        <h5 id="result"></h5>
+                    </td>
+                </tr>
+            </table>
+        </center>
+        <script>
+           
+            var button = document.getElementById('button')
+
+
+            function persegi(ukuran){
+                var output = ''
+                for(var i = 0 ; i < ukuran ; i++){
+                    output += '*'.repeat(ukuran)
+                    output += '<br>'
+                }
+                result.innerHTML = output
+            }
+
+            
+
+            function segitiga1(ukuran){   
+                var output = ''
+                for(var i = 0 ; i < ukuran; i++){
+                    output += '*'.repeat(i+1)
+                    output += '<br>'
+                }
+
+                result.innerHTML = output
+
+            }
+
+            function segitiga2(ukuran){
+                var output = ''
+                for(var i = 0 ; i < ukuran ; i++){
+                    output += '&nbsp&nbsp'.repeat((ukuran-1)-i)
+                    output += '*'.repeat(i+1)
+                    output += '<br>'
+                }
+
+                result.innerHTML = output
+            }
+
+            function onBtnClick (){
+                var result = document.getElementById('result') 
+
+                var jenisBangunan = document.getElementById('menu').value
+                var ukuran = document.getElementById('total').value
+                if(jenisBangunan == 1){
+                    persegi(ukuran)
+                }else if(jenisBangunan ==2){
+                    segitiga1(ukuran)
+                }else if(jenisBangunan == 3){
+                    segitiga2(ukuran)
+                }
+            }
+
+            button.addEventListener('click',onBtnClick)
+
+
+            
+        </script>
+    </body>
+</html>
+
+
+<!-- 
+        *
+       **
+      ***
+     ****
+    *****
+ -->

@@ -1,0 +1,70 @@
+
+function errorMessage(pesan){
+   var error = document.getElementById('error')
+   error.innerHTML = pesan
+}
+
+function pilihan (){
+    var jenisPilihan = document.getElementById('jenis-bangunan').value
+    var ukuran = document.getElementById('ukuran').value
+    var hasil = document.getElementById('hasil')
+
+    if(jenisPilihan && ukuran){
+        if(jenisPilihan <= 3 && ukuran > 0){
+            if(jenisPilihan == 1){
+                var output = '' // persegi
+                for(var i = 0 ; i < ukuran ; i ++){
+                    for(var j = 0 ; j < ukuran ; j ++){
+                    output += '*'
+                }
+                output += '\n'
+                }
+                hasil.innerHTML = output
+                
+            
+            }else if(jenisPilihan == 2){
+                var output = '' // rata kiri
+                for(var i = 0 ; i < ukuran ; i ++){
+                    for(var j = 0 ; j < i + 1 ; j ++){
+                        output += '*'
+                    }
+                    output += '\n'
+                }
+                hasil.innerHTML = output
+        
+            }else if(jenisPilihan == 3){
+                var output = '' // rata kanan
+                for(var i = 0 ; i < ukuran ; i ++){
+                    for(var j = ukuran ; j > i ; j --){
+                        output += ' '
+                    }
+                    for(var k = 0 ; k < i + 1 ; k ++){
+                        output += '*'
+                    }
+                    output += '\n'
+                }
+            }
+            hasil.innerHTML = output
+        }else{
+            errorMessage('Hanya boleh angka dan jenis bangunan 1 s.d 3')
+        }
+    }else{
+        errorMessage('Isian jangan ada yang kosong')
+    }
+}
+
+var button = document.getElementById('button-lihat')
+button.addEventListener('click', pilihan)
+
+
+
+
+
+
+
+//    *
+//     **
+//    ***
+//   ****
+//  *****
+// ******

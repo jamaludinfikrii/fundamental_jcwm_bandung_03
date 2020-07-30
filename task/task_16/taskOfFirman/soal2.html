@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <title>Drawing tools apps</title>
+
+
+
+    <style>
+        body {
+            background-color: deepskyblue;
+            color: black
+        }
+    </style>
+</head>
+
+
+<body>
+    <center>
+        <table>
+            <tr>
+                <td>
+                    <h1>DRAWING TOOLS</h1>
+                    <span> 1. Persegi </span><br><br>
+                    <span> 2. Segitiga siku-siku rata kiri</span><br><br>
+                    <span> 3. Segitiga siku-siku rata kanan</span><br><br>
+                    <style>
+                        label {
+                            display: inline-block;
+                            width: auto;
+                        }
+                        
+                        input {
+                            display: inline-block;
+                        }
+                    </style>
+
+                    <form>Jenis Bangunan : <br><input type="text" id="angka"></form><br><br>
+                    <form>Ukuran bangunan :<br><input type="text" id="ukuran"></form><br><br>
+                    <input type="submit" id='hasil' value='Hasil' onclick="menu()"><br><br><br>
+
+                    <span id='result'></span><br><br>
+
+
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+<script>
+    function persegi() {
+
+        var ukuran = document.getElementById('ukuran').value
+        var output = ''
+        for (var i = 0; i < ukuran; i++) {
+            for (var j = 0; j < ukuran; j++) {
+                output += ' * ' + '&nbsp&nbsp'
+            }
+            output += '<br>'
+        }
+        var out = document.getElementById('result')
+        out.innerHTML = output
+    }
+
+    function segitiga() {
+        var ukuran = document.getElementById('ukuran').value
+        var output = ''
+        for (var i = 0; i < ukuran; i++) {
+            for (var j = 0; j <= i; j++) {
+                output += '*' + '&nbsp'
+            }
+            output += '<br>'
+        }
+        var out = document.getElementById('result')
+        out.innerHTML = output
+    }
+
+    function segitigaRataKiri() {
+        var ukuran = document.getElementById('ukuran').value
+        output = ''
+        for (var i = 0; i <= ukuran; i++) {
+            for (var j = 0; j <= ukuran - i; j++) {
+                output += '&nbsp&nbsp'
+            }
+            for (var k = 0; k < i; k++) {
+                output += '*'
+            }
+            output += '<br>'
+        }
+        var out = document.getElementById('result')
+        out.innerHTML = output
+    }
+
+
+    function menu() {
+        var jenis = document.getElementById('angka').value
+        if (jenis == 1) {
+            persegi()
+        } else if (jenis == 2) {
+            segitiga()
+        } else if (jenis == 3) {
+            segitigaRataKiri()
+        }
+
+    }
+</script>
+
+</html>

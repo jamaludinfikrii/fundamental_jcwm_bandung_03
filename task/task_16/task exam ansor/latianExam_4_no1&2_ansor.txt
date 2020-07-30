@@ -1,0 +1,40 @@
+
+function getMiddle(str){
+    var mid_1 = (str.length/2) - 1
+    var mid_2 = str.length/2
+    
+    var middle = ''
+    middle = str.length % 2 == 1 ? str[Math.floor(mid_2)] : str[mid_1] + str[mid_2]
+    
+    console.log(middle)
+}
+
+// getMiddle("test") // should return "es" 
+// getMiddle("testing") //should return "t" 
+// getMiddle("middle") // should return "dd" 
+// getMiddle("A") // should return "A"
+
+
+function accum(str){
+    str = str.toLowerCase()
+    var out = ''
+    for(var i = 0 ; i < str.length ; i ++){ // i = 0
+        out += str[i][0].toUpperCase()
+    
+        for(var j = 0 ; j < i ; j ++){
+            out += str[i]
+        }
+        
+        out += '-'
+    }
+    out = out.slice(0,out.length-1)
+    
+    
+    console.log(out)
+
+}
+
+
+// accum("abcd") // -> "A-Bb-Ccc-Dddd"
+// accum("RqaEzty") // -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy" 
+// accum("cwAt") // -> "C-Ww-Aaa-Tttt"
