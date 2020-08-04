@@ -212,6 +212,10 @@ var newArr = arr.filter((val,index) => {
 })
 console.log(newArr)
 
+// GIT VS GITHUB
+
+// GIT NAMA SOFTWARE (local comp)
+// GITHUB KUMPULAN ORANG ORANG YANG MAKE GIT (di cloud)
 
 
 
