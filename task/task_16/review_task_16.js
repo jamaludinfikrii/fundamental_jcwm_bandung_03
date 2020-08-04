@@ -8,7 +8,13 @@ function accum(words){
         output+= words[i].toUpperCase()
         output += words[i].repeat(i).toLowerCase()
         output += '-'
+        console.log(i)
+        console.log('jallpo')
     }
     output = output.slice(0,output.length-1)
     console.log(output)
 }
+
+
+// var ES 6 (2016)
+
